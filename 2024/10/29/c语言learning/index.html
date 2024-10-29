@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="x5-fullscreen" content="true">
+<meta name="full-screen" content="yes">
+<meta name="theme-color" content="#317EFB" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
+<meta name="description" content="1.指针1.1 基本知识 pointer是用来存储内存地址的变量 内存地址直接指向存在该地址的对象的值 定义指针变量时必须带*，给指针变量赋值时不能带*1234567#include &lt;stdio.h&gt;int main()&#123;    int a &#x3D; 15;    int *p &#x3D; &amp;a;    printf(&quot;%d, %d\n&quot;, a, *p);">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C语言learning">
+<meta property="og:url" content="http://example.com/2024/10/29/c%E8%AF%AD%E8%A8%80learning/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1.指针1.1 基本知识 pointer是用来存储内存地址的变量 内存地址直接指向存在该地址的对象的值 定义指针变量时必须带*，给指针变量赋值时不能带*1234567#include &lt;stdio.h&gt;int main()&#123;    int a &#x3D; 15;    int *p &#x3D; &amp;a;    printf(&quot;%d, %d\n&quot;, a, *p);">
+<meta property="og:locale">
+<meta property="article:published_time" content="2024-10-29T09:49:20.969Z">
+<meta property="article:modified_time" content="2024-10-29T09:50:05.161Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+
+
+<title >C语言learning</title>
+
+<!-- Favicon -->
+
+    <link href='/log.svg?v=2.2.3' rel='icon' type='image/png' sizes='16x16' ></link>
+
+
+    <link href='/log.svg?v=2.2.3' rel='icon' type='image/png' sizes='32x32' ></link>
+
+
+    <link href='/apple-touch-icon.png?v=2.2.3' rel='apple-touch-icon' sizes='180x180' ></link>
+
+
+    <link href='/site.webmanifest' rel='manifest' ></link>
+
+
+<!-- Plugin -->
+
+
+
+
+    
+<link rel="stylesheet" href="/css/plugins/bootstrap.row.css">
+
+    
+<link rel="stylesheet" href="https://npm.elemecdn.com/@fancyapps/ui@4.0/dist/fancybox.css">
+
+    
+    
+
+
+
+
+<!-- Icon -->
+
+    
+<link rel="stylesheet" href="/css/plugins/font-awesome.min.css">
+
+
+
+
+<!-- Variable -->
+<script>window.ASYNC_CONFIG = {"hostname":"example.com","author":"John Doe","root":"/","typed_text":["别急，慢慢来"],"theme_version":"2.2.3","theme":{"switch":true,"default":"style-light"},"favicon":{"logo":"log.svg","icon16":"log.svg","icon32":"log.svg","apple_touch_icon":"apple-touch-icon.png","webmanifest":"/site.webmanifest","visibilitychange":true,"hidden":"failure.ico","show_text":"(/≧▽≦/)","hide_text":"(●—●)"},"i18n":{"placeholder":"搜索文章...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）","author":"本文作者：","copyright_link":"本文链接：","copyright_license_title":"版权声明：","copyright_license_content":"本博客所有文章除特别声明外，均默认采用 undefined 许可协议。","copy_success":"复制成功","copy_failure":"复制失败","open_read_mode":"进入阅读模式","exit_read_mode":"退出阅读模式","notice_outdate_message":"距离上次更新已经 undefined 天了, 文章内容可能已经过时。","sticky":"置顶","just":"刚刚","min":"分钟前","hour":"小时前","day":"天前","month":"个月前"},"swup":false,"plugin":{"flickr_justified_gallery":"https://npm.elemecdn.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":false},"toc":{"post_title":false},"live_time":{"start_time":"","prefix":"博客已萌萌哒运行 undefined 天"},"danmu":{"enable":false,"el":".trm-banner"},"covers":["https://images.pexels.com/photos/1198817/pexels-photo-1198817.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2","https://images.pexels.com/photos/1366957/pexels-photo-1366957.jpeg?auto=compress&cs=tinysrgb&w=1200","https://images.pexels.com/photos/35857/amazing-beautiful-breathtaking-clouds.jpg?auto=compress&cs=tinysrgb&w=1200","https://images.pexels.com/photos/355288/pexels-photo-355288.jpeg?auto=compress&cs=tinysrgb&w=600"],"creative_commons":{"license":"by-nc-sa","language":"deed.zh-hans"}};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2024-10-29 17:50:05"};</script>
+
+<!-- Theme mode css -->
+<link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.2.3" id="trm-switch-style">
+<script>
+    let defaultMode = ASYNC_CONFIG.theme.default !=='auto' ?  ASYNC_CONFIG.theme.default : (window.matchMedia("(prefers-color-scheme: light)").matches ? 'style-light' : 'style-dark')
+    let catchMode = localStorage.getItem('theme-mode') || defaultMode;
+    let type = catchMode === 'style-dark' ? 'add' : 'remove';
+    document.documentElement.classList[type]('dark')
+</script>
+
+<!-- CDN -->
+
+
+    
+    
+
+
+
+<!-- Site Analytics -->
+
+ 
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+
+  <!-- app wrapper -->
+  <div class="trm-app-frame">
+
+    <!-- page preloader -->
+    <div class="trm-preloader">
+    <div class="trm-holder">
+        <div class="preloader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
+    <!-- page preloader end -->
+
+    <!-- change mode preloader -->
+    <div class="trm-mode-swich-animation-frame">
+    <div class="trm-mode-swich-animation">
+        <i class="i-sun"><i class="iconfont far fa-sun"></i></i>
+        <div class="trm-horizon"></div>
+        <i class="i-moon"><i class="iconfont far fa-moon"></i></i>
+    </div>
+</div>
+    <!-- change mode preloader end -->
+
+      <!-- scroll container -->
+      <div id="trm-dynamic-content" class="trm-swup-animation">
+        <div id="trm-scroll-container" class="trm-scroll-container" style="opacity: 0">
+            <!-- top bar -->
+            <header class="trm-top-bar">
+	<div class="container">
+		<div class="trm-left-side">
+			<!-- logo -->
+<a href="/" class="trm-logo-frame trm-anima-link">
+    
+        <img alt="logo" src="/log.svg">
+    
+    
+        <div class="trm-logo-text">
+            Frank&#39;s<span>Blog</span>
+        </div>
+    
+</a>
+<!-- logo end -->
+		</div>
+		<div class="trm-right-side">
+			<!-- menu -->
+<div class="trm-menu">
+    <nav>
+        <ul>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/" target="">
+                    HOME
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a data-no-swup href="/archives/" target="">
+                    ARCHIVES
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a data-no-swup href="/about/" target="">
+                    ABOUT
+                </a>
+                
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+<!-- menu end -->
+			
+    <!-- mode switcher place -->
+    <div class="trm-mode-switcher-place">
+        <div class="trm-mode-switcher">
+            <i class="iconfont far fa-sun"></i>
+            <input class="tgl tgl-light" id="trm-swich" type="checkbox">
+            <label class="trm-swich" for="trm-swich"></label>
+            <i class="iconfont far fa-moon"></i>
+        </div>
+    </div>
+    <!-- mode switcher place end -->
+
+			
+		</div>
+		<div class="trm-menu-btn">
+			<span></span>
+		</div>
+	</div>
+</header>
+            <!-- top bar end -->
+
+            <!-- body -->
+            
+<div class="trm-content-start">
+    <!-- banner -->
+    <div class="trm-banner">
+    
+    <!-- banner cover -->
+    <img style="object-position:top;object-fit:cover;" alt="banner" class="trm-banner-cover" src="/img/banner.png">
+    <!-- banner cover end -->
+    
+
+    <!-- banner content -->
+    <div class="trm-banner-content trm-overlay">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-lg-4"></div>
+                
+                <div class="col-lg-8">
+
+                    <!-- banner title -->
+                    <div class="trm-banner-text ">
+                        <div class="trm-label trm-mb-20">
+                            NEWS LETTER
+                        </div>
+                        <h1 class="trm-mb-30 trm-hsmb-font">
+                            C语言learning
+                        </h1>
+
+                        
+                            <ul class="trm-breadcrumbs trm-label">
+                                <li>
+                                    <a href="/" class="trm-anima-link">Home</a>
+                                </li>
+                                <li>
+                                    <span>
+                                        2024
+                                    </span>
+                                </li>
+                            </ul>
+                        
+                    </div>
+                    <!-- banner title end -->
+
+                    <!-- scroll hint -->
+                    <span id="scroll-triger" class="trm-scroll-hint-frame">
+                        <div class="trm-scroll-hint"></div>
+                        <span class="trm-label">Scroll down</span>
+                    </span>
+                    <!-- scroll hint end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- banner content end -->
+</div>
+    <!-- banner end -->
+    <div class="container">
+        <div class="row">
+            
+                <div class="trm-page-sidebar col-lg-4 hidden-sm">
+                    <!-- main card -->
+                    <div class="trm-main-card-frame trm-sidebar">
+    <div class="trm-main-card"> 
+        <!-- card header -->
+<div class="trm-mc-header">
+    <div class="trm-avatar-frame trm-mb-20">
+        <img alt="Avatar" class="trm-avatar" src="https://bc6.afbza.cn/mqrcode/774621/1730179310_5178741067_%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20240915223455.jpg">
+    </div>
+    <h5 class="trm-name trm-mb-15">
+        Frank
+    </h5>
+    
+        <div class="trm-label">
+            
+            <span class="trm-typed-text">
+                <!-- Words for theme.user.typedText -->
+            </span>
+        </div>
+    
+</div>
+<!-- card header end -->
+        <!-- sidebar social -->
+
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<div class="trm-social">
+    
+        <a href="https://github.com" title="github" rel="nofollow" target="_blank">
+            <i class="iconfont fab fa-github"></i>
+        </a>
+    
+        <a href="https://i.afbcs.cn/VBRNiT" title="weChat" rel="nofollow" target="_blank">
+            <i class="iconfont fab fa-weixin"></i>
+        </a>
+    
+        <a href="https://twitter.com" title="twitter" rel="nofollow" target="_blank">
+            <i class="iconfont fab fa-twitter"></i>
+        </a>
+    
+        <a href="https://steamcommunity.com/profiles/76561199028311718/" title="steam" rel="nofollow" target="_blank">
+            <i class="iconfont fab fa-steam"></i>
+        </a>
+    
+</div>
+
+<!-- sidebar social end -->
+        <!-- info -->
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<ul class="trm-table trm-mb-20">
+    
+        <li>
+            <div class="trm-label">
+                Residence:
+            </div>
+            <div class="trm-label trm-label-light">
+                Mars
+            </div>
+        </li>
+    
+</ul>
+<!-- info end -->
+
+        
+    <div class="trm-divider trm-mb-40 trm-mt-40"></div>
+    <!-- action button -->
+    <div class="text-center">
+        <a href="mailto:franklin.wei@gmail.com" class="trm-btn">
+            联系我
+            <i class="iconfont far fa-envelope"></i>
+        </a>
+    </div>
+    <!-- action button end -->
+
+    </div>
+</div>
+                    <!-- main card end -->
+                </div>
+            
+            <div class="trm-page-content col-lg-8">
+                <div id="trm-content" class="trm-content">
+                    <div class="trm-post-info row hidden-sm">
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-calendar-alt trm-icon"></i><br>
+            10/29
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-clock trm-icon"></i><br>
+            17:49
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div id="post-author" class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-user trm-icon"></i><br>
+            John Doe
+        </div>
+    </div>
+</div>
+<div class="trm-card ">
+    <article id="article-container" class="trm-publication">
+    <h1 id="1-指针"><a href="#1-指针" class="headerlink" title="1.指针"></a>1.指针</h1><h2 id="1-1-基本知识"><a href="#1-1-基本知识" class="headerlink" title="1.1 基本知识"></a>1.1 基本知识</h2><ul>
+<li>pointer是用来存储<strong>内存地址</strong>的变量</li>
+<li>内存地址直接指向存在该地址的对象的值</li>
+<li>定义指针变量时必须带<code>*</code>，给指针变量赋值时不能带<code>*</code><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">int</span> a = <span class="number">15</span>;</span><br><span class="line">    <span class="type">int</span> *p = &amp;a;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d, %d\n&quot;</span>, a, *p);  <span class="comment">//两种方式都可以输出a的值</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="1-2数组指针"><a href="#1-2数组指针" class="headerlink" title="1.2数组指针"></a>1.2数组指针</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">int</span> arr[] = &#123; <span class="number">99</span>, <span class="number">15</span>, <span class="number">100</span>, <span class="number">888</span>, <span class="number">252</span> &#125;;</span><br><span class="line">    <span class="type">int</span> len = <span class="keyword">sizeof</span>(arr) / <span class="keyword">sizeof</span>(<span class="type">int</span>);  <span class="comment">//求数组长度</span></span><br><span class="line">    <span class="type">int</span> i;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;len; i++)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d  &quot;</span>, *(arr+i) );  <span class="comment">//*(arr+i)等价于arr[i]</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="1-3字符串指针"><a href="#1-3字符串指针" class="headerlink" title="1.3字符串指针"></a>1.3字符串指针</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">char</span> *str = <span class="string">&quot;http://c.biancheng.net&quot;</span>;</span><br><span class="line">    <span class="type">int</span> len = <span class="built_in">strlen</span>(str), i;</span><br><span class="line">    <span class="comment">//直接输出字符串</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%s\n&quot;</span>, str);</span><br><span class="line">    <span class="comment">//使用*(str+i)</span></span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;len; i++)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%c&quot;</span>, *(str+i));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">    <span class="comment">//使用str[i]</span></span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;len; i++)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%c&quot;</span>, str[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>区别是：字符数组和字符串指针(也叫<strong>字符串常量</strong>）在内存中的<strong>存储区域</strong>不同，前者在全局数据区或栈区，后者在常量区。前者有读取和写入的权限，而后者只有读取权限，没有写入权限<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">char</span> *str = <span class="string">&quot;Hello World!&quot;</span>;</span><br><span class="line">    str = <span class="string">&quot;I love C!&quot;</span>;  <span class="comment">//正确</span></span><br><span class="line">    str[<span class="number">3</span>] = <span class="string">&#x27;P&#x27;</span>;  <span class="comment">//错误</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="1-4指针变量作为函数参数"><a href="#1-4指针变量作为函数参数" class="headerlink" title="1.4指针变量作为函数参数"></a>1.4指针变量作为函数参数</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">swap</span><span class="params">(<span class="type">int</span> *p1, <span class="type">int</span> *p2)</span>&#123; <span class="comment">//传入的是指针变量，所以我可以修改这个内存上的值</span></span><br><span class="line">    <span class="type">int</span> temp;  <span class="comment">//临时变量</span></span><br><span class="line">    temp = *p1;</span><br><span class="line">    *p1 = *p2;</span><br><span class="line">    *p2 = temp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">int</span> a = <span class="number">66</span>, b = <span class="number">99</span>;</span><br><span class="line">    swap(&amp;a, &amp;b);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;a = %d, b = %d\n&quot;</span>, a, b);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>数组是一系列数据的集合，<strong>无法</strong>通过参数将它们一次性传递到函数内部，如果希望在函数内部操作数组，必须传递数组指针<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//参数 intArr 仅仅是一个数组指针，在函数内部无法通过这个指针获得数组长度，必须将数组长度作为函数参数传递到函数内部。</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">max</span><span class="params">(<span class="type">int</span> *intArr, <span class="type">int</span> len)</span>&#123;</span><br><span class="line">    <span class="type">int</span> i, maxValue = intArr[<span class="number">0</span>];  <span class="comment">//假设第0个元素是最大值</span></span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>; i&lt;len; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(maxValue &lt; intArr[i])&#123;</span><br><span class="line">            maxValue = intArr[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">   </span><br><span class="line">    <span class="keyword">return</span> maxValue;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">int</span> nums[<span class="number">6</span>], i;</span><br><span class="line">    <span class="type">int</span> len = <span class="keyword">sizeof</span>(nums)/<span class="keyword">sizeof</span>(<span class="type">int</span>);</span><br><span class="line">    <span class="comment">//读取用户输入的数据并赋值给数组元素</span></span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;len; i++)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, nums+i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Max value is %d!\n&quot;</span>, max(nums, len));</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>C语言为什么不允许直接传递数组的所有元素，而必须传递数组指针呢？<br>  <strong>参数的传递本质上是一次赋值的过程</strong>，赋值就是对内存进行拷贝。所谓内存拷贝，是指将一块内存上的数据复制到另一块内存上。数据的数量没有限制，可能很少，也可能成千上万，对它们进行内存拷贝有可能是一个漫长的过程，会严重拖慢程序的效率，为了防止技艺不佳的程序员写出低效的代码，C语言没有从<strong>语法上</strong>支持数据集合的直接赋值。</li>
+</ul>
+<h2 id="1-5指针函数"><a href="#1-5指针函数" class="headerlink" title="1.5指针函数"></a>1.5指针函数</h2><ul>
+<li>函数的返回值是一个<strong>指针</strong>（地址）<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">char</span> *<span class="title function_">strlong</span><span class="params">(<span class="type">char</span> *str1, <span class="type">char</span> *str2)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">strlen</span>(str1) &gt;= <span class="built_in">strlen</span>(str2))&#123;</span><br><span class="line">        <span class="keyword">return</span> str1;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> str2;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">char</span> str1[<span class="number">30</span>], str2[<span class="number">30</span>], *str;</span><br><span class="line">    gets(str1);</span><br><span class="line">    gets(str2);</span><br><span class="line">    str = strlong(str1, str2);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Longer string: %s\n&quot;</span>, str);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>用指针作为函数返回值时需要注意的一点是，函数运行结束后会<strong>销毁在它内部定义的所有局部数据</strong>，包括局部变量、局部数组和形式参数，函数返回的指针请尽量不要指向这些数据，C语言没有任何机制来保证这些数据会一直有效，它们在后续使用过程中可能会引发运行时错误。</li>
+<li>这里所谓的销毁<strong>并不是</strong>将局部数据所占用的内存全部抹掉，而是<strong>程序放弃对它的使用权限</strong>，弃之不理，后面的代码可以随意使用这块内存。对于上面的两个例子，func() 运行结束后 n 的内存依然保持原样，值还是 100，如果使用及时也能够得到正确的数据，如果有其它函数被调用就会覆盖这块内存，得到的数据就失去了意义。</li>
+</ul>
+<h2 id="1-6二级指针"><a href="#1-6二级指针" class="headerlink" title="1.6二级指针"></a>1.6二级指针</h2><ul>
+<li>指向指针的指针</li>
+<li>指针变量也是一种变量，也会占用存储空间，也可以使用<code>&amp;</code>获取它的地址。C语言不限制指针的级数，每增加一级指针，在定义指针变量时就得增加一个星号<code>*</code>。p1 是一级指针，指向普通类型的数据，定义时有一个<code>*</code>；p2 是二级指针，指向一级指针 p1，定义时有两个<code>*</code>。<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">int</span> a =<span class="number">100</span>;</span><br><span class="line">    <span class="type">int</span> *p1 = &amp;a;</span><br><span class="line">    <span class="type">int</span> **p2 = &amp;p1;</span><br><span class="line">    <span class="type">int</span> ***p3 = &amp;p2;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d, %d, %d, %d\n&quot;</span>, a, *p1, **p2, ***p3);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;&amp;p2 = %#X, p3 = %#X\n&quot;</span>, &amp;p2, p3);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;&amp;p1 = %#X, p2 = %#X, *p3 = %#X\n&quot;</span>, &amp;p1, p2, *p3);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot; &amp;a = %#X, p1 = %#X, *p2 = %#X, **p3 = %#X\n&quot;</span>, &amp;a, p1, *p2, **p3);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="1-7指针数组"><a href="#1-7指针数组" class="headerlink" title="1.7指针数组"></a>1.7指针数组</h2><ul>
+<li>如果一个数组中的所有元素保存的都是<strong>指针</strong>，即称之为<strong>指针数组</strong>。<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">int</span> a = <span class="number">16</span>, b = <span class="number">932</span>, c = <span class="number">100</span>;</span><br><span class="line">    <span class="comment">//定义一个指针数组</span></span><br><span class="line">    <span class="type">int</span> *arr[<span class="number">3</span>] = &#123;&amp;a, &amp;b, &amp;c&#125;;<span class="comment">//也可以不指定长度，直接写作 int *arr[]</span></span><br><span class="line">    <span class="comment">//定义一个指向指针数组的指针</span></span><br><span class="line">    <span class="type">int</span> **parr = arr;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d, %d, %d\n&quot;</span>, *arr[<span class="number">0</span>], *arr[<span class="number">1</span>], *arr[<span class="number">2</span>]);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d, %d, %d\n&quot;</span>, **(parr+<span class="number">0</span>), **(parr+<span class="number">1</span>), **(parr+<span class="number">2</span>));</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="1-8二维数组指针"><a href="#1-8二维数组指针" class="headerlink" title="1.8二维数组指针"></a>1.8二维数组指针</h2><p>为了更好的理解指针和二维数组的关系，我们先来定义一个指向 a 的指针变量 p：<br><code>int (*p)[4] = a;</code><br>括号中的<code>*</code>表明 p 是一个指针，它指向一个数组，数组的类型为<code>int [4]</code>，这正是 a 所包含的每个一维数组的类型。<br><code>[ ]</code>的优先级高于<code>*</code>，<code>( )</code>是必须要加的，如果赤裸裸地写作<code>int *p[4]</code>，那么应该理解为<code>int *(p[4])</code>，p 就成了一个指针数组，而不是二维数组指针。</p>
+<ul>
+<li><strong>数组名 a 在表达式中也会被转换为和 p 等价的指针！</strong><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">int</span> a[<span class="number">3</span>][<span class="number">4</span>] = &#123; &#123;<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;, &#123;<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>&#125;, &#123;<span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>, <span class="number">11</span>&#125; &#125;;</span><br><span class="line">    <span class="type">int</span> (*p)[<span class="number">4</span>] = a;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, <span class="keyword">sizeof</span>(*(p+<span class="number">1</span>)));</span><br><span class="line">	<span class="comment">//运行结果：16</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>说明<code>*(p+1)</code>表示整个第一行的数据，4 * 4&#x3D;16</li>
+<li><code>*(*(p+1)+1)</code>表示第 1 行第 1 个元素的值。很明显，增加一个 * 表示取地址上的数据。</li>
+<li>所以有以下等价关系：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a+i == p+i  </span><br><span class="line">a[i] == p[i] == *(a+i) == *(p+i)  </span><br><span class="line">a[i][j] == p[i][j] == *(a[i]+j) == *(p[i]+j) == *(*(a+i)+j) == *(*(p+i)+j)</span><br></pre></td></tr></table></figure></li>
+<li>使用指针遍历二维数组<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">int</span> a[<span class="number">3</span>][<span class="number">4</span>]=&#123;<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>,<span class="number">11</span>&#125;;</span><br><span class="line">    <span class="type">int</span>(*p)[<span class="number">4</span>];</span><br><span class="line">    <span class="type">int</span> i,j;</span><br><span class="line">    p=a;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;<span class="number">3</span>; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">0</span>; j&lt;<span class="number">4</span>; j++) <span class="built_in">printf</span>(<span class="string">&quot;%2d  &quot;</span>,*(*(p+i)+j));</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>指针数组和二维数组指针的区别：<br>  <code>1. int *(p1[5]); //指针数组，可以去掉括号直接写作 int *p1[5];</code><br>  <code>2. int (*p2)[5]; //二维数组指针，不能去掉括号</code></li>
+</ul>
+<h2 id="1-9函数指针"><a href="#1-9函数指针" class="headerlink" title="1.9函数指针"></a>1.9函数指针</h2><ul>
+<li>一个函数总是占用<strong>一段连续的内存区域</strong>，函数名在表达式中有时也会被转换为该函数所在内存区域的首地址，这和数组名非常类似。我们可以把函数的这个首地址（或称入口地址）赋予一个指针变量，使<strong>指针变量指向函数所在的内存区域</strong>，然后通过指针变量就可以找到并调用该函数。这种指针就是<strong>函数指针</strong>。</li>
+<li>定义形式为<code>returnType (*pointerName)(param list)</code><ul>
+<li><code>( )</code>的优先级高于<code>*</code>，第一个括号不能省略，如果写作<code>returnType *pointerName(param list);</code>就成了函数原型，它表明函数的返回值类型<code>returnType *</code>。</li>
+<li>【实例】用指针来实现对函数的调用<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="comment">//返回两个数中较大的一个</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">max</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a&gt;b ? a : b;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">int</span> x, y, maxval;</span><br><span class="line">    <span class="comment">//定义函数指针</span></span><br><span class="line">    <span class="type">int</span> (*pmax)(<span class="type">int</span>, <span class="type">int</span>) = max;  <span class="comment">//也可以写作int (*pmax)(int a, int b)</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Input two numbers:&quot;</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d %d&quot;</span>, &amp;x, &amp;y);</span><br><span class="line">    maxval = (*pmax)(x, y);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Max value: %d\n&quot;</span>, maxval);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h2 id="1-10指针总结"><a href="#1-10指针总结" class="headerlink" title="1.10指针总结"></a>1.10指针总结</h2><ul>
+<li><p><strong>指针</strong>（Pointer）就是内存的地址，C语言允许用一个变量来存放指针，这种变量称为指针变量。指针变量可以存放基本类型数据的地址，也可以存放数组、函数以及其他指针变量的地址。  </p>
+</li>
+<li><p>程序在运行过程中需要的是<strong>数据和指令的地址</strong>，变量名、函数名、字符串名和数组名在本质上是一样的，它们都是地址的助记符：在编写代码的过程中，我们认为变量名表示的是数据本身，而函数名、字符串名和数组名表示的是代码块或数据块的首地址；程序被编译和链接后，这些名字都会消失，取而代之的是它们<strong>对应的地址</strong>。</p>
+</li>
+<li><p>常见指针变量的定义</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>定  义</th>
+<th>含  义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>int *p;</td>
+<td>p 可以指向 int 类型的数据，也可以指向类似 int arr[n] 的数组。</td>
+</tr>
+<tr>
+<td>int **p;</td>
+<td>p 为二级指针，指向 int * 类型的数据。</td>
+</tr>
+<tr>
+<td>int *p[n];</td>
+<td>p 为指针数组。[ ] 的优先级高于 *，所以应该理解为 int *(p[n]);</td>
+</tr>
+<tr>
+<td>int (*p)[n];</td>
+<td>p 为二维数组指针。</td>
+</tr>
+<tr>
+<td>int *p();</td>
+<td>p 是一个函数，它的返回值类型为 int *。</td>
+</tr>
+<tr>
+<td>int (*p)();</td>
+<td>p 是一个函数指针，指向原型为 int func() 的函数。</td>
+</tr>
+</tbody></table>
+<ol>
+<li>指针变量可以进行<strong>加减运算</strong>，例如<code>p++</code>、<code>p+i</code>、<code>p-=i</code>。指针变量的加减运算并不是简单的加上或减去一个整数，而是跟指针指向的数据类型有关。</li>
+<li>给指针变量赋值时，要将一份<strong>数据的地址</strong>赋给它，不能直接赋给一个整数，例如<code>int *p = 1000;</code>是没有意义的，使用过程中一般会导致程序崩溃。</li>
+<li>使用指针变量之前一定要<strong>初始化</strong>，否则就不能确定指针指向哪里，如果它指向的内存没有使用权限，程序就崩溃了。对于暂时没有指向的指针，建议赋值<code>NULL</code>。</li>
+<li>两个指针变量可以相减。如果两个指针变量指向同一个数组中的某个元素，那么相减的结果就是两个指针之间相差的<strong>元素个数</strong>。</li>
+<li>数组也是有类型的，数组名的本意是表示一组类型相同的数据。在定义数组时，或者和 sizeof、&amp; 运算符一起使用时数组名才表示整个数组，表达式中的数组名会被转换为<strong>一个指向数组的指针</strong>。</li>
+</ol>
+<h1 id="2-结构体"><a href="#2-结构体" class="headerlink" title="2.结构体"></a>2.结构体</h1><h2 id="2-1结构体的定义"><a href="#2-1结构体的定义" class="headerlink" title="2.1结构体的定义"></a>2.1结构体的定义</h2><p>在C语言中，可以使用<strong>结构体</strong>（Struct)来存放一组不同类型的数据。结构体的定义形式为：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> 结构体名&#123;</span>  </span><br><span class="line">    结构体所包含的变量或数组  </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">stu</span>&#123;</span></span><br><span class="line">    <span class="type">char</span> *name;  <span class="comment">//姓名</span></span><br><span class="line">    <span class="type">int</span> num;  <span class="comment">//学号</span></span><br><span class="line">    <span class="type">int</span> age;  <span class="comment">//年龄</span></span><br><span class="line">    <span class="type">char</span> group;  <span class="comment">//所在学习小组</span></span><br><span class="line">    <span class="type">float</span> score;  <span class="comment">//成绩</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="2-2成员的获取和赋值"><a href="#2-2成员的获取和赋值" class="headerlink" title="2.2成员的获取和赋值"></a>2.2成员的获取和赋值</h2><ul>
+<li>数组使用下标<code>[ ]</code>获取单个元素，结构体使用点号<code>.</code>获取单个成员。<code>结构体变量名.成员名;</code><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">        <span class="type">char</span> *name;  <span class="comment">//姓名</span></span><br><span class="line">        <span class="type">int</span> num;  <span class="comment">//学号</span></span><br><span class="line">        <span class="type">int</span> age;  <span class="comment">//年龄</span></span><br><span class="line">        <span class="type">char</span> group;  <span class="comment">//所在小组</span></span><br><span class="line">        <span class="type">float</span> score;  <span class="comment">//成绩</span></span><br><span class="line">    &#125; stu1;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//给结构体成员赋值</span></span><br><span class="line">    stu1.name = <span class="string">&quot;Tom&quot;</span>;</span><br><span class="line">    stu1.num = <span class="number">12</span>;</span><br><span class="line">    stu1.age = <span class="number">18</span>;</span><br><span class="line">    stu1.group = <span class="string">&#x27;A&#x27;</span>;</span><br><span class="line">    stu1.score = <span class="number">136.5</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//读取结构体成员的值</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%s的学号是%d，年龄是%d，在%c组，今年的成绩是%.1f！\n&quot;</span>, stu1.name, stu1.num, stu1.age, stu1.group, stu1.score);</span><br><span class="line">    <span class="comment">//运行结果：  </span></span><br><span class="line">	<span class="comment">//Tom的学号是12，年龄是18，在A组，今年的成绩是136.5！</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><strong>结构体是一种自定义的数据类型，是创建变量的模板，不占用内存空间；结构体变量才包含了实实在在的数据，需要内存空间来存储。</strong></li>
+</ul>
+<h2 id="2-3结构体数组"><a href="#2-3结构体数组" class="headerlink" title="2.3结构体数组"></a>2.3结构体数组</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">stu</span>&#123;</span></span><br><span class="line">    <span class="type">char</span> *name;  <span class="comment">//姓名</span></span><br><span class="line">    <span class="type">int</span> num;  <span class="comment">//学号</span></span><br><span class="line">    <span class="type">int</span> age;  <span class="comment">//年龄</span></span><br><span class="line">    <span class="type">char</span> group;  <span class="comment">//所在小组 </span></span><br><span class="line">    <span class="type">float</span> score;  <span class="comment">//成绩</span></span><br><span class="line">&#125;<span class="class"><span class="keyword">class</span>[5] =</span> &#123;</span><br><span class="line">    &#123;<span class="string">&quot;Li ping&quot;</span>, <span class="number">5</span>, <span class="number">18</span>, <span class="string">&#x27;C&#x27;</span>, <span class="number">145.0</span>&#125;,</span><br><span class="line">    &#123;<span class="string">&quot;Zhang ping&quot;</span>, <span class="number">4</span>, <span class="number">19</span>, <span class="string">&#x27;A&#x27;</span>, <span class="number">130.5</span>&#125;,</span><br><span class="line">    &#123;<span class="string">&quot;He fang&quot;</span>, <span class="number">1</span>, <span class="number">18</span>, <span class="string">&#x27;A&#x27;</span>, <span class="number">148.5</span>&#125;,</span><br><span class="line">    &#123;<span class="string">&quot;Cheng ling&quot;</span>, <span class="number">2</span>, <span class="number">17</span>, <span class="string">&#x27;F&#x27;</span>, <span class="number">139.0</span>&#125;,</span><br><span class="line">    &#123;<span class="string">&quot;Wang ming&quot;</span>, <span class="number">3</span>, <span class="number">17</span>, <span class="string">&#x27;B&#x27;</span>, <span class="number">144.5</span>&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>或者</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">stu</span>&#123;</span></span><br><span class="line">    <span class="type">char</span> *name;  <span class="comment">//姓名</span></span><br><span class="line">    <span class="type">int</span> num;  <span class="comment">//学号</span></span><br><span class="line">    <span class="type">int</span> age;  <span class="comment">//年龄</span></span><br><span class="line">    <span class="type">char</span> group;  <span class="comment">//所在小组 </span></span><br><span class="line">    <span class="type">float</span> score;  <span class="comment">//成绩</span></span><br><span class="line">&#125;<span class="class"><span class="keyword">class</span>[5];</span></span><br></pre></td></tr></table></figure>
+<p>或者</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">stu</span>&#123;</span></span><br><span class="line">    <span class="type">char</span> *name;  <span class="comment">//姓名</span></span><br><span class="line">    <span class="type">int</span> num;  <span class="comment">//学号</span></span><br><span class="line">    <span class="type">int</span> age;  <span class="comment">//年龄</span></span><br><span class="line">    <span class="type">char</span> group;  <span class="comment">//所在小组 </span></span><br><span class="line">    <span class="type">float</span> score;  <span class="comment">//成绩</span></span><br><span class="line">&#125;<span class="class"><span class="keyword">class</span>[] =</span> &#123;                   <span class="comment">//不给出数组的长度</span></span><br><span class="line">    &#123;<span class="string">&quot;Li ping&quot;</span>, <span class="number">5</span>, <span class="number">18</span>, <span class="string">&#x27;C&#x27;</span>, <span class="number">145.0</span>&#125;,</span><br><span class="line">    &#123;<span class="string">&quot;Zhang ping&quot;</span>, <span class="number">4</span>, <span class="number">19</span>, <span class="string">&#x27;A&#x27;</span>, <span class="number">130.5</span>&#125;,</span><br><span class="line">    &#123;<span class="string">&quot;He fang&quot;</span>, <span class="number">1</span>, <span class="number">18</span>, <span class="string">&#x27;A&#x27;</span>, <span class="number">148.5</span>&#125;,</span><br><span class="line">    &#123;<span class="string">&quot;Cheng ling&quot;</span>, <span class="number">2</span>, <span class="number">17</span>, <span class="string">&#x27;F&#x27;</span>, <span class="number">139.0</span>&#125;,</span><br><span class="line">    &#123;<span class="string">&quot;Wang ming&quot;</span>, <span class="number">3</span>, <span class="number">17</span>, <span class="string">&#x27;B&#x27;</span>, <span class="number">144.5</span>&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="2-4结构体指针"><a href="#2-4结构体指针" class="headerlink" title="2.4结构体指针"></a>2.4结构体指针</h2><h3 id="2-4-1基本知识"><a href="#2-4-1基本知识" class="headerlink" title="2.4.1基本知识"></a>2.4.1基本知识</h3><ul>
+<li>一个指针变量指向结构体<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//结构体</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">stu</span>&#123;</span></span><br><span class="line">    <span class="type">char</span> *name;  <span class="comment">//姓名</span></span><br><span class="line">    <span class="type">int</span> num;  <span class="comment">//学号</span></span><br><span class="line">    <span class="type">int</span> age;  <span class="comment">//年龄</span></span><br><span class="line">    <span class="type">char</span> group;  <span class="comment">//所在小组</span></span><br><span class="line">    <span class="type">float</span> score;  <span class="comment">//成绩</span></span><br><span class="line">&#125; stu1 = &#123; <span class="string">&quot;Tom&quot;</span>, <span class="number">12</span>, <span class="number">18</span>, <span class="string">&#x27;A&#x27;</span>, <span class="number">136.5</span> &#125;;</span><br><span class="line"><span class="comment">//结构体指针</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">stu</span> *<span class="title">pstu</span> =</span> &amp;stu1;</span><br></pre></td></tr></table></figure></li>
+<li>结构体变量名和数组名<strong>不同</strong>，数组名在表达式中会被转换为数组指针，而结构体变量名不会，<strong>无论在任何表达式中它表示的都是整个集合本身</strong>，要想取得结构体变量的地址，<strong>必须</strong>在前面加<code>&amp;</code>，所以给 pstu 赋值只能写作：<code>struct stu *pstu = &amp;stu1;</code></li>
+<li>结构体和结构体<strong>变量</strong>是两个不同的概念：结构体是一种<strong>数据类型</strong>，是一种<strong>创建变量的模板</strong>，编译器不会为它分配内存空间，就像 int、float、char 这些关键字本身不占用内存一样；结构体变量才包含实实在在的数据，才需要内存来存储。下面的写法是错误的，不可能去取一个结构体名的地址，也不能将它赋值给其他变量：<code>struct stu *pstu = &amp;stu; </code>or<code>struct stu *pstu = stu;</code></li>
+</ul>
+<h3 id="2-4-2获取结构体成员"><a href="#2-4-2获取结构体成员" class="headerlink" title="2.4.2获取结构体成员"></a>2.4.2获取结构体成员</h3><ul>
+<li>通过结构体指针可以获取结构体成员，一般形式为：<code>(*pointer).memberName</code>或者：<code>pointer-&gt;memberName</code></li>
+<li>第一种写法中，<code>.</code>的优先级高于<code>*</code>，<code>(*pointer)</code>两边的括号不能少。如果去掉括号写作<code>*pointer.memberName</code>，那么就等效于<code>*(pointer.memberName)</code>，这样意义就完全不对了。  </li>
+<li>第二种写法中，<code>-&gt;</code>是一个新的运算符，习惯称它为“箭头”，有了它，可以通过结构体指针直接取得结构体成员；这也是<code>-&gt;</code>在C语言中的唯一用途。<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">        <span class="type">char</span> *name;  <span class="comment">//姓名</span></span><br><span class="line">        <span class="type">int</span> num;  <span class="comment">//学号</span></span><br><span class="line">        <span class="type">int</span> age;  <span class="comment">//年龄</span></span><br><span class="line">        <span class="type">char</span> group;  <span class="comment">//所在小组</span></span><br><span class="line">        <span class="type">float</span> score;  <span class="comment">//成绩</span></span><br><span class="line">    &#125; stu1 = &#123; <span class="string">&quot;Tom&quot;</span>, <span class="number">12</span>, <span class="number">18</span>, <span class="string">&#x27;A&#x27;</span>, <span class="number">136.5</span> &#125;, *pstu = &amp;stu1;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//读取结构体成员的值</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%s的学号是%d，年龄是%d，在%c组，今年的成绩是%.1f！\n&quot;</span>, (*pstu).name, (*pstu).num, (*pstu).age, (*pstu).group, (*pstu).score);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%s的学号是%d，年龄是%d，在%c组，今年的成绩是%.1f！\n&quot;</span>, pstu-&gt;name, pstu-&gt;num, pstu-&gt;age, pstu-&gt;group, pstu-&gt;score);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="2-4-3结构体指针作为函数参数"><a href="#2-4-3结构体指针作为函数参数" class="headerlink" title="2.4.3结构体指针作为函数参数"></a>2.4.3结构体指针作为函数参数</h3><ul>
+<li>结构体变量名代表的是<strong>整个集合本身</strong>，作为函数参数时传递的整个集合，也就是所有成员，而不是像数组一样被编译器转换成一个指针。如果结构体成员较多，尤其是成员为数组时，传送的时间和空间开销会很大，影响程序的运行效率。所以最好的办法就是使用结构体指针，这时<strong>由实参传向形参的只是一个地址</strong>，非常快速。<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">stu</span>&#123;</span></span><br><span class="line">    <span class="type">char</span> *name;  <span class="comment">//姓名</span></span><br><span class="line">    <span class="type">int</span> num;  <span class="comment">//学号</span></span><br><span class="line">    <span class="type">int</span> age;  <span class="comment">//年龄</span></span><br><span class="line">    <span class="type">char</span> group;  <span class="comment">//所在小组</span></span><br><span class="line">    <span class="type">float</span> score;  <span class="comment">//成绩</span></span><br><span class="line">&#125;stus[] = &#123;</span><br><span class="line">    &#123;<span class="string">&quot;Li ping&quot;</span>, <span class="number">5</span>, <span class="number">18</span>, <span class="string">&#x27;C&#x27;</span>, <span class="number">145.0</span>&#125;,</span><br><span class="line">    &#123;<span class="string">&quot;Zhang ping&quot;</span>, <span class="number">4</span>, <span class="number">19</span>, <span class="string">&#x27;A&#x27;</span>, <span class="number">130.5</span>&#125;,</span><br><span class="line">    &#123;<span class="string">&quot;He fang&quot;</span>, <span class="number">1</span>, <span class="number">18</span>, <span class="string">&#x27;A&#x27;</span>, <span class="number">148.5</span>&#125;,</span><br><span class="line">    &#123;<span class="string">&quot;Cheng ling&quot;</span>, <span class="number">2</span>, <span class="number">17</span>, <span class="string">&#x27;F&#x27;</span>, <span class="number">139.0</span>&#125;,</span><br><span class="line">    &#123;<span class="string">&quot;Wang ming&quot;</span>, <span class="number">3</span>, <span class="number">17</span>, <span class="string">&#x27;B&#x27;</span>, <span class="number">144.5</span>&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">average</span><span class="params">(<span class="keyword">struct</span> stu *ps, <span class="type">int</span> len)</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">int</span> len = <span class="keyword">sizeof</span>(stus) / <span class="keyword">sizeof</span>(<span class="keyword">struct</span> stu);</span><br><span class="line">    average(stus, len);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">average</span><span class="params">(<span class="keyword">struct</span> stu *ps, <span class="type">int</span> len)</span>&#123;</span><br><span class="line">    <span class="type">int</span> i, num_140 = <span class="number">0</span>;</span><br><span class="line">    <span class="type">float</span> average, sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;len; i++)&#123;</span><br><span class="line">        sum += (ps + i) -&gt; score;</span><br><span class="line">        <span class="keyword">if</span>((ps + i)-&gt;score &lt; <span class="number">140</span>) num_140++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;sum=%.2f\naverage=%.2f\nnum_140=%d\n&quot;</span>, sum, sum/<span class="number">5</span>, num_140);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+</article>
+    
+    
+
+</div>
+<div class="trm-post-next-prev row">
+    <div class="col-lg-12">
+        <!-- title -->
+        <h5 class="trm-title-with-divider">
+            其他文章
+            <span data-number="02"></span>
+        </h5>
+    </div>
+    
+        <div class="col-lg-6">
+    <div class="trm-blog-card trm-scroll-animation">
+        <a href="/2024/10/29/SQL/" class="trm-cover-frame trm-anima-link">
+            
+            
+                <div class="trm-cover-img" data-random-img></div>
+            
+        </a>
+        
+        <div class="trm-card-descr">
+            <div class="trm-label trm-category trm-mb-20">
+                <a href=" /categories/learning/">
+                    learning
+                </a>
+            </div>
+            <h5>
+                <a href="/2024/10/29/SQL/" class="trm-anima-link">
+                    SQL
+                </a>
+            </h5>
+            <div class="trm-divider trm-mb-20 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>24/10/29</li>
+                <li>17:51</li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    
+        <div class="col-lg-6">
+    <div class="trm-blog-card trm-scroll-animation">
+        <a href="/2024/10/29/%E5%89%8D%E7%AB%AFlearning/" class="trm-cover-frame trm-anima-link">
+            
+            
+                <div class="trm-cover-img" data-random-img></div>
+            
+        </a>
+        
+        <div class="trm-card-descr">
+            <div class="trm-label trm-category trm-mb-20">
+                <a href=" /categories/learning/">
+                    learning
+                </a>
+            </div>
+            <h5>
+                <a href="/2024/10/29/%E5%89%8D%E7%AB%AFlearning/" class="trm-anima-link">
+                    前端learning
+                </a>
+            </h5>
+            <div class="trm-divider trm-mb-20 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>24/10/29</li>
+                <li>17:14</li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</div>
+    
+</div>
+
+    
+
+
+
+                    <div class="trm-divider footer-divider"></div>
+
+                    <!-- footer -->
+                    <div class="trm-counter-up trm-scroll-animation">
+    <div class="trm-counter-number">
+      <span class="trm-counter">140</span>
+      <span class="trm-counter-symbol">+</span>
+    </div>
+    <div class="trm-divider trm-mb-20 trm-mt-20"></div>
+    <div class="trm-label">Honors and Awards</div>
+  </div>
+  
+                    <!-- footer end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            <!-- body end -->
+
+            
+
+    <div id="post-toc" class="trm-post-toc">
+      <div class="trm-post-toc-header">
+        目录导航
+				<span id="post-toc-top">
+					置顶
+				</span>
+      </div>
+      <div class="trm-post-toc-content">
+        <ol class="trm-toc"><li class="trm-toc-item trm-toc-level-1" title="1.指针"><a rel="nofollow" class="trm-toc-link" href="#1-指针"><span class="trm-toc-number">1.</span> <span class="trm-toc-text">1.指针</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="1.1 基本知识"><a rel="nofollow" class="trm-toc-link" href="#1-1-基本知识"><span class="trm-toc-number">1.1.</span> <span class="trm-toc-text">1.1 基本知识</span></a></li><li class="trm-toc-item trm-toc-level-2" title="1.2数组指针"><a rel="nofollow" class="trm-toc-link" href="#1-2数组指针"><span class="trm-toc-number">1.2.</span> <span class="trm-toc-text">1.2数组指针</span></a></li><li class="trm-toc-item trm-toc-level-2" title="1.3字符串指针"><a rel="nofollow" class="trm-toc-link" href="#1-3字符串指针"><span class="trm-toc-number">1.3.</span> <span class="trm-toc-text">1.3字符串指针</span></a></li><li class="trm-toc-item trm-toc-level-2" title="1.4指针变量作为函数参数"><a rel="nofollow" class="trm-toc-link" href="#1-4指针变量作为函数参数"><span class="trm-toc-number">1.4.</span> <span class="trm-toc-text">1.4指针变量作为函数参数</span></a></li><li class="trm-toc-item trm-toc-level-2" title="1.5指针函数"><a rel="nofollow" class="trm-toc-link" href="#1-5指针函数"><span class="trm-toc-number">1.5.</span> <span class="trm-toc-text">1.5指针函数</span></a></li><li class="trm-toc-item trm-toc-level-2" title="1.6二级指针"><a rel="nofollow" class="trm-toc-link" href="#1-6二级指针"><span class="trm-toc-number">1.6.</span> <span class="trm-toc-text">1.6二级指针</span></a></li><li class="trm-toc-item trm-toc-level-2" title="1.7指针数组"><a rel="nofollow" class="trm-toc-link" href="#1-7指针数组"><span class="trm-toc-number">1.7.</span> <span class="trm-toc-text">1.7指针数组</span></a></li><li class="trm-toc-item trm-toc-level-2" title="1.8二维数组指针"><a rel="nofollow" class="trm-toc-link" href="#1-8二维数组指针"><span class="trm-toc-number">1.8.</span> <span class="trm-toc-text">1.8二维数组指针</span></a></li><li class="trm-toc-item trm-toc-level-2" title="1.9函数指针"><a rel="nofollow" class="trm-toc-link" href="#1-9函数指针"><span class="trm-toc-number">1.9.</span> <span class="trm-toc-text">1.9函数指针</span></a></li><li class="trm-toc-item trm-toc-level-2" title="1.10指针总结"><a rel="nofollow" class="trm-toc-link" href="#1-10指针总结"><span class="trm-toc-number">1.10.</span> <span class="trm-toc-text">1.10指针总结</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-1" title="2.结构体"><a rel="nofollow" class="trm-toc-link" href="#2-结构体"><span class="trm-toc-number">2.</span> <span class="trm-toc-text">2.结构体</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="2.1结构体的定义"><a rel="nofollow" class="trm-toc-link" href="#2-1结构体的定义"><span class="trm-toc-number">2.1.</span> <span class="trm-toc-text">2.1结构体的定义</span></a></li><li class="trm-toc-item trm-toc-level-2" title="2.2成员的获取和赋值"><a rel="nofollow" class="trm-toc-link" href="#2-2成员的获取和赋值"><span class="trm-toc-number">2.2.</span> <span class="trm-toc-text">2.2成员的获取和赋值</span></a></li><li class="trm-toc-item trm-toc-level-2" title="2.3结构体数组"><a rel="nofollow" class="trm-toc-link" href="#2-3结构体数组"><span class="trm-toc-number">2.3.</span> <span class="trm-toc-text">2.3结构体数组</span></a></li><li class="trm-toc-item trm-toc-level-2" title="2.4结构体指针"><a rel="nofollow" class="trm-toc-link" href="#2-4结构体指针"><span class="trm-toc-number">2.4.</span> <span class="trm-toc-text">2.4结构体指针</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-3" title="2.4.1基本知识"><a rel="nofollow" class="trm-toc-link" href="#2-4-1基本知识"><span class="trm-toc-number">2.4.1.</span> <span class="trm-toc-text">2.4.1基本知识</span></a></li><li class="trm-toc-item trm-toc-level-3" title="2.4.2获取结构体成员"><a rel="nofollow" class="trm-toc-link" href="#2-4-2获取结构体成员"><span class="trm-toc-number">2.4.2.</span> <span class="trm-toc-text">2.4.2获取结构体成员</span></a></li><li class="trm-toc-item trm-toc-level-3" title="2.4.3结构体指针作为函数参数"><a rel="nofollow" class="trm-toc-link" href="#2-4-3结构体指针作为函数参数"><span class="trm-toc-number">2.4.3.</span> <span class="trm-toc-text">2.4.3结构体指针作为函数参数</span></a></li></ol></li></ol></li></ol>
+      </div>
+    </div>
+
+            
+<div class="trm-fixed-container">
+    
+        <div class="trm-fixed-btn post-toc-btn" data-title="目录">
+            <i class="iconfont fas fa-th-list"></i>
+        </div>
+    
+    
+        <div class="trm-fixed-btn" data-title="阅读模式" onclick="asyncFun.switchReadMode()">
+            <i class="iconfont fas fa-book-reader"></i>
+        </div>
+    
+    
+    <div id="trm-back-top" class="trm-fixed-btn" data-title="回到顶部">
+        <i class="iconfont fas fa-arrow-up"></i>
+    </div>
+</div>
+        </div>
+      </div>
+      <!-- scroll container end -->
+  </div>
+  <!-- app wrapper end -->
+
+  
+  <!-- Plugin -->
+
+
+
+
+    
+    
+<script src="https://npm.elemecdn.com/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+    
+
+    
+        <script src="/js/plugins/typing.js?v=2.2.3"></script>
+    
+
+    
+
+    <!-- 数学公式 -->
+    
+
+    <!-- 评论插件 -->
+    
+        
+
+        
+    
+
+		
+
+
+
+
+    <!-- Service Worker -->
+    
+    <!-- baidu push -->
+    
+
+
+<script id="async-script" src="/js/main.js?v=2.2.3"></script>
+
+<!-- CDN -->
+
+
+    
+
+    
+
+    
+
+
+
+</body>
+
+</html>
