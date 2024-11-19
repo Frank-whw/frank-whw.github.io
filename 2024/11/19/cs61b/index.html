@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="x5-fullscreen" content="true">
+<meta name="full-screen" content="yes">
+<meta name="theme-color" content="#317EFB" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
+<meta name="description" content="9. Disjointed set9.1 introduction 互斥 有2种运算： connect(x, y)或者说是union isConnected(x, y)   an interface determines what behaviors a data structure should have (but not how to accomplish it)  接口 design dec">
+<meta property="og:type" content="article">
+<meta property="og:title" content="cs61b">
+<meta property="og:url" content="http://example.com/2024/11/19/cs61b/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="9. Disjointed set9.1 introduction 互斥 有2种运算： connect(x, y)或者说是union isConnected(x, y)   an interface determines what behaviors a data structure should have (but not how to accomplish it)  接口 design dec">
+<meta property="og:locale">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="article:published_time" content="2024-11-19T11:37:00.333Z">
+<meta property="article:modified_time" content="2024-11-19T11:43:35.411Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/404.jpg">
+
+
+<title >cs61b</title>
+
+<!-- Favicon -->
+
+    <link href='/log.svg?v=2.2.3' rel='icon' type='image/png' sizes='16x16' ></link>
+
+
+    <link href='/log.svg?v=2.2.3' rel='icon' type='image/png' sizes='32x32' ></link>
+
+
+    <link href='/apple-touch-icon.png?v=2.2.3' rel='apple-touch-icon' sizes='180x180' ></link>
+
+
+    <link href='/site.webmanifest' rel='manifest' ></link>
+
+
+<!-- Plugin -->
+
+
+
+
+    
+<link rel="stylesheet" href="/css/plugins/bootstrap.row.css">
+
+    
+<link rel="stylesheet" href="https://npm.elemecdn.com/@fancyapps/ui@4.0/dist/fancybox.css">
+
+    
+    
+
+
+
+
+<!-- Icon -->
+
+    
+<link rel="stylesheet" href="/css/plugins/font-awesome.min.css">
+
+
+
+
+<!-- Variable -->
+<script>window.ASYNC_CONFIG = {"hostname":"example.com","author":"John Doe","root":"/","typed_text":["别急，慢慢来"],"theme_version":"2.2.3","theme":{"switch":true,"default":"style-light"},"favicon":{"logo":"log.svg","icon16":"log.svg","icon32":"log.svg","apple_touch_icon":"apple-touch-icon.png","webmanifest":"/site.webmanifest","visibilitychange":true,"hidden":"failure.ico","show_text":"(/≧▽≦/)","hide_text":"(●—●)"},"i18n":{"placeholder":"搜索文章...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）","author":"本文作者：","copyright_link":"本文链接：","copyright_license_title":"版权声明：","copyright_license_content":"本博客所有文章除特别声明外，均默认采用 undefined 许可协议。","copy_success":"复制成功","copy_failure":"复制失败","open_read_mode":"进入阅读模式","exit_read_mode":"退出阅读模式","notice_outdate_message":"距离上次更新已经 undefined 天了, 文章内容可能已经过时。","sticky":"置顶","just":"刚刚","min":"分钟前","hour":"小时前","day":"天前","month":"个月前"},"swup":false,"plugin":{"flickr_justified_gallery":"https://npm.elemecdn.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":false},"toc":{"post_title":false},"live_time":{"start_time":"","prefix":"博客已萌萌哒运行 undefined 天"},"danmu":{"enable":false,"el":".trm-banner"},"covers":["https://images.pexels.com/photos/1198817/pexels-photo-1198817.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2","https://images.pexels.com/photos/1366957/pexels-photo-1366957.jpeg?auto=compress&cs=tinysrgb&w=1200","https://images.pexels.com/photos/35857/amazing-beautiful-breathtaking-clouds.jpg?auto=compress&cs=tinysrgb&w=1200","https://images.pexels.com/photos/355288/pexels-photo-355288.jpeg?auto=compress&cs=tinysrgb&w=600"],"creative_commons":{"license":"by-nc-sa","language":"deed.zh-hans"}};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2024-11-19 19:43:35"};</script>
+
+<!-- Theme mode css -->
+<link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.2.3" id="trm-switch-style">
+<script>
+    let defaultMode = ASYNC_CONFIG.theme.default !=='auto' ?  ASYNC_CONFIG.theme.default : (window.matchMedia("(prefers-color-scheme: light)").matches ? 'style-light' : 'style-dark')
+    let catchMode = localStorage.getItem('theme-mode') || defaultMode;
+    let type = catchMode === 'style-dark' ? 'add' : 'remove';
+    document.documentElement.classList[type]('dark')
+</script>
+
+<!-- CDN -->
+
+
+    
+    
+
+
+
+<!-- Site Analytics -->
+
+
+    
+        <!-- Baidu Analytics -->
+        <script defer>
+            var _hmt = _hmt || [];
+            (function() {
+              var hm = document.createElement("script");
+              hm.src = "https://hm.baidu.com/hm.js?百度统计Key";
+              var s = document.getElementsByTagName("script")[0]; 
+              s.parentNode.insertBefore(hm, s);
+            })();
+        </script>
+     
+
+    
+
+    
+ 
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+
+  <!-- app wrapper -->
+  <div class="trm-app-frame">
+
+    <!-- page preloader -->
+    <div class="trm-preloader">
+    <div class="trm-holder">
+        <div class="preloader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
+    <!-- page preloader end -->
+
+    <!-- change mode preloader -->
+    <div class="trm-mode-swich-animation-frame">
+    <div class="trm-mode-swich-animation">
+        <i class="i-sun"><i class="iconfont far fa-sun"></i></i>
+        <div class="trm-horizon"></div>
+        <i class="i-moon"><i class="iconfont far fa-moon"></i></i>
+    </div>
+</div>
+    <!-- change mode preloader end -->
+
+      <!-- scroll container -->
+      <div id="trm-dynamic-content" class="trm-swup-animation">
+        <div id="trm-scroll-container" class="trm-scroll-container" style="opacity: 0">
+            <!-- top bar -->
+            <header class="trm-top-bar">
+	<div class="container">
+		<div class="trm-left-side">
+			<!-- logo -->
+<a href="/" class="trm-logo-frame trm-anima-link">
+    
+        <img alt="logo" src="/log.svg">
+    
+    
+        <div class="trm-logo-text">
+            Frank&#39;s<span>Blog</span>
+        </div>
+    
+</a>
+<!-- logo end -->
+		</div>
+		<div class="trm-right-side">
+			<!-- menu -->
+<div class="trm-menu">
+    <nav>
+        <ul>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/" target="">
+                    HOME
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a data-no-swup href="/archives/" target="">
+                    ARCHIVES
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a data-no-swup href="/categories/" target="">
+                    CATEGORIES
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a data-no-swup href="/about/" target="">
+                    ABOUT
+                </a>
+                
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+<!-- menu end -->
+			
+    <!-- mode switcher place -->
+    <div class="trm-mode-switcher-place">
+        <div class="trm-mode-switcher">
+            <i class="iconfont far fa-sun"></i>
+            <input class="tgl tgl-light" id="trm-swich" type="checkbox">
+            <label class="trm-swich" for="trm-swich"></label>
+            <i class="iconfont far fa-moon"></i>
+        </div>
+    </div>
+    <!-- mode switcher place end -->
+
+			
+		</div>
+		<div class="trm-menu-btn">
+			<span></span>
+		</div>
+	</div>
+</header>
+            <!-- top bar end -->
+
+            <!-- body -->
+            
+<div class="trm-content-start">
+    <!-- banner -->
+    <div class="trm-banner">
+    
+    <!-- banner cover -->
+    <img style="object-position:top;object-fit:cover;" alt="banner" class="trm-banner-cover" src="/img/banner.png">
+    <!-- banner cover end -->
+    
+
+    <!-- banner content -->
+    <div class="trm-banner-content trm-overlay">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-lg-4"></div>
+                
+                <div class="col-lg-8">
+
+                    <!-- banner title -->
+                    <div class="trm-banner-text ">
+                        <div class="trm-label trm-mb-20">
+                            NEWS LETTER
+                        </div>
+                        <h1 class="trm-mb-30 trm-hsmb-font">
+                            cs61b
+                        </h1>
+
+                        
+                            <ul class="trm-breadcrumbs trm-label">
+                                <li>
+                                    <a href="/" class="trm-anima-link">Home</a>
+                                </li>
+                                <li>
+                                    <span>
+                                        2024
+                                    </span>
+                                </li>
+                            </ul>
+                        
+                    </div>
+                    <!-- banner title end -->
+
+                    <!-- scroll hint -->
+                    <span id="scroll-triger" class="trm-scroll-hint-frame">
+                        <div class="trm-scroll-hint"></div>
+                        <span class="trm-label">Scroll down</span>
+                    </span>
+                    <!-- scroll hint end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- banner content end -->
+</div>
+    <!-- banner end -->
+    <div class="container">
+        <div class="row">
+            
+                <div class="trm-page-sidebar col-lg-4 hidden-sm">
+                    <!-- main card -->
+                    <div class="trm-main-card-frame trm-sidebar">
+    <div class="trm-main-card"> 
+        <!-- card header -->
+<div class="trm-mc-header">
+    <div class="trm-avatar-frame trm-mb-20">
+        <img alt="Avatar" class="trm-avatar" src="https://bc6.afbza.cn/mqrcode/774621/1730179310_5178741067_%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20240915223455.jpg">
+    </div>
+    <h5 class="trm-name trm-mb-15">
+        Frank
+    </h5>
+    
+        <div class="trm-label">
+            
+            <span class="trm-typed-text">
+                <!-- Words for theme.user.typedText -->
+            </span>
+        </div>
+    
+</div>
+<!-- card header end -->
+        <!-- sidebar social -->
+
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<div class="trm-social">
+    
+        <a href="https://github.com/Frank-whw" title="github" rel="nofollow" target="_blank">
+            <i class="iconfont fab fa-github"></i>
+        </a>
+    
+        <a href="https://i.afbcs.cn/VBRNiT" title="weChat" rel="nofollow" target="_blank">
+            <i class="iconfont fab fa-weixin"></i>
+        </a>
+    
+        <a href="https://twitter.com" title="twitter" rel="nofollow" target="_blank">
+            <i class="iconfont fab fa-twitter"></i>
+        </a>
+    
+        <a href="https://steamcommunity.com/profiles/76561199028311718/" title="steam" rel="nofollow" target="_blank">
+            <i class="iconfont fab fa-steam"></i>
+        </a>
+    
+</div>
+
+<!-- sidebar social end -->
+        <!-- info -->
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<ul class="trm-table trm-mb-20">
+    
+        <li>
+            <div class="trm-label">
+                Residence:
+            </div>
+            <div class="trm-label trm-label-light">
+                Mars
+            </div>
+        </li>
+    
+</ul>
+<!-- info end -->
+
+        
+    <div class="trm-divider trm-mb-40 trm-mt-40"></div>
+    <!-- action button -->
+    <div class="text-center">
+        <a href="mailto:franklin.wei@gmail.com" class="trm-btn">
+            联系我
+            <i class="iconfont far fa-envelope"></i>
+        </a>
+    </div>
+    <!-- action button end -->
+
+    </div>
+</div>
+                    <!-- main card end -->
+                </div>
+            
+            <div class="trm-page-content col-lg-8">
+                <div id="trm-content" class="trm-content">
+                    <div class="trm-post-info row hidden-sm">
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-calendar-alt trm-icon"></i><br>
+            11/19
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-clock trm-icon"></i><br>
+            19:37
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div id="post-author" class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-user trm-icon"></i><br>
+            John Doe
+        </div>
+    </div>
+</div>
+<div class="trm-card ">
+    <article id="article-container" class="trm-publication">
+    <h1 id="9-Disjointed-set"><a href="#9-Disjointed-set" class="headerlink" title="9. Disjointed set"></a>9. Disjointed set</h1><h2 id="9-1-introduction"><a href="#9-1-introduction" class="headerlink" title="9.1 introduction"></a>9.1 introduction</h2><ol>
+<li>互斥</li>
+<li>有2种运算：<ol>
+<li><code>connect(x, y)</code>或者说是<code>union</code></li>
+<li><code>isConnected(x, y)</code></li>
+</ol>
+</li>
+<li>an <strong>interface</strong> determines <em>what</em> behaviors a data structure should have (but not <em>how</em> to accomplish it)  接口</li>
+<li><strong>design decisions greatly affect asymptotic runtime and code complexity.</strong><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">DisjointSets</span> &#123;</span><br><span class="line">    <span class="comment">/** connects two items P and Q */</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">connect</span><span class="params">(<span class="type">int</span> p, <span class="type">int</span> q)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** checks to see if two items are connected */</span></span><br><span class="line">    <span class="type">boolean</span> <span class="title function_">isConnected</span><span class="params">(<span class="type">int</span> p, <span class="type">int</span> q)</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="9-2-Quick-Find"><a href="#9-2-Quick-Find" class="headerlink" title="9.2 Quick Find"></a>9.2 Quick Find</h2><ol>
+<li>同一个set的元素的id相同<br>![[Pasted image 20241111142101.png]]</li>
+<li>判断isConnected（x, y)可以直接判断id是否相同，时间复杂度O(1)<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">QuickFindDS</span> <span class="keyword">implements</span> <span class="title class_">DisjointSets</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span>[] id;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* Θ(N) */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">QuickFindDS</span><span class="params">(<span class="type">int</span> N)</span>&#123;</span><br><span class="line">        id = <span class="keyword">new</span> <span class="title class_">int</span>[N];</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; N; i++)&#123;</span><br><span class="line">            id[i] = i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* need to iterate through the array =&gt; Θ(N) */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">connect</span><span class="params">(<span class="type">int</span> p, <span class="type">int</span> q)</span>&#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">pid</span> <span class="operator">=</span> id[p];</span><br><span class="line">        <span class="type">int</span> <span class="variable">qid</span> <span class="operator">=</span> id[q];</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; id.length; i++)&#123;</span><br><span class="line">            <span class="keyword">if</span> (id[i] == pid)&#123;</span><br><span class="line">                id[i] = qid;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* Θ(1) */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">isConnected</span><span class="params">(<span class="type">int</span> p, <span class="type">int</span> q)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (id[p] == id[q]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="9-3-Quick-Union"><a href="#9-3-Quick-Union" class="headerlink" title="9.3 Quick Union"></a>9.3 Quick Union</h2><ol>
+<li>辅助函数<code>find(int item)</code> 返回<code>item</code>所在的根![[Pasted image 20241111142647.png]]<ul>
+<li>find(4) &#x3D; 0   find(5) &#x3D; 3<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">QuickUnionDS</span> <span class="keyword">implements</span> <span class="title class_">DisjointSets</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span>[] parent;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">QuickUnionDS</span><span class="params">(<span class="type">int</span> num)</span> &#123;</span><br><span class="line">        parent = <span class="keyword">new</span> <span class="title class_">int</span>[num];</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; num; i++) &#123;</span><br><span class="line">            parent[i] = i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> <span class="title function_">find</span><span class="params">(<span class="type">int</span> p)</span> &#123;</span><br><span class="line">        <span class="keyword">while</span> (parent[p] &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">            p = parent[p];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> p;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">connect</span><span class="params">(<span class="type">int</span> p, <span class="type">int</span> q)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> find(p);</span><br><span class="line">        <span class="type">int</span> j= find(q);</span><br><span class="line">        parent[i] = j;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">isConnected</span><span class="params">(<span class="type">int</span> p, <span class="type">int</span> q)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> find(p) == find(q);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ol>
+<h2 id="9-4-Weighted-Quick-Union-WQU"><a href="#9-4-Weighted-Quick-Union-WQU" class="headerlink" title="9.4 Weighted Quick Union(WQU)"></a>9.4 Weighted Quick Union(WQU)</h2><ol>
+<li>优化QU，针对<code>find</code>函数在运行是要climb to the root of a tree，显然是低效的，为了解决这个问题，提出了个关键思路：<strong>在每次connect时，判断2个trees的高度，把高度小的tree links to 高的</strong>。</li>
+<li>树的maximum height可以控制在logN内</li>
+</ol>
+<h2 id="9-5-WQU-with-Path-Compression"><a href="#9-5-WQU-with-Path-Compression" class="headerlink" title="9.5 WQU with Path Compression"></a>9.5 WQU with Path Compression</h2><ol>
+<li>有点抽象，让所有的<code>item</code>都连接到根</li>
+<li>理解了</li>
+<li>核心思路是在find操作时，在经过沿途的<code>item</code>时把它直接连接到根节点，使得后续的查找路径更短</li>
+<li>为什么不会增加额外的渐进复杂度：<ol>
+<li><strong>顺路</strong></li>
+<li>摊还分析（Amortized Analysis）</li>
+</ol>
+</li>
+</ol>
+<h1 id="10-ADT"><a href="#10-ADT" class="headerlink" title="10. ADT"></a>10. ADT</h1><h2 id="10-1-intro"><a href="#10-1-intro" class="headerlink" title="10.1 intro"></a>10.1 intro</h2><ul>
+<li>Abstract Data Type抽象数据类型</li>
+<li>仅由其操作定义，而不由其实现定义</li>
+<li>常见的：Stacks、Lists、Sets、Maps</li>
+</ul>
+<h2 id="10-2-trees"><a href="#10-2-trees" class="headerlink" title="10.2 trees"></a>10.2 trees</h2><ul>
+<li>BST: Binary Search Tree</li>
+<li>**Hibbard deletion<ol>
+<li>找到该节点的<strong>直接后继节点</strong>（即右子树中最小的节点）或<strong>直接前驱节点</strong>（即左子树中最大的节点）。</li>
+<li>用该后继节点或前驱节点的值替换待删除节点的值。</li>
+<li>然后删除这个后继或前驱节点（注意它必然是前两种情况之一：要么是叶子节点，要么只有一个子节点）<br>  ![[Pasted image 20241116182943.png]]</li>
+</ol>
+</li>
+</ul>
+<h2 id="11-Balanced-Trees"><a href="#11-Balanced-Trees" class="headerlink" title="11. Balanced Trees"></a>11. Balanced Trees</h2><h3 id="11-1-Intro"><a href="#11-1-Intro" class="headerlink" title="11.1 Intro"></a>11.1 Intro</h3><ul>
+<li><strong>BigO</strong> is not synonymous to the Worst-case</li>
+<li><strong>depth</strong>: the number of links between a node and the root.</li>
+<li><strong>height</strong>: the lowest depth of a tree.</li>
+<li><strong>average depth</strong>: average of the total depths in the tree.</li>
+</ul>
+<h2 id="11-2-B-Trees"><a href="#11-2-B-Trees" class="headerlink" title="11.2 B-Trees"></a>11.2 B-Trees</h2><ul>
+<li><p>problem：每次insert一个数据时都会增加树的高度</p>
+</li>
+<li><p>为改变这点，引入一个crazy idea：**let’s just never add a leaf node! **</p>
+</li>
+<li><p>When we insert, let’s just add to a current leaf node. This way, the height will never increase.</p>
+</li>
+<li><p>![[Pasted image 20241117142339.png]]</p>
+</li>
+<li><p><img src="https://raw.githubusercontent.com/Frank-whw/img/main/blog/202411191943326.png" alt="image.png"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+</li>
+<li><p>我本人是不太喜欢或者理解这一个idea，原因在于这增加了find的时间复杂度，在16 17 18 19这一个叶子中find数据还是需要traverse，时间复杂度取决于叶子的大小</p>
+</li>
+</ul>
+<h3 id="11-3-B-Tree-invariants"><a href="#11-3-B-Tree-invariants" class="headerlink" title="11.3 B-Tree invariants"></a>11.3 B-Tree invariants</h3><ul>
+<li>同样一组数据，插入的顺序会决定树的高度</li>
+<li>B-Trees的特点（invarants）：<ol>
+<li>All leaves must be the same distance from the source.</li>
+<li>A non-leaf node with <code>k</code>items must have exactly <code>k+1</code> children.</li>
+</ol>
+</li>
+</ul>
+<h3 id="11-4-Rotating-Trees"><a href="#11-4-Rotating-Trees" class="headerlink" title="11.4 Rotating Trees"></a>11.4 Rotating Trees</h3><ul>
+<li>存在的原因在于通过rotating去维持树的invariant<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> Node <span class="title function_">rotateRight</span><span class="params">(Node h)</span> &#123;</span><br><span class="line">    <span class="comment">// assert (h != null) &amp;&amp; isRed(h.left);</span></span><br><span class="line">    <span class="type">Node</span> <span class="variable">x</span> <span class="operator">=</span> h.left;</span><br><span class="line">    h.left = x.right;</span><br><span class="line">    x.right = h;</span><br><span class="line">    <span class="keyword">return</span> x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// make a right-leaning link lean to the left</span></span><br><span class="line"><span class="keyword">private</span> Node <span class="title function_">rotateLeft</span><span class="params">(Node h)</span> &#123;</span><br><span class="line">    <span class="comment">// assert (h != null) &amp;&amp; isRed(h.right);</span></span><br><span class="line">    <span class="type">Node</span> <span class="variable">x</span> <span class="operator">=</span> h.right;</span><br><span class="line">    h.right = x.left;</span><br><span class="line">    x.left = h;</span><br><span class="line">    <span class="keyword">return</span> x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="11-5-Red-Black-Trees"><a href="#11-5-Red-Black-Trees" class="headerlink" title="11.5 Red-Black Trees"></a>11.5 Red-Black Trees</h3><ul>
+<li>略</li>
+</ul>
+<h1 id="12-Hashing"><a href="#12-Hashing" class="headerlink" title="12 Hashing"></a>12 Hashing</h1><h2 id="12-1-attempt"><a href="#12-1-attempt" class="headerlink" title="12.1 attempt"></a>12.1 attempt</h2><ul>
+<li>limitation：<ol>
+<li>item需要可以被比较</li>
+<li>最优只有logn的复杂度，能不能更加优秀</li>
+</ol>
+</li>
+<li>针对limitation2提出DataIndexedIntergerSet</li>
+</ul>
+<h2 id="12-2-Inserting-words"><a href="#12-2-Inserting-words" class="headerlink" title="12.2 Inserting words"></a>12.2 Inserting words</h2><ul>
+<li>其实就是引出了<strong>哈希表</strong>的核心：input一个什么东西，把它转为成唯一且对应的hash值，根据这个hash值可以判断这个东西是不是存在</li>
+<li>解决了item可以不需要被比较的问题以及复杂度变为O(1)</li>
+<li>但是新问题：浪费</li>
+</ul>
+<h2 id="12-3-Inserting-String-and-Overflow"><a href="#12-3-Inserting-String-and-Overflow" class="headerlink" title="12.3 Inserting String and Overflow"></a>12.3 Inserting String and Overflow</h2><ul>
+<li>overflow会导致2种不同的string有相同的表示</li>
+<li>因为java中最大的数据是2,147,483,647</li>
+<li>java中最多有4,294,967,296个整数，但是object的数量比这多</li>
+<li>所以<strong>collision不可避免</strong>，但是这并不会阻止我们将string转换成int</li>
+<li>以上这种转换称之为”Computing the <strong>hash code</strong> of the object”</li>
+<li>java的每一个object都内置了一个函数<code>.hashcode()</code>，这是通过object的地址（地址显然是唯一且对应的）生成hash值</li>
+<li>有时我们也自己create <code>hashcode</code> method</li>
+<li>properties of <code>hashCodes</code>:<ol>
+<li>必须是整数</li>
+<li>对同一个object运行<code>.hashCode</code>，<strong>返回值必须相同</strong></li>
+<li>2个Object被认为<code>.equal()</code>必须有相同的hash code</li>
+</ol>
+</li>
+<li>pending issues：<ul>
+<li>a lot of space</li>
+<li>hash collisions</li>
+</ul>
+</li>
+</ul>
+<h2 id="12-4-handling-collisions"><a href="#12-4-handling-collisions" class="headerlink" title="12.4 handling collisions"></a>12.4 handling collisions</h2><ul>
+<li>主要的想法是一个hash值对应一个LinkedList，so that如果在添加一个item时，它的hash值已经存在在map中说明hash collision，那么将这个item放在hash值对应的LinkedList中（因为List显然是可以存多个item的）</li>
+<li>create workflow：<ul>
+<li><code>add</code>item</li>
+<li><code>contains </code>item</li>
+</ul>
+</li>
+<li>于是可以减少容量，同时使用mod运算</li>
+<li>目前的情况：<ul>
+<li>space问题解决了</li>
+<li>collision解决了</li>
+<li>runtime complexity有问题了</li>
+</ul>
+</li>
+</ul>
+<h2 id="12-5-Hash-Table-and-Fixing-Runtime"><a href="#12-5-Hash-Table-and-Fixing-Runtime" class="headerlink" title="12.5 Hash Table and Fixing Runtime"></a>12.5 Hash Table and Fixing Runtime</h2><ul>
+<li>最终的数据结构：<code>HashTable</code><ul>
+<li>Inputs are converted by a hash function (<code>hashcode</code>) into an integer. Then, they’re converted to a valid index using the modulus operator. Then, they’re added at that index (dealing with collisions using LinkedList).</li>
+<li><code>contains</code> works in a similar fashion by figuring out the valid index, and looking in the corresponding LinkedList for the item.</li>
+</ul>
+</li>
+<li>如何解决runtime问题：<ol>
+<li>动态增长哈希表</li>
+<li>改进哈希码</li>
+</ol>
+</li>
+</ul>
+<h1 id="Lab-7"><a href="#Lab-7" class="headerlink" title="Lab 7"></a>Lab 7</h1><ul>
+<li>以<strong>树</strong>为基础创建一个Map</li>
+<li>创建完之后与ULLMap和TreeMap比较</li>
+<li>需要完成的method：除了<code>remove、iterator、keySet</code>都要 + <code>printInOrder</code>()</li>
+<li>K应该继承Comparable：assume that generic keys <code>K</code> have a <code>compareTo</code> method.</li>
+<li> use a private nested <code>BSTNode</code> class to help facilitate your implementation. （recommend）</li>
+</ul>
+
+</article>
+    
+    
+
+</div>
+<div class="trm-post-next-prev row">
+    <div class="col-lg-12">
+        <!-- title -->
+        <h5 class="trm-title-with-divider">
+            其他文章
+            <span data-number="02"></span>
+        </h5>
+    </div>
+    
+        <div class="col-lg-6">
+    <div class="trm-blog-card trm-scroll-animation">
+        <a href="/2024/11/19/the%20first%20try/" class="trm-cover-frame trm-anima-link">
+            
+            
+                <div class="trm-cover-img" data-random-img></div>
+            
+        </a>
+        
+        <div class="trm-card-descr">
+            <div class="trm-label trm-category trm-mb-20">
+                <a href=" /categories/special-for-ln/">
+                    special for ln
+                </a>
+            </div>
+            <h5>
+                <a href="/2024/11/19/the%20first%20try/" class="trm-anima-link">
+                    the first try
+                </a>
+            </h5>
+            <div class="trm-divider trm-mb-20 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>24/11/19</li>
+                <li>19:44</li>
+                
+                    <li>0</li>
+                
+                
+                    <li>1</li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    
+        <div class="col-lg-6">
+    <div class="trm-blog-card trm-scroll-animation">
+        <a href="/2024/10/29/SQL/" class="trm-cover-frame trm-anima-link">
+            
+            
+                <div class="trm-cover-img" data-random-img></div>
+            
+        </a>
+        
+        <div class="trm-card-descr">
+            <div class="trm-label trm-category trm-mb-20">
+                <a href=" /categories/learning/">
+                    learning
+                </a>
+            </div>
+            <h5>
+                <a href="/2024/10/29/SQL/" class="trm-anima-link">
+                    SQL
+                </a>
+            </h5>
+            <div class="trm-divider trm-mb-20 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>24/10/29</li>
+                <li>17:51</li>
+                
+                    <li>146</li>
+                
+                
+                    <li>1</li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+    
+</div>
+
+    
+
+    <div class="trm-card trm-scroll-animation comment-container">
+    <com-comment env='腾讯云环境ID' hash=''></com-comment>
+</div>
+
+
+
+                    <div class="trm-divider footer-divider"></div>
+
+                    <!-- footer -->
+                    <div class="trm-counter-up trm-scroll-animation">
+    <div class="trm-counter-number">
+      <span class="trm-counter">140</span>
+      <span class="trm-counter-symbol">+</span>
+    </div>
+    <div class="trm-divider trm-mb-20 trm-mt-20"></div>
+    <div class="trm-label">Honors and Awards</div>
+  </div>
+  
+                    <!-- footer end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            <!-- body end -->
+
+            
+
+    <div id="post-toc" class="trm-post-toc">
+      <div class="trm-post-toc-header">
+        目录导航
+				<span id="post-toc-top">
+					置顶
+				</span>
+      </div>
+      <div class="trm-post-toc-content">
+        <ol class="trm-toc"><li class="trm-toc-item trm-toc-level-1" title="9. Disjointed set"><a rel="nofollow" class="trm-toc-link" href="#9-Disjointed-set"><span class="trm-toc-number">1.</span> <span class="trm-toc-text">9. Disjointed set</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="9.1 introduction"><a rel="nofollow" class="trm-toc-link" href="#9-1-introduction"><span class="trm-toc-number">1.1.</span> <span class="trm-toc-text">9.1 introduction</span></a></li><li class="trm-toc-item trm-toc-level-2" title="9.2 Quick Find"><a rel="nofollow" class="trm-toc-link" href="#9-2-Quick-Find"><span class="trm-toc-number">1.2.</span> <span class="trm-toc-text">9.2 Quick Find</span></a></li><li class="trm-toc-item trm-toc-level-2" title="9.3 Quick Union"><a rel="nofollow" class="trm-toc-link" href="#9-3-Quick-Union"><span class="trm-toc-number">1.3.</span> <span class="trm-toc-text">9.3 Quick Union</span></a></li><li class="trm-toc-item trm-toc-level-2" title="9.4 Weighted Quick Union(WQU)"><a rel="nofollow" class="trm-toc-link" href="#9-4-Weighted-Quick-Union-WQU"><span class="trm-toc-number">1.4.</span> <span class="trm-toc-text">9.4 Weighted Quick Union(WQU)</span></a></li><li class="trm-toc-item trm-toc-level-2" title="9.5 WQU with Path Compression"><a rel="nofollow" class="trm-toc-link" href="#9-5-WQU-with-Path-Compression"><span class="trm-toc-number">1.5.</span> <span class="trm-toc-text">9.5 WQU with Path Compression</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-1" title="10. ADT"><a rel="nofollow" class="trm-toc-link" href="#10-ADT"><span class="trm-toc-number">2.</span> <span class="trm-toc-text">10. ADT</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="10.1 intro"><a rel="nofollow" class="trm-toc-link" href="#10-1-intro"><span class="trm-toc-number">2.1.</span> <span class="trm-toc-text">10.1 intro</span></a></li><li class="trm-toc-item trm-toc-level-2" title="10.2 trees"><a rel="nofollow" class="trm-toc-link" href="#10-2-trees"><span class="trm-toc-number">2.2.</span> <span class="trm-toc-text">10.2 trees</span></a></li><li class="trm-toc-item trm-toc-level-2" title="11. Balanced Trees"><a rel="nofollow" class="trm-toc-link" href="#11-Balanced-Trees"><span class="trm-toc-number">2.3.</span> <span class="trm-toc-text">11. Balanced Trees</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-3" title="11.1 Intro"><a rel="nofollow" class="trm-toc-link" href="#11-1-Intro"><span class="trm-toc-number">2.3.1.</span> <span class="trm-toc-text">11.1 Intro</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-2" title="11.2 B-Trees"><a rel="nofollow" class="trm-toc-link" href="#11-2-B-Trees"><span class="trm-toc-number">2.4.</span> <span class="trm-toc-text">11.2 B-Trees</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-3" title="11.3 B-Tree invariants"><a rel="nofollow" class="trm-toc-link" href="#11-3-B-Tree-invariants"><span class="trm-toc-number">2.4.1.</span> <span class="trm-toc-text">11.3 B-Tree invariants</span></a></li><li class="trm-toc-item trm-toc-level-3" title="11.4 Rotating Trees"><a rel="nofollow" class="trm-toc-link" href="#11-4-Rotating-Trees"><span class="trm-toc-number">2.4.2.</span> <span class="trm-toc-text">11.4 Rotating Trees</span></a></li><li class="trm-toc-item trm-toc-level-3" title="11.5 Red-Black Trees"><a rel="nofollow" class="trm-toc-link" href="#11-5-Red-Black-Trees"><span class="trm-toc-number">2.4.3.</span> <span class="trm-toc-text">11.5 Red-Black Trees</span></a></li></ol></li></ol></li><li class="trm-toc-item trm-toc-level-1" title="12 Hashing"><a rel="nofollow" class="trm-toc-link" href="#12-Hashing"><span class="trm-toc-number">3.</span> <span class="trm-toc-text">12 Hashing</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="12.1 attempt"><a rel="nofollow" class="trm-toc-link" href="#12-1-attempt"><span class="trm-toc-number">3.1.</span> <span class="trm-toc-text">12.1 attempt</span></a></li><li class="trm-toc-item trm-toc-level-2" title="12.2 Inserting words"><a rel="nofollow" class="trm-toc-link" href="#12-2-Inserting-words"><span class="trm-toc-number">3.2.</span> <span class="trm-toc-text">12.2 Inserting words</span></a></li><li class="trm-toc-item trm-toc-level-2" title="12.3 Inserting String and Overflow"><a rel="nofollow" class="trm-toc-link" href="#12-3-Inserting-String-and-Overflow"><span class="trm-toc-number">3.3.</span> <span class="trm-toc-text">12.3 Inserting String and Overflow</span></a></li><li class="trm-toc-item trm-toc-level-2" title="12.4 handling collisions"><a rel="nofollow" class="trm-toc-link" href="#12-4-handling-collisions"><span class="trm-toc-number">3.4.</span> <span class="trm-toc-text">12.4 handling collisions</span></a></li><li class="trm-toc-item trm-toc-level-2" title="12.5 Hash Table and Fixing Runtime"><a rel="nofollow" class="trm-toc-link" href="#12-5-Hash-Table-and-Fixing-Runtime"><span class="trm-toc-number">3.5.</span> <span class="trm-toc-text">12.5 Hash Table and Fixing Runtime</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-1" title="Lab 7"><a rel="nofollow" class="trm-toc-link" href="#Lab-7"><span class="trm-toc-number">4.</span> <span class="trm-toc-text">Lab 7</span></a></li></ol>
+      </div>
+    </div>
+
+            
+<div class="trm-fixed-container">
+    
+        <div class="trm-fixed-btn post-toc-btn" data-title="目录">
+            <i class="iconfont fas fa-th-list"></i>
+        </div>
+    
+    
+        <div class="trm-fixed-btn" data-title="阅读模式" onclick="asyncFun.switchReadMode()">
+            <i class="iconfont fas fa-book-reader"></i>
+        </div>
+    
+    
+    <div id="trm-back-top" class="trm-fixed-btn" data-title="回到顶部">
+        <i class="iconfont fas fa-arrow-up"></i>
+    </div>
+</div>
+        </div>
+      </div>
+      <!-- scroll container end -->
+  </div>
+  <!-- app wrapper end -->
+
+  
+  <!-- Plugin -->
+
+
+
+
+    
+    
+<script src="https://npm.elemecdn.com/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+    
+
+    
+        <script src="/js/plugins/typing.js?v=2.2.3"></script>
+    
+
+    
+
+    <!-- 数学公式 -->
+    
+
+    <!-- 评论插件 -->
+    
+        
+
+        
+            
+<script src="//imgcache.qq.com/qcloud/cloudbase-js-sdk/1.7.1/cloudbase.full.js" data-swup-reload-script></script>
+<script src="https://npm.elemecdn.com/b-comments@0.0.13/dist/index.all.min.js" data-swup-reload-script></script>
+
+        
+    
+
+		
+
+
+
+
+    <!-- Service Worker -->
+    
+    <!-- baidu push -->
+    
+    <script data-swup-reload-script>
+        (function () {
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+    </script>
+
+
+
+<script id="async-script" src="/js/main.js?v=2.2.3"></script>
+
+<!-- CDN -->
+
+
+    
+
+    
+
+    
+
+
+
+</body>
+
+</html>
