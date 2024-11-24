@@ -11,14 +11,14 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="配置图床">
 <meta property="og:url" content="http://example.com/2024/11/20/%E9%85%8D%E7%BD%AE%E5%9B%BE%E5%BA%8A/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="Frank&#39;s Blog">
 <meta property="og:description" content="PROBLEM直接复制黏贴进obsidian的图片，当我在blog上发表这个笔记时无法显示  REASON本地之所以能看见图片是因为md文件所在文件夹会自动保存图片。如果我们想让别人也看见完整的md文件，需要把整个文件夹发给对方，但这个在blog发布的时候显然是不行的  SOLUTION使用obsidian的插件image auto upload、picgo这个开源软件以及用来存储照片的githu">
 <meta property="og:locale">
 <meta property="og:image" content="http://example.com/img/404.jpg">
 <meta property="og:image" content="http://example.com/img/404.jpg">
 <meta property="og:image" content="http://example.com/img/404.jpg">
 <meta property="article:published_time" content="2024-11-20T02:11:55.311Z">
-<meta property="article:modified_time" content="2024-11-20T02:12:55.624Z">
+<meta property="article:modified_time" content="2024-11-24T04:11:44.766Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/img/404.jpg">
@@ -67,7 +67,7 @@
 
 <!-- Variable -->
 <script>window.ASYNC_CONFIG = {"hostname":"example.com","author":"John Doe","root":"/","typed_text":["别急，慢慢来"],"theme_version":"2.2.3","theme":{"switch":true,"default":"style-light"},"favicon":{"logo":"log.svg","icon16":"log.svg","icon32":"log.svg","apple_touch_icon":"apple-touch-icon.png","webmanifest":"/site.webmanifest","visibilitychange":true,"hidden":"failure.ico","show_text":"(/≧▽≦/)","hide_text":"(●—●)"},"i18n":{"placeholder":"搜索文章...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）","author":"本文作者：","copyright_link":"本文链接：","copyright_license_title":"版权声明：","copyright_license_content":"本博客所有文章除特别声明外，均默认采用 undefined 许可协议。","copy_success":"复制成功","copy_failure":"复制失败","open_read_mode":"进入阅读模式","exit_read_mode":"退出阅读模式","notice_outdate_message":"距离上次更新已经 undefined 天了, 文章内容可能已经过时。","sticky":"置顶","just":"刚刚","min":"分钟前","hour":"小时前","day":"天前","month":"个月前"},"swup":false,"plugin":{"flickr_justified_gallery":"https://npm.elemecdn.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":false},"toc":{"post_title":false},"live_time":{"start_time":"","prefix":"博客已萌萌哒运行 undefined 天"},"danmu":{"enable":false,"el":".trm-banner"},"covers":["https://images.pexels.com/photos/1198817/pexels-photo-1198817.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2","https://images.pexels.com/photos/1366957/pexels-photo-1366957.jpeg?auto=compress&cs=tinysrgb&w=1200","https://images.pexels.com/photos/35857/amazing-beautiful-breathtaking-clouds.jpg?auto=compress&cs=tinysrgb&w=1200","https://images.pexels.com/photos/355288/pexels-photo-355288.jpeg?auto=compress&cs=tinysrgb&w=600"],"creative_commons":{"license":"by-nc-sa","language":"deed.zh-hans"}};</script>
-<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2024-11-20 10:12:55"};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2024-11-24 12:11:44"};</script>
 
 <!-- Theme mode css -->
 <link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.2.3" id="trm-switch-style">
@@ -394,7 +394,10 @@
 <ol>
 <li>七牛云每个月有50G内存空间，对于个人使用<strong>绰绰有余</strong></li>
 <li>七牛云需要<strong>备案过</strong>的域名，而本人正好有一个</li>
-<li>七牛云对于<strong>国内</strong>网络更加友好<br>快搭建完才发现一些<strong>问题</strong>：</li>
+<li>七牛云对于<strong>国内</strong>网络更加友好</li>
+</ol>
+<p>快搭建完才发现一些<strong>问题</strong>：</p>
+<ol>
 <li>我的域名是https协议，但七牛云只对http免费，所以我放弃自定义域名</li>
 <li>七牛云也提供免费的测试域名，期限是30天，每30天得重新创建一个空间，会有一系列麻烦</li>
 </ol>
@@ -419,7 +422,7 @@
 <li>打开obsidian，在第三方插件里搜索image auto import，安装启用即可。第一次安装的朋友可能需要<strong>关闭安全模式</strong>。启用后<strong>勾选</strong>上“剪切板自动上传”，其它设置默认即可<br><img src="https://raw.githubusercontent.com/Frank-whw/img/main/blog/202411201008531.png" alt="image.png"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
 </ol>
 <hr>
-<p>**完结撒花！！</p>
+<p><strong>完结撒花！！</strong></p>
 
 </article>
     
@@ -434,6 +437,41 @@
             <span data-number="02"></span>
         </h5>
     </div>
+    
+        <div class="col-lg-6">
+    <div class="trm-blog-card trm-scroll-animation">
+        <a href="/2024/11/20/how_to_use_git/" class="trm-cover-frame trm-anima-link">
+            
+            
+                <div class="trm-cover-img" data-random-img></div>
+            
+        </a>
+        
+        <div class="trm-card-descr">
+            <div class="trm-label trm-category trm-mb-20">
+                <a href=" #.">
+                    未分类
+                </a>
+            </div>
+            <h5>
+                <a href="/2024/11/20/how_to_use_git/" class="trm-anima-link">
+                    
+                </a>
+            </h5>
+            <div class="trm-divider trm-mb-20 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>24/11/20</li>
+                <li>17:24</li>
+                
+                    <li>1</li>
+                
+                
+                    <li>1</li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
     
     
         <div class="col-lg-6">
