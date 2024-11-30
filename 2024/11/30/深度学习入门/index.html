@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="x5-fullscreen" content="true">
+<meta name="full-screen" content="yes">
+<meta name="theme-color" content="#317EFB" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
+<meta name="description" content="1. python入门1.1 numpy numpy是python的一个第三方库，有助于深度学习中数组和矩阵的计算 import numpy as np 主要的计算方法是对应元素做运算 广播：  Python等动态类型语言一般比C和C++等静态类型语言（编译型语言） 运算速度慢。 实际上，如果是运算量大的处理对象，用 C&#x2F;C++写程序更好。为此，当 Python中追求性能时，人们会用 C">
+<meta property="og:type" content="article">
+<meta property="og:title" content="深度学习入门">
+<meta property="og:url" content="http://example.com/2024/11/30/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8/index.html">
+<meta property="og:site_name" content="Frank&#39;s Blog">
+<meta property="og:description" content="1. python入门1.1 numpy numpy是python的一个第三方库，有助于深度学习中数组和矩阵的计算 import numpy as np 主要的计算方法是对应元素做运算 广播：  Python等动态类型语言一般比C和C++等静态类型语言（编译型语言） 运算速度慢。 实际上，如果是运算量大的处理对象，用 C&#x2F;C++写程序更好。为此，当 Python中追求性能时，人们会用 C">
+<meta property="og:locale">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="article:published_time" content="2024-11-30T02:47:31.998Z">
+<meta property="article:modified_time" content="2024-11-30T02:48:55.971Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/404.jpg">
+
+
+<title >深度学习入门</title>
+
+<!-- Favicon -->
+
+    <link href='/log.svg?v=2.2.3' rel='icon' type='image/png' sizes='16x16' ></link>
+
+
+    <link href='/log.svg?v=2.2.3' rel='icon' type='image/png' sizes='32x32' ></link>
+
+
+    <link href='/apple-touch-icon.png?v=2.2.3' rel='apple-touch-icon' sizes='180x180' ></link>
+
+
+    <link href='/site.webmanifest' rel='manifest' ></link>
+
+
+<!-- Plugin -->
+
+
+
+
+    
+<link rel="stylesheet" href="/css/plugins/bootstrap.row.css">
+
+    
+<link rel="stylesheet" href="https://npm.elemecdn.com/@fancyapps/ui@4.0/dist/fancybox.css">
+
+    
+    
+
+
+
+
+<!-- Icon -->
+
+    
+<link rel="stylesheet" href="/css/plugins/font-awesome.min.css">
+
+
+
+
+<!-- Variable -->
+<script>window.ASYNC_CONFIG = {"hostname":"example.com","author":"John Doe","root":"/","typed_text":["别急，慢慢来"],"theme_version":"2.2.3","theme":{"switch":true,"default":"style-light"},"favicon":{"logo":"log.svg","icon16":"log.svg","icon32":"log.svg","apple_touch_icon":"apple-touch-icon.png","webmanifest":"/site.webmanifest","visibilitychange":true,"hidden":"failure.ico","show_text":"(/≧▽≦/)","hide_text":"(●—●)"},"i18n":{"placeholder":"搜索文章...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）","author":"本文作者：","copyright_link":"本文链接：","copyright_license_title":"版权声明：","copyright_license_content":"本博客所有文章除特别声明外，均默认采用 undefined 许可协议。","copy_success":"复制成功","copy_failure":"复制失败","open_read_mode":"进入阅读模式","exit_read_mode":"退出阅读模式","notice_outdate_message":"距离上次更新已经 undefined 天了, 文章内容可能已经过时。","sticky":"置顶","just":"刚刚","min":"分钟前","hour":"小时前","day":"天前","month":"个月前"},"swup":false,"plugin":{"flickr_justified_gallery":"https://npm.elemecdn.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":false},"toc":{"post_title":false},"live_time":{"start_time":"","prefix":"博客已萌萌哒运行 undefined 天"},"danmu":{"enable":false,"el":".trm-banner"},"covers":["/image/cover/1.jpg","/image/cover/2.jpg","/image/cover/3.jpg","/image/cover/4.jpg","/image/cover/5.jpg","/image/cover/6.jpg","/image/cover/7.jpg","/image/cover/8.jpg","/image/cover/9.jpg","/image/cover/10.jpg","/image/cover/11.jpg","/image/cover/12.jpg"],"creative_commons":{"license":"by-nc-sa","language":"deed.zh-hans"}};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2024-11-30 10:48:55"};</script>
+
+<!-- Theme mode css -->
+<link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.2.3" id="trm-switch-style">
+<script>
+    let defaultMode = ASYNC_CONFIG.theme.default !=='auto' ?  ASYNC_CONFIG.theme.default : (window.matchMedia("(prefers-color-scheme: light)").matches ? 'style-light' : 'style-dark')
+    let catchMode = localStorage.getItem('theme-mode') || defaultMode;
+    let type = catchMode === 'style-dark' ? 'add' : 'remove';
+    document.documentElement.classList[type]('dark')
+</script>
+
+<!-- CDN -->
+
+
+    
+    
+
+
+
+<!-- Site Analytics -->
+
+
+    
+        <!-- Baidu Analytics -->
+        <script defer>
+            var _hmt = _hmt || [];
+            (function() {
+              var hm = document.createElement("script");
+              hm.src = "https://hm.baidu.com/hm.js?百度统计Key";
+              var s = document.getElementsByTagName("script")[0]; 
+              s.parentNode.insertBefore(hm, s);
+            })();
+        </script>
+     
+
+    
+
+    
+ 
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+
+  <!-- app wrapper -->
+  <div class="trm-app-frame">
+
+    <!-- page preloader -->
+    <div class="trm-preloader">
+    <div class="trm-holder">
+        <div class="preloader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
+    <!-- page preloader end -->
+
+    <!-- change mode preloader -->
+    <div class="trm-mode-swich-animation-frame">
+    <div class="trm-mode-swich-animation">
+        <i class="i-sun"><i class="iconfont far fa-sun"></i></i>
+        <div class="trm-horizon"></div>
+        <i class="i-moon"><i class="iconfont far fa-moon"></i></i>
+    </div>
+</div>
+    <!-- change mode preloader end -->
+
+      <!-- scroll container -->
+      <div id="trm-dynamic-content" class="trm-swup-animation">
+        <div id="trm-scroll-container" class="trm-scroll-container" style="opacity: 0">
+            <!-- top bar -->
+            <header class="trm-top-bar">
+	<div class="container">
+		<div class="trm-left-side">
+			<!-- logo -->
+<a href="/" class="trm-logo-frame trm-anima-link">
+    
+        <img alt="logo" src="/log.svg">
+    
+    
+        <div class="trm-logo-text">
+            Frank&#39;s<span>Blog</span>
+        </div>
+    
+</a>
+<!-- logo end -->
+		</div>
+		<div class="trm-right-side">
+			<!-- menu -->
+<div class="trm-menu">
+    <nav>
+        <ul>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/" target="">
+                    HOME
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a data-no-swup href="/archives/" target="">
+                    ARCHIVES
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a data-no-swup href="/categories/" target="">
+                    CATEGORIES
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a data-no-swup href="/about/" target="">
+                    ABOUT
+                </a>
+                
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+<!-- menu end -->
+			
+    <!-- mode switcher place -->
+    <div class="trm-mode-switcher-place">
+        <div class="trm-mode-switcher">
+            <i class="iconfont far fa-sun"></i>
+            <input class="tgl tgl-light" id="trm-swich" type="checkbox">
+            <label class="trm-swich" for="trm-swich"></label>
+            <i class="iconfont far fa-moon"></i>
+        </div>
+    </div>
+    <!-- mode switcher place end -->
+
+			
+		</div>
+		<div class="trm-menu-btn">
+			<span></span>
+		</div>
+	</div>
+</header>
+            <!-- top bar end -->
+
+            <!-- body -->
+            
+<div class="trm-content-start">
+    <!-- banner -->
+    <div class="trm-banner">
+    
+    <!-- banner cover -->
+    <img style="object-position:top;object-fit:cover;" alt="banner" class="trm-banner-cover" src="/img/banner.png">
+    <!-- banner cover end -->
+    
+
+    <!-- banner content -->
+    <div class="trm-banner-content trm-overlay">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-lg-4"></div>
+                
+                <div class="col-lg-8">
+
+                    <!-- banner title -->
+                    <div class="trm-banner-text ">
+                        <div class="trm-label trm-mb-20">
+                            NEWS LETTER
+                        </div>
+                        <h1 class="trm-mb-30 trm-hsmb-font">
+                            深度学习入门
+                        </h1>
+
+                        
+                            <ul class="trm-breadcrumbs trm-label">
+                                <li>
+                                    <a href="/" class="trm-anima-link">Home</a>
+                                </li>
+                                <li>
+                                    <span>
+                                        2024
+                                    </span>
+                                </li>
+                            </ul>
+                        
+                    </div>
+                    <!-- banner title end -->
+
+                    <!-- scroll hint -->
+                    <span id="scroll-triger" class="trm-scroll-hint-frame">
+                        <div class="trm-scroll-hint"></div>
+                        <span class="trm-label">Scroll down</span>
+                    </span>
+                    <!-- scroll hint end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- banner content end -->
+</div>
+    <!-- banner end -->
+    <div class="container">
+        <div class="row">
+            
+                <div class="trm-page-sidebar col-lg-4 hidden-sm">
+                    <!-- main card -->
+                    <div class="trm-main-card-frame trm-sidebar">
+    <div class="trm-main-card"> 
+        <!-- card header -->
+<div class="trm-mc-header">
+    <div class="trm-avatar-frame trm-mb-20">
+        <img alt="Avatar" class="trm-avatar" src="https://bc6.afbza.cn/mqrcode/774621/1730179310_5178741067_%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20240915223455.jpg">
+    </div>
+    <h5 class="trm-name trm-mb-15">
+        Frank
+    </h5>
+    
+        <div class="trm-label">
+            
+            <span class="trm-typed-text">
+                <!-- Words for theme.user.typedText -->
+            </span>
+        </div>
+    
+</div>
+<!-- card header end -->
+        <!-- sidebar social -->
+
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<div class="trm-social">
+    
+        <a href="https://github.com/Frank-whw" title="github" rel="nofollow" target="_blank">
+            <i class="iconfont fab fa-github"></i>
+        </a>
+    
+        <a href="https://raw.githubusercontent.com/Frank-whw/img/main/blog/202411201029901.png" title="weChat" rel="nofollow" target="_blank">
+            <i class="iconfont fab fa-weixin"></i>
+        </a>
+    
+        <a href="https://twitter.com" title="twitter" rel="nofollow" target="_blank">
+            <i class="iconfont fab fa-twitter"></i>
+        </a>
+    
+        <a href="https://steamcommunity.com/profiles/76561199028311718/" title="steam" rel="nofollow" target="_blank">
+            <i class="iconfont fab fa-steam"></i>
+        </a>
+    
+</div>
+
+<!-- sidebar social end -->
+        <!-- info -->
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<ul class="trm-table trm-mb-20">
+    
+        <li>
+            <div class="trm-label">
+                Residence:
+            </div>
+            <div class="trm-label trm-label-light">
+                Mars
+            </div>
+        </li>
+    
+</ul>
+<!-- info end -->
+
+        
+    <div class="trm-divider trm-mb-40 trm-mt-40"></div>
+    <!-- action button -->
+    <div class="text-center">
+        <a href="mailto:franklin.wei@gmail.com" class="trm-btn">
+            联系我
+            <i class="iconfont far fa-envelope"></i>
+        </a>
+    </div>
+    <!-- action button end -->
+
+    </div>
+</div>
+                    <!-- main card end -->
+                </div>
+            
+            <div class="trm-page-content col-lg-8">
+                <div id="trm-content" class="trm-content">
+                    <div class="trm-post-info row hidden-sm">
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-calendar-alt trm-icon"></i><br>
+            11/30
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-clock trm-icon"></i><br>
+            10:47
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div id="post-author" class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-user trm-icon"></i><br>
+            John Doe
+        </div>
+    </div>
+</div>
+<div class="trm-card ">
+    <article id="article-container" class="trm-publication">
+    <h1 id="1-python入门"><a href="#1-python入门" class="headerlink" title="1. python入门"></a>1. python入门</h1><h2 id="1-1-numpy"><a href="#1-1-numpy" class="headerlink" title="1.1 numpy"></a>1.1 numpy</h2><ul>
+<li>numpy是python的一个第三方库，有助于深度学习中数组和矩阵的计算</li>
+<li><code>import numpy as np</code></li>
+<li>主要的计算方法是<strong>对应元素做运算</strong></li>
+<li><strong>广播</strong>：</li>
+<li><img src="https://raw.githubusercontent.com/Frank-whw/img/main/blog/202411291600719.png" alt="image.png"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br><img src="https://raw.githubusercontent.com/Frank-whw/img/main/blog/202411291600641.png" alt="image.png"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>Python等动态类型语言一般比C和C++等<strong>静态类</strong>型语言（编译型语言） 运算速度慢。</li>
+<li>实际上，如果是运算量大的处理对象，用 C&#x2F;C++写程序更好。为此，当 Python中追求性能时，人们会用 C&#x2F;C++来实现处理的内容。Python则承担“<strong>中间人</strong>”的角色，负责<strong>调用</strong>那些用 C&#x2F; C++写的程序。NumPy中，主要的处理也都是通过C或C++实现的。 因此，我们可以在不损失性能的情况下，使用 Python便利的语法。</li>
+</ul>
+<h2 id="1-2-Matplotlib"><a href="#1-2-Matplotlib" class="headerlink" title="1.2 Matplotlib"></a>1.2 Matplotlib</h2><ul>
+<li>用于图形的可视化</li>
+<li>pyplot的功能<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">x = np.arange(<span class="number">0</span>, <span class="number">6</span>, <span class="number">0.01</span>)</span><br><span class="line">y1 = np.sin(x)</span><br><span class="line">y2 = np.cos(x)</span><br><span class="line"><span class="comment"># print(x)</span></span><br><span class="line"><span class="comment"># print(y)</span></span><br><span class="line">plt.plot(x, y1, label=<span class="string">&quot;sin&quot;</span>)</span><br><span class="line">plt.plot(x, y2, linestyle=<span class="string">&quot;--&quot;</span>, label=<span class="string">&quot;cos&quot;</span>)</span><br><span class="line">plt.xlabel(<span class="string">&quot;x&quot;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&quot;y&quot;</span>)</span><br><span class="line">plt.title(<span class="string">&#x27;sin &amp; cos&#x27;</span>)</span><br><span class="line">plt.legend()</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure></li>
+<li>运行结果<br><img src="https://raw.githubusercontent.com/Frank-whw/img/main/blog/202411291602612.png" alt="image.png"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>imshow()函数可以用来读入图像<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> matplotlib.image <span class="keyword">import</span> imread</span><br><span class="line">img = imread(<span class="string">&#x27;lena.png&#x27;</span>) <span class="comment"># 读入图像</span></span><br><span class="line">plt.imshow(img)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure></li>
+<li>运行结果</li>
+<li><img src="https://raw.githubusercontent.com/Frank-whw/img/main/blog/202411291604651.png" alt="image.png"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+</ul>
+<h1 id="2-感知机"><a href="#2-感知机" class="headerlink" title="2. 感知机"></a>2. 感知机</h1><h2 id="2-1-what"><a href="#2-1-what" class="headerlink" title="2.1 what"></a>2.1 what</h2><ul>
+<li><p>接受多个信号，输出一个信号<br><img src="https://raw.githubusercontent.com/Frank-whw/img/main/blog/202411300951408.png" alt="image.png"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+</li>
+<li><p>有点模拟生物神经元的感觉</p>
+</li>
+<li><p>输入信号乘以对应权重的总和超过<strong>阈值</strong>的时候 输出1——神经元被激活</p>
+</li>
+<li><p><img src="https://raw.githubusercontent.com/Frank-whw/img/main/blog/202411300953553.png" alt="image.png"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+</li>
+</ul>
+<h2 id="2-2-简单逻辑电路"><a href="#2-2-简单逻辑电路" class="headerlink" title="2.2 简单逻辑电路"></a>2.2 简单逻辑电路</h2><ul>
+<li>与《code》这本书不同的在于本章以感知机的角度，或者说用python代码的形式去实现逻辑门</li>
+<li>相同构造的感知机，只需要适当地调整参数的值，就可以在与门、与非门、或门之间转变</li>
+<li><img src="https://raw.githubusercontent.com/Frank-whw/img/main/blog/202411300958684.png" alt="image.png"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+</ul>
+<h2 id="2-3-感知机的实现"><a href="#2-3-感知机的实现" class="headerlink" title="2.3 感知机的实现"></a>2.3 感知机的实现</h2><ul>
+<li>与门<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">AND</span>(<span class="params">x1,x2</span>):</span><br><span class="line">	x = np.array([x1, x2])</span><br><span class="line">	w = np.array([<span class="number">0.5</span>, <span class="number">0.5</span>]) <span class="comment"># w是权重</span></span><br><span class="line">	b = -<span class="number">0.7</span> <span class="comment"># b称为偏置</span></span><br><span class="line">	tmp = np.<span class="built_in">sum</span>(w * x) + b</span><br><span class="line">	<span class="keyword">return</span> tmp &gt; <span class="number">0</span> ? <span class="number">1</span> : <span class="number">0</span></span><br></pre></td></tr></table></figure></li>
+<li>而或门和与非门的实现，仅需改变上面代码中w和b的值即可</li>
+</ul>
+<h2 id="2-4-感知机的局限"><a href="#2-4-感知机的局限" class="headerlink" title="2.4 感知机的局限"></a>2.4 感知机的局限</h2><h3 id="2-4-1-异或门"><a href="#2-4-1-异或门" class="headerlink" title="2.4.1 异或门"></a>2.4.1 异或门</h3><ul>
+<li>真值表</li>
+<li><img src="https://raw.githubusercontent.com/Frank-whw/img/main/blog/202411301005768.png" alt="image.png"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br>所以我们能找到一组w和b的值，使得简单改变上面代码就能实现异或门吗？</li>
+<li>找不到。为什么找不到呢？通过画图想一下为什么之前3个门是可以的。</li>
+<li><img src="https://raw.githubusercontent.com/Frank-whw/img/main/blog/202411301006179.png" alt="image.png"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br><img src="https://raw.githubusercontent.com/Frank-whw/img/main/blog/202411301007090.png" alt="image.png"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+</ul>
+<h3 id="2-4-2-线性和非线性"><a href="#2-4-2-线性和非线性" class="headerlink" title="2.4.2 线性和非线性"></a>2.4.2 线性和非线性</h3><ul>
+<li>感知机的局限在于它只能表示由一条直线分割的空间</li>
+</ul>
+<h2 id="2-5-多重感知机"><a href="#2-5-多重感知机" class="headerlink" title="2.5 多重感知机"></a>2.5 多重感知机</h2><h3 id="2-5-1-已有门电路的组合"><a href="#2-5-1-已有门电路的组合" class="headerlink" title="2.5.1 已有门电路的组合"></a>2.5.1 已有门电路的组合</h3><p><img src="https://raw.githubusercontent.com/Frank-whw/img/main/blog/202411301009614.png" alt="image.png"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h3 id="2-5-2-异或门的实现"><a href="#2-5-2-异或门的实现" class="headerlink" title="2.5.2 异或门的实现"></a>2.5.2 异或门的实现</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">XOR</span>(<span class="params">x1, x2</span>):</span><br><span class="line">	s1 = NAND(x1, x2)</span><br><span class="line">	s2 = OR(x1, x2)</span><br><span class="line">	y = AND(s1, s2)</span><br><span class="line">	<span class="keyword">return</span> y</span><br></pre></td></tr></table></figure>
+<h2 id="2-6-从与非门到计算机"><a href="#2-6-从与非门到计算机" class="headerlink" title="2.6 从与非门到计算机"></a>2.6 从与非门到计算机</h2><ul>
+<li>2层感知机（严格地说是激活函数使用了非线性的sigmoid函数的感知机）可以表示任意函数</li>
+<li>感知机通过叠加层能够进行非线性的表示，理论上还可以表示计算机进行的处理</li>
+</ul>
+<h2 id="2-7-小结"><a href="#2-7-小结" class="headerlink" title="2.7 小结"></a>2.7 小结</h2><p><img src="https://raw.githubusercontent.com/Frank-whw/img/main/blog/202411301013411.png" alt="image.png"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h1 id="3-神经网络"><a href="#3-神经网络" class="headerlink" title="3. 神经网络"></a>3. 神经网络</h1><h2 id="3-1-从感知机到神经网络"><a href="#3-1-从感知机到神经网络" class="headerlink" title="3.1 从感知机到神经网络"></a>3.1 从感知机到神经网络</h2><h3 id="3-1-1-神经网络的例子"><a href="#3-1-1-神经网络的例子" class="headerlink" title="3.1.1 神经网络的例子"></a>3.1.1 神经网络的例子</h3><p><img src="https://raw.githubusercontent.com/Frank-whw/img/main/blog/202411301016009.png" alt="image.png"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>神经网络中的信号如何传递呢？</li>
+</ul>
+<h3 id="3-1-2-复习感知机"><a href="#3-1-2-复习感知机" class="headerlink" title="3.1.2 复习感知机"></a>3.1.2 复习感知机</h3><h3 id="3-1-3-激活函数"><a href="#3-1-3-激活函数" class="headerlink" title="3.1.3 激活函数"></a>3.1.3 激活函数</h3><ul>
+<li>将输入信号的总和转换为输出信号的函数成为激活函数</li>
+<li>比如</li>
+<li><img src="https://raw.githubusercontent.com/Frank-whw/img/main/blog/202411301021888.png" alt="image.png"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br><img src="https://raw.githubusercontent.com/Frank-whw/img/main/blog/202411301022480.png" alt="image.png"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>激活函数是连接感知机和神经网络的 桥梁。</li>
+</ul>
+<h2 id="3-2-激活函数"><a href="#3-2-激活函数" class="headerlink" title="3.2 激活函数"></a>3.2 激活函数</h2><ul>
+<li>感知机使用<strong>阶跃函数</strong>作为激活函数，不同于神经网络使用的</li>
+</ul>
+<h3 id="3-2-1-sigmoid函数"><a href="#3-2-1-sigmoid函数" class="headerlink" title="3.2.1 sigmoid函数"></a>3.2.1 sigmoid函数</h3><p><img src="https://raw.githubusercontent.com/Frank-whw/img/main/blog/202411301024523.png" alt="image.png"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>特点在于值域在0-1之间，关于(0, 0.5)中心对称</li>
+</ul>
+<h3 id="3-2-2-阶跃函数的实现"><a href="#3-2-2-阶跃函数的实现" class="headerlink" title="3.2.2 阶跃函数的实现"></a>3.2.2 阶跃函数的实现</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">step_function</span>(<span class="params">x</span>):</span><br><span class="line">	y = x &gt; <span class="number">0</span></span><br><span class="line">	<span class="keyword">return</span> y.astype(np.<span class="built_in">int</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>解释：<code>x &gt; 0</code> 会返回一个布尔类型的Numpy数组，而astype()可以转换Numpy数组的类型为参数指定期望的类型</li>
+</ul>
+<h3 id="3-2-3-阶跃函数的图像"><a href="#3-2-3-阶跃函数的图像" class="headerlink" title="3.2.3 阶跃函数的图像"></a>3.2.3 阶跃函数的图像</h3><p><img src="https://raw.githubusercontent.com/Frank-whw/img/main/blog/202411301028211.png" alt="image.png"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h3 id="3-2-4-sigmoid函数的实现"><a href="#3-2-4-sigmoid函数的实现" class="headerlink" title="3.2.4 sigmoid函数的实现"></a>3.2.4 sigmoid函数的实现</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">sigmoid</span>(<span class="params">x</span>):</span><br><span class="line">	<span class="keyword">return</span> <span class="number">1</span> / (<span class="number">1</span> + np.exp(-x))</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/Frank-whw/img/main/blog/202411301029551.png" alt="image.png"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h3 id="3-2-5-sigmoid函数和阶跃函数的比较"><a href="#3-2-5-sigmoid函数和阶跃函数的比较" class="headerlink" title="3.2.5 sigmoid函数和阶跃函数的比较"></a>3.2.5 sigmoid函数和阶跃函数的比较</h3><ul>
+<li>连续性和平滑性</li>
+<li>sigmoid会根据输入信号的大小调整输出信号的大小</li>
+</ul>
+<h3 id="3-2-6-非线性函数"><a href="#3-2-6-非线性函数" class="headerlink" title="3.2.6 非线性函数"></a>3.2.6 非线性函数</h3><ul>
+<li>上述二者都是非线性函数</li>
+<li>线性函数的问题在于，不管如何加深层数，总是存在与之等效的“无 隐藏层的神经网络”。</li>
+</ul>
+<h3 id="3-2-7-ReLU函数"><a href="#3-2-7-ReLU函数" class="headerlink" title="3.2.7 ReLU函数"></a>3.2.7 ReLU函数</h3><p><img src="https://raw.githubusercontent.com/Frank-whw/img/main/blog/202411301032954.png" alt="image.png"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">relu</span>(<span class="params">x</span>):</span><br><span class="line">	<span class="keyword">return</span> np.maximum(<span class="number">0</span>, x)</span><br></pre></td></tr></table></figure>
+<h2 id="3-3-多维数组的运算"><a href="#3-3-多维数组的运算" class="headerlink" title="3.3 多维数组的运算"></a>3.3 多维数组的运算</h2><h3 id="3-3-1-多维数组"><a href="#3-3-1-多维数组" class="headerlink" title="3.3.1 多维数组"></a>3.3.1 多维数组</h3><h3 id="3-3-2-矩阵乘法"><a href="#3-3-2-矩阵乘法" class="headerlink" title="3.3.2 矩阵乘法"></a>3.3.2 矩阵乘法</h3><ul>
+<li>np.dot(A, B)<br><img src="https://raw.githubusercontent.com/Frank-whw/img/main/blog/202411301037103.png" alt="image.png"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+</ul>
+
+</article>
+    
+    
+
+</div>
+<div class="trm-post-next-prev row">
+    <div class="col-lg-12">
+        <!-- title -->
+        <h5 class="trm-title-with-divider">
+            其他文章
+            <span data-number="02"></span>
+        </h5>
+    </div>
+    
+    
+        <div class="col-lg-6">
+    <div class="trm-blog-card trm-scroll-animation">
+        <a href="/2024/11/20/%E9%85%8D%E7%BD%AE%E5%9B%BE%E5%BA%8A/" class="trm-cover-frame trm-anima-link">
+            
+            
+                <div class="trm-cover-img" data-random-img></div>
+            
+        </a>
+        
+        <div class="trm-card-descr">
+            <div class="trm-label trm-category trm-mb-20">
+                <a href=" /categories/recording/">
+                    recording
+                </a>
+            </div>
+            <h5>
+                <a href="/2024/11/20/%E9%85%8D%E7%BD%AE%E5%9B%BE%E5%BA%8A/" class="trm-anima-link">
+                    配置图床
+                </a>
+            </h5>
+            <div class="trm-divider trm-mb-20 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>24/11/20</li>
+                <li>10:11</li>
+                
+                    <li>499</li>
+                
+                
+                    <li>1</li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+    
+</div>
+
+    
+
+    <div class="trm-card trm-scroll-animation comment-container">
+    <com-comment env='腾讯云环境ID' hash=''></com-comment>
+</div>
+
+
+
+                    <div class="trm-divider footer-divider"></div>
+
+                    <!-- footer -->
+                    <div class="trm-counter-up trm-scroll-animation">
+    <div class="trm-counter-number">
+      <span class="trm-counter">140</span>
+      <span class="trm-counter-symbol">+</span>
+    </div>
+    <div class="trm-divider trm-mb-20 trm-mt-20"></div>
+    <div class="trm-label">Honors and Awards</div>
+  </div>
+  
+                    <!-- footer end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            <!-- body end -->
+
+            
+
+    <div id="post-toc" class="trm-post-toc">
+      <div class="trm-post-toc-header">
+        目录导航
+				<span id="post-toc-top">
+					置顶
+				</span>
+      </div>
+      <div class="trm-post-toc-content">
+        <ol class="trm-toc"><li class="trm-toc-item trm-toc-level-1" title="1. python入门"><a rel="nofollow" class="trm-toc-link" href="#1-python入门"><span class="trm-toc-number">1.</span> <span class="trm-toc-text">1. python入门</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="1.1 numpy"><a rel="nofollow" class="trm-toc-link" href="#1-1-numpy"><span class="trm-toc-number">1.1.</span> <span class="trm-toc-text">1.1 numpy</span></a></li><li class="trm-toc-item trm-toc-level-2" title="1.2 Matplotlib"><a rel="nofollow" class="trm-toc-link" href="#1-2-Matplotlib"><span class="trm-toc-number">1.2.</span> <span class="trm-toc-text">1.2 Matplotlib</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-1" title="2. 感知机"><a rel="nofollow" class="trm-toc-link" href="#2-感知机"><span class="trm-toc-number">2.</span> <span class="trm-toc-text">2. 感知机</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="2.1 what"><a rel="nofollow" class="trm-toc-link" href="#2-1-what"><span class="trm-toc-number">2.1.</span> <span class="trm-toc-text">2.1 what</span></a></li><li class="trm-toc-item trm-toc-level-2" title="2.2 简单逻辑电路"><a rel="nofollow" class="trm-toc-link" href="#2-2-简单逻辑电路"><span class="trm-toc-number">2.2.</span> <span class="trm-toc-text">2.2 简单逻辑电路</span></a></li><li class="trm-toc-item trm-toc-level-2" title="2.3 感知机的实现"><a rel="nofollow" class="trm-toc-link" href="#2-3-感知机的实现"><span class="trm-toc-number">2.3.</span> <span class="trm-toc-text">2.3 感知机的实现</span></a></li><li class="trm-toc-item trm-toc-level-2" title="2.4 感知机的局限"><a rel="nofollow" class="trm-toc-link" href="#2-4-感知机的局限"><span class="trm-toc-number">2.4.</span> <span class="trm-toc-text">2.4 感知机的局限</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-3" title="2.4.1 异或门"><a rel="nofollow" class="trm-toc-link" href="#2-4-1-异或门"><span class="trm-toc-number">2.4.1.</span> <span class="trm-toc-text">2.4.1 异或门</span></a></li><li class="trm-toc-item trm-toc-level-3" title="2.4.2 线性和非线性"><a rel="nofollow" class="trm-toc-link" href="#2-4-2-线性和非线性"><span class="trm-toc-number">2.4.2.</span> <span class="trm-toc-text">2.4.2 线性和非线性</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-2" title="2.5 多重感知机"><a rel="nofollow" class="trm-toc-link" href="#2-5-多重感知机"><span class="trm-toc-number">2.5.</span> <span class="trm-toc-text">2.5 多重感知机</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-3" title="2.5.1 已有门电路的组合"><a rel="nofollow" class="trm-toc-link" href="#2-5-1-已有门电路的组合"><span class="trm-toc-number">2.5.1.</span> <span class="trm-toc-text">2.5.1 已有门电路的组合</span></a></li><li class="trm-toc-item trm-toc-level-3" title="2.5.2 异或门的实现"><a rel="nofollow" class="trm-toc-link" href="#2-5-2-异或门的实现"><span class="trm-toc-number">2.5.2.</span> <span class="trm-toc-text">2.5.2 异或门的实现</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-2" title="2.6 从与非门到计算机"><a rel="nofollow" class="trm-toc-link" href="#2-6-从与非门到计算机"><span class="trm-toc-number">2.6.</span> <span class="trm-toc-text">2.6 从与非门到计算机</span></a></li><li class="trm-toc-item trm-toc-level-2" title="2.7 小结"><a rel="nofollow" class="trm-toc-link" href="#2-7-小结"><span class="trm-toc-number">2.7.</span> <span class="trm-toc-text">2.7 小结</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-1" title="3. 神经网络"><a rel="nofollow" class="trm-toc-link" href="#3-神经网络"><span class="trm-toc-number">3.</span> <span class="trm-toc-text">3. 神经网络</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="3.1 从感知机到神经网络"><a rel="nofollow" class="trm-toc-link" href="#3-1-从感知机到神经网络"><span class="trm-toc-number">3.1.</span> <span class="trm-toc-text">3.1 从感知机到神经网络</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-3" title="3.1.1 神经网络的例子"><a rel="nofollow" class="trm-toc-link" href="#3-1-1-神经网络的例子"><span class="trm-toc-number">3.1.1.</span> <span class="trm-toc-text">3.1.1 神经网络的例子</span></a></li><li class="trm-toc-item trm-toc-level-3" title="3.1.2 复习感知机"><a rel="nofollow" class="trm-toc-link" href="#3-1-2-复习感知机"><span class="trm-toc-number">3.1.2.</span> <span class="trm-toc-text">3.1.2 复习感知机</span></a></li><li class="trm-toc-item trm-toc-level-3" title="3.1.3 激活函数"><a rel="nofollow" class="trm-toc-link" href="#3-1-3-激活函数"><span class="trm-toc-number">3.1.3.</span> <span class="trm-toc-text">3.1.3 激活函数</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-2" title="3.2 激活函数"><a rel="nofollow" class="trm-toc-link" href="#3-2-激活函数"><span class="trm-toc-number">3.2.</span> <span class="trm-toc-text">3.2 激活函数</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-3" title="3.2.1 sigmoid函数"><a rel="nofollow" class="trm-toc-link" href="#3-2-1-sigmoid函数"><span class="trm-toc-number">3.2.1.</span> <span class="trm-toc-text">3.2.1 sigmoid函数</span></a></li><li class="trm-toc-item trm-toc-level-3" title="3.2.2 阶跃函数的实现"><a rel="nofollow" class="trm-toc-link" href="#3-2-2-阶跃函数的实现"><span class="trm-toc-number">3.2.2.</span> <span class="trm-toc-text">3.2.2 阶跃函数的实现</span></a></li><li class="trm-toc-item trm-toc-level-3" title="3.2.3 阶跃函数的图像"><a rel="nofollow" class="trm-toc-link" href="#3-2-3-阶跃函数的图像"><span class="trm-toc-number">3.2.3.</span> <span class="trm-toc-text">3.2.3 阶跃函数的图像</span></a></li><li class="trm-toc-item trm-toc-level-3" title="3.2.4 sigmoid函数的实现"><a rel="nofollow" class="trm-toc-link" href="#3-2-4-sigmoid函数的实现"><span class="trm-toc-number">3.2.4.</span> <span class="trm-toc-text">3.2.4 sigmoid函数的实现</span></a></li><li class="trm-toc-item trm-toc-level-3" title="3.2.5 sigmoid函数和阶跃函数的比较"><a rel="nofollow" class="trm-toc-link" href="#3-2-5-sigmoid函数和阶跃函数的比较"><span class="trm-toc-number">3.2.5.</span> <span class="trm-toc-text">3.2.5 sigmoid函数和阶跃函数的比较</span></a></li><li class="trm-toc-item trm-toc-level-3" title="3.2.6 非线性函数"><a rel="nofollow" class="trm-toc-link" href="#3-2-6-非线性函数"><span class="trm-toc-number">3.2.6.</span> <span class="trm-toc-text">3.2.6 非线性函数</span></a></li><li class="trm-toc-item trm-toc-level-3" title="3.2.7 ReLU函数"><a rel="nofollow" class="trm-toc-link" href="#3-2-7-ReLU函数"><span class="trm-toc-number">3.2.7.</span> <span class="trm-toc-text">3.2.7 ReLU函数</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-2" title="3.3 多维数组的运算"><a rel="nofollow" class="trm-toc-link" href="#3-3-多维数组的运算"><span class="trm-toc-number">3.3.</span> <span class="trm-toc-text">3.3 多维数组的运算</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-3" title="3.3.1 多维数组"><a rel="nofollow" class="trm-toc-link" href="#3-3-1-多维数组"><span class="trm-toc-number">3.3.1.</span> <span class="trm-toc-text">3.3.1 多维数组</span></a></li><li class="trm-toc-item trm-toc-level-3" title="3.3.2 矩阵乘法"><a rel="nofollow" class="trm-toc-link" href="#3-3-2-矩阵乘法"><span class="trm-toc-number">3.3.2.</span> <span class="trm-toc-text">3.3.2 矩阵乘法</span></a></li></ol></li></ol></li></ol>
+      </div>
+    </div>
+
+            
+<div class="trm-fixed-container">
+    
+        <div class="trm-fixed-btn post-toc-btn" data-title="目录">
+            <i class="iconfont fas fa-th-list"></i>
+        </div>
+    
+    
+        <div class="trm-fixed-btn" data-title="阅读模式" onclick="asyncFun.switchReadMode()">
+            <i class="iconfont fas fa-book-reader"></i>
+        </div>
+    
+    
+    <div id="trm-back-top" class="trm-fixed-btn" data-title="回到顶部">
+        <i class="iconfont fas fa-arrow-up"></i>
+    </div>
+</div>
+        </div>
+      </div>
+      <!-- scroll container end -->
+  </div>
+  <!-- app wrapper end -->
+
+  
+  <!-- Plugin -->
+
+
+
+
+    
+    
+<script src="https://npm.elemecdn.com/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+    
+
+    
+        <script src="/js/plugins/typing.js?v=2.2.3"></script>
+    
+
+    
+
+    <!-- 数学公式 -->
+    
+
+    <!-- 评论插件 -->
+    
+        
+
+        
+            
+<script src="//imgcache.qq.com/qcloud/cloudbase-js-sdk/1.7.1/cloudbase.full.js" data-swup-reload-script></script>
+<script src="https://npm.elemecdn.com/b-comments@0.0.13/dist/index.all.min.js" data-swup-reload-script></script>
+
+        
+    
+
+		
+
+
+
+
+    <!-- Service Worker -->
+    
+    <!-- baidu push -->
+    
+    <script data-swup-reload-script>
+        (function () {
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+    </script>
+
+
+
+<script id="async-script" src="/js/main.js?v=2.2.3"></script>
+
+<!-- CDN -->
+
+
+    
+
+    
+
+    
+
+
+
+</body>
+
+</html>

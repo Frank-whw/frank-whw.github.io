@@ -9,20 +9,24 @@
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
 <meta name="description" content="9. Disjointed set9.1 introduction 互斥 有2种运算： connect(x, y)或者说是union isConnected(x, y)   an interface determines what behaviors a data structure should have (but not how to accomplish it)  接口 design dec">
 <meta property="og:type" content="article">
-<meta property="og:title" content="cs61b">
+<meta property="og:title" content="data structure之cs61b">
 <meta property="og:url" content="http://example.com/2024/11/19/cs61b/index.html">
 <meta property="og:site_name" content="Frank&#39;s Blog">
 <meta property="og:description" content="9. Disjointed set9.1 introduction 互斥 有2种运算： connect(x, y)或者说是union isConnected(x, y)   an interface determines what behaviors a data structure should have (but not how to accomplish it)  接口 design dec">
 <meta property="og:locale">
 <meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
 <meta property="article:published_time" content="2024-11-19T11:37:00.333Z">
-<meta property="article:modified_time" content="2024-11-19T11:43:35.411Z">
+<meta property="article:modified_time" content="2024-11-24T12:56:58.708Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/img/404.jpg">
 
 
-<title >cs61b</title>
+<title >data structure之cs61b</title>
 
 <!-- Favicon -->
 
@@ -65,7 +69,7 @@
 
 <!-- Variable -->
 <script>window.ASYNC_CONFIG = {"hostname":"example.com","author":"John Doe","root":"/","typed_text":["别急，慢慢来"],"theme_version":"2.2.3","theme":{"switch":true,"default":"style-light"},"favicon":{"logo":"log.svg","icon16":"log.svg","icon32":"log.svg","apple_touch_icon":"apple-touch-icon.png","webmanifest":"/site.webmanifest","visibilitychange":true,"hidden":"failure.ico","show_text":"(/≧▽≦/)","hide_text":"(●—●)"},"i18n":{"placeholder":"搜索文章...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）","author":"本文作者：","copyright_link":"本文链接：","copyright_license_title":"版权声明：","copyright_license_content":"本博客所有文章除特别声明外，均默认采用 undefined 许可协议。","copy_success":"复制成功","copy_failure":"复制失败","open_read_mode":"进入阅读模式","exit_read_mode":"退出阅读模式","notice_outdate_message":"距离上次更新已经 undefined 天了, 文章内容可能已经过时。","sticky":"置顶","just":"刚刚","min":"分钟前","hour":"小时前","day":"天前","month":"个月前"},"swup":false,"plugin":{"flickr_justified_gallery":"https://npm.elemecdn.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":false},"toc":{"post_title":false},"live_time":{"start_time":"","prefix":"博客已萌萌哒运行 undefined 天"},"danmu":{"enable":false,"el":".trm-banner"},"covers":["/image/cover/1.jpg","/image/cover/2.jpg","/image/cover/3.jpg","/image/cover/4.jpg","/image/cover/5.jpg","/image/cover/6.jpg","/image/cover/7.jpg","/image/cover/8.jpg","/image/cover/9.jpg","/image/cover/10.jpg","/image/cover/11.jpg","/image/cover/12.jpg"],"creative_commons":{"license":"by-nc-sa","language":"deed.zh-hans"}};</script>
-<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2024-11-19 19:43:35"};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2024-11-24 20:56:58"};</script>
 
 <!-- Theme mode css -->
 <link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.2.3" id="trm-switch-style">
@@ -245,7 +249,7 @@
                             NEWS LETTER
                         </div>
                         <h1 class="trm-mb-30 trm-hsmb-font">
-                            cs61b
+                            data structure之cs61b
                         </h1>
 
                         
@@ -416,6 +420,7 @@
 </ol>
 </li>
 </ol>
+<hr>
 <h1 id="10-ADT"><a href="#10-ADT" class="headerlink" title="10. ADT"></a>10. ADT</h1><h2 id="10-1-intro"><a href="#10-1-intro" class="headerlink" title="10.1 intro"></a>10.1 intro</h2><ul>
 <li>Abstract Data Type抽象数据类型</li>
 <li>仅由其操作定义，而不由其实现定义</li>
@@ -430,7 +435,8 @@
 </ol>
 </li>
 </ul>
-<h2 id="11-Balanced-Trees"><a href="#11-Balanced-Trees" class="headerlink" title="11. Balanced Trees"></a>11. Balanced Trees</h2><h3 id="11-1-Intro"><a href="#11-1-Intro" class="headerlink" title="11.1 Intro"></a>11.1 Intro</h3><ul>
+<hr>
+<h1 id="11-Balanced-Trees"><a href="#11-Balanced-Trees" class="headerlink" title="11. Balanced Trees"></a>11. Balanced Trees</h1><h2 id="11-1-Intro"><a href="#11-1-Intro" class="headerlink" title="11.1 Intro"></a>11.1 Intro</h2><ul>
 <li><strong>BigO</strong> is not synonymous to the Worst-case</li>
 <li><strong>depth</strong>: the number of links between a node and the root.</li>
 <li><strong>height</strong>: the lowest depth of a tree.</li>
@@ -450,7 +456,7 @@
 <li><p>我本人是不太喜欢或者理解这一个idea，原因在于这增加了find的时间复杂度，在16 17 18 19这一个叶子中find数据还是需要traverse，时间复杂度取决于叶子的大小</p>
 </li>
 </ul>
-<h3 id="11-3-B-Tree-invariants"><a href="#11-3-B-Tree-invariants" class="headerlink" title="11.3 B-Tree invariants"></a>11.3 B-Tree invariants</h3><ul>
+<h2 id="11-3-B-Tree-invariants"><a href="#11-3-B-Tree-invariants" class="headerlink" title="11.3 B-Tree invariants"></a>11.3 B-Tree invariants</h2><ul>
 <li>同样一组数据，插入的顺序会决定树的高度</li>
 <li>B-Trees的特点（invarants）：<ol>
 <li>All leaves must be the same distance from the source.</li>
@@ -458,12 +464,13 @@
 </ol>
 </li>
 </ul>
-<h3 id="11-4-Rotating-Trees"><a href="#11-4-Rotating-Trees" class="headerlink" title="11.4 Rotating Trees"></a>11.4 Rotating Trees</h3><ul>
+<h2 id="11-4-Rotating-Trees"><a href="#11-4-Rotating-Trees" class="headerlink" title="11.4 Rotating Trees"></a>11.4 Rotating Trees</h2><ul>
 <li>存在的原因在于通过rotating去维持树的invariant<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> Node <span class="title function_">rotateRight</span><span class="params">(Node h)</span> &#123;</span><br><span class="line">    <span class="comment">// assert (h != null) &amp;&amp; isRed(h.left);</span></span><br><span class="line">    <span class="type">Node</span> <span class="variable">x</span> <span class="operator">=</span> h.left;</span><br><span class="line">    h.left = x.right;</span><br><span class="line">    x.right = h;</span><br><span class="line">    <span class="keyword">return</span> x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// make a right-leaning link lean to the left</span></span><br><span class="line"><span class="keyword">private</span> Node <span class="title function_">rotateLeft</span><span class="params">(Node h)</span> &#123;</span><br><span class="line">    <span class="comment">// assert (h != null) &amp;&amp; isRed(h.right);</span></span><br><span class="line">    <span class="type">Node</span> <span class="variable">x</span> <span class="operator">=</span> h.right;</span><br><span class="line">    h.right = x.left;</span><br><span class="line">    x.left = h;</span><br><span class="line">    <span class="keyword">return</span> x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
-<h3 id="11-5-Red-Black-Trees"><a href="#11-5-Red-Black-Trees" class="headerlink" title="11.5 Red-Black Trees"></a>11.5 Red-Black Trees</h3><ul>
+<h2 id="11-5-Red-Black-Trees"><a href="#11-5-Red-Black-Trees" class="headerlink" title="11.5 Red-Black Trees"></a>11.5 Red-Black Trees</h2><ul>
 <li>略</li>
 </ul>
+<hr>
 <h1 id="12-Hashing"><a href="#12-Hashing" class="headerlink" title="12 Hashing"></a>12 Hashing</h1><h2 id="12-1-attempt"><a href="#12-1-attempt" class="headerlink" title="12.1 attempt"></a>12.1 attempt</h2><ul>
 <li>limitation：<ol>
 <li>item需要可以被比较</li>
@@ -524,12 +531,191 @@
 </ol>
 </li>
 </ul>
+<hr>
 <h1 id="Lab-7"><a href="#Lab-7" class="headerlink" title="Lab 7"></a>Lab 7</h1><ul>
 <li>以<strong>树</strong>为基础创建一个Map</li>
 <li>创建完之后与ULLMap和TreeMap比较</li>
 <li>需要完成的method：除了<code>remove、iterator、keySet</code>都要 + <code>printInOrder</code>()</li>
 <li>K应该继承Comparable：assume that generic keys <code>K</code> have a <code>compareTo</code> method.</li>
-<li> use a private nested <code>BSTNode</code> class to help facilitate your implementation. （recommend）</li>
+<li> use a private nested <code>BSTNode</code> class to help facilitate your implementation. （recommend）<br>finish at 2024年11月19日</li>
+</ul>
+<hr>
+<h1 id="13-Heaps-and-Priority-Queues"><a href="#13-Heaps-and-Priority-Queues" class="headerlink" title="13 Heaps and Priority Queues"></a>13 Heaps and Priority Queues</h1><h2 id="13-1-PQ-interface"><a href="#13-1-PQ-interface" class="headerlink" title="13.1 PQ interface"></a>13.1 PQ interface</h2><ul>
+<li><p>引入：如何找到最大或者最小的元素而不只是快速搜索</p>
+</li>
+<li><p>引出：Priority Queue（优先队列）</p>
+<ul>
+<li>如何理解：想象一个包，可以加东西 可以减东西，但是只能<code>interact with the smallest items of this bag</code>  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** (Min) Priority Queue: Allowing tracking and removal of </span></span><br><span class="line"><span class="comment">* the smallest item in a priority queue. */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">MinPQ</span>&lt;Item&gt; &#123;</span><br><span class="line">	<span class="comment">/** Adds the item to the priority queue. */</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">add</span><span class="params">(Item x)</span>;</span><br><span class="line">	<span class="comment">/** Returns the smallest item in the priority queue. */</span></span><br><span class="line">	<span class="keyword">public</span> Item <span class="title function_">getSmallest</span><span class="params">()</span>;</span><br><span class="line">	<span class="comment">/** Removes the smallest item from the priority queue. */</span></span><br><span class="line">	<span class="keyword">public</span> Item <span class="title function_">removeSmallest</span><span class="params">()</span>;</span><br><span class="line">	<span class="comment">/** Returns the size of the priority queue. */</span></span><br><span class="line">	<span class="keyword">public</span> <span class="type">int</span> <span class="title function_">size</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<img src="https://raw.githubusercontent.com/Frank-whw/img/main/blog/202411200928434.png" alt="image.png"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+</ul>
+</li>
+<li><p>显然BST的效率最高</p>
+</li>
+</ul>
+<h2 id="13-2-Heaps"><a href="#13-2-Heaps" class="headerlink" title="13.2 Heaps"></a>13.2 Heaps</h2><ul>
+<li>根据BST引出min-heap，有如下特性：<ul>
+<li>每个节点都小于等于它的孩子</li>
+<li>如果有缺失，只会出现在bottom level</li>
+</ul>
+</li>
+<li>有如下操作：<ol>
+<li><code>add</code>: Add to the end of heap temporarily. Swim up the hierarchy to the proper place</li>
+<li><code>getSmallest</code>: Return the root of the heap (This is guaranteed to be the minimum by our <em>min-heap</em> property</li>
+<li><code>removeSmallest</code>: Swap the last item in the heap into the root. Sink down the hierarchy to the proper place.</li>
+</ol>
+</li>
+</ul>
+<h2 id="13-3-The-Implementation"><a href="#13-3-The-Implementation" class="headerlink" title="13.3 The Implementation"></a>13.3 The Implementation</h2><ul>
+<li>通过在一个数组的开头留一个空位以简化计算<img src="https://raw.githubusercontent.com/Frank-whw/img/main/blog/202411201039200.png" alt="image.png"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li><code>leftChild(k)</code>&#x3D;k∗2&#x3D;k∗2</li>
+<li><code>rightChild(k)</code>&#x3D;k∗2+1&#x3D;k∗2+1</li>
+<li><code>parent(k)</code> &#x3D;k&#x2F;2&#x3D;k&#x2F;2</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Methods</th>
+<th>Ordered Array</th>
+<th>Bushy BST</th>
+<th>Hash Table</th>
+<th>Heap</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>add</code></td>
+<td>Θ(N)</td>
+<td>Θ(logN)</td>
+<td>Θ(1)</td>
+<td>Θ(logN)</td>
+</tr>
+<tr>
+<td><code>getSmallest</code></td>
+<td>Θ(1)</td>
+<td>Θ(logN)</td>
+<td>Θ(N)</td>
+<td>Θ(1)</td>
+</tr>
+<tr>
+<td><code>removeSmallest</code></td>
+<td>Θ(N)</td>
+<td>Θ(logN)</td>
+<td>Θ(N)</td>
+<td>Θ(logN)</td>
+</tr>
+<tr>
+<td><strong>problem</strong>：</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<ol>
+<li>PQ怎么知道如何排序</li>
+<li>有什么允许灵活排序的方法吗</li>
+<li>怎么样才能将MinPQ变为MaxPQ</li>
+</ol>
+<hr>
+<h1 id="14-Data-Structures-Summary"><a href="#14-Data-Structures-Summary" class="headerlink" title="14 Data Structures Summary"></a>14 Data Structures Summary</h1><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Store Operation(s)</th>
+<th>Primary Retrieval Operation</th>
+<th>Retrieve By</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>List</td>
+<td><code>add(key)</code>, <code>insert(key, index)</code></td>
+<td><code>get(index)</code></td>
+<td>index</td>
+</tr>
+<tr>
+<td>Map</td>
+<td><code>put(key, value)</code></td>
+<td><code>get(key)</code></td>
+<td>key identity</td>
+</tr>
+<tr>
+<td>Set</td>
+<td><code>add(key)</code></td>
+<td><code>containsKey(key)</code></td>
+<td>key identity</td>
+</tr>
+<tr>
+<td>PQ</td>
+<td><code>add(key)</code></td>
+<td><code>getSmallest()</code></td>
+<td>key order (aka key size)</td>
+</tr>
+<tr>
+<td>Disjoint Sets</td>
+<td><code>connect(int1, int2)</code></td>
+<td><code>isConnected(int1, int2)</code></td>
+<td>two integer values</td>
+</tr>
+</tbody></table>
+<p><img src="https://raw.githubusercontent.com/Frank-whw/img/main/blog/202411201057311.png" alt="image.png"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>we can often think of an ADT by the use of another ADT. </li>
+<li>And that Abstract Data Types have layers of abstraction, each defining a behavior that is more specific than the idea that came before it.</li>
+</ul>
+<hr>
+<h1 id="17-Tree-Traversals-and-Graphs"><a href="#17-Tree-Traversals-and-Graphs" class="headerlink" title="17 Tree Traversals and Graphs"></a>17 Tree Traversals and Graphs</h1><h2 id="17-1-Tree-recap"><a href="#17-1-Tree-recap" class="headerlink" title="17.1 Tree recap"></a>17.1 Tree recap</h2><ul>
+<li>树的作用：<br><code>speeding up searching for items, allowing prefixing, checking connectedness, and so on</code></li>
+<li>树的应用在生活中很普遍</li>
+</ul>
+<h2 id="17-2-Tree-Traversal"><a href="#17-2-Tree-Traversal" class="headerlink" title="17.2 Tree Traversal"></a>17.2 Tree Traversal</h2><ul>
+<li>层遍历 + 深度优先遍历（前序、中序和后序）</li>
+<li>前序遍历<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">preOrder(BSTNode x) &#123;</span><br><span class="line">    <span class="keyword">if</span> (x == <span class="literal">null</span>) <span class="keyword">return</span>;</span><br><span class="line">    print(x.key)</span><br><span class="line">    preOrder(x.left)</span><br><span class="line">    preOrder(x.right)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="17-3-Graphs"><a href="#17-3-Graphs" class="headerlink" title="17.3 Graphs"></a>17.3 Graphs</h2><ul>
+<li>树的局限：2个节点之间只能有一条路径</li>
+<li>图的组成：点+边</li>
+<li>树 真包含于 图</li>
+<li>Graphs can be divided into two categories: <strong><em>simple</em> graphs</strong> and <em>multigraphs</em> (or complicated graphs, a term I invented, because that’s how I like to think of them.)</li>
+<li>本节课研究simple graphs，简单图又分为无向+有向</li>
+</ul>
+<h2 id="17-4-Graph-Problems"><a href="#17-4-Graph-Problems" class="headerlink" title="17.4 Graph Problems"></a>17.4 Graph Problems</h2><ul>
+<li><strong>s-t Path</strong>: Is there a path between vertices s and t?</li>
+<li><strong>Connectivity</strong>: Is the graph connected, i.e. is there a path between all vertices?</li>
+<li><strong>Biconnectivity</strong>: Is there a vertex whose removal disconnects the graph?</li>
+<li><strong>Shortest s-t Path</strong>: What is the shortest path between vertices s and t?</li>
+<li><strong>Cycle Detection</strong>: Does the graph contain any cycles?</li>
+<li><strong>Euler Tour</strong>: Is there a cycle that uses every edge exactly once?</li>
+<li><strong>Hamilton Tour</strong>: Is there a cycle that uses every vertex exactly once?</li>
+<li><strong>Planarity</strong>: Can you draw the graph on paper with no crossing edges?</li>
+<li><strong>Isomorphism</strong>: Are two graphs isomorphic (the same graph in disguise)?</li>
+</ul>
+<hr>
+<h1 id="18-BFS"><a href="#18-BFS" class="headerlink" title="18. BFS"></a>18. BFS</h1><h2 id="18-1-BFS"><a href="#18-1-BFS" class="headerlink" title="18.1 BFS"></a>18.1 BFS</h2><ul>
+<li>Breadth First Search(also known as Level Order Traversal)</li>
+<li>The pseudocode for BFS is as follows:<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Initialize the fringe (a queue with the starting vertex) and mark that vertex.</span><br><span class="line">Repeat until fringe is empty:</span><br><span class="line">Remove vertex v from the fringe.</span><br><span class="line">For each unmarked neighbor n of v:</span><br><span class="line">Mark n.</span><br><span class="line">Add n to fringe.</span><br><span class="line">Set edgeTo[n] = v.</span><br><span class="line">Set distTo[n] = distTo[v] + 1.</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>fringe在这边指一个队列，先入先出</p>
+<ul>
+<li>dfs和bfs的区别：<ul>
+<li>dfs是一个方向去搜，不到黄河不回头，直到遇到绝境</li>
+<li>bfs是先把本节点所连接的所有节点都遍历一遍，走到下一个节点的时候，再把连接节点的所有节点遍历一遍</li>
+</ul>
+</li>
+</ul>
+<h2 id="18-2-Representing-Graphs"><a href="#18-2-Representing-Graphs" class="headerlink" title="18.2 Representing Graphs"></a>18.2 Representing Graphs</h2><ul>
+<li>有个难点：<ul>
+<li>原话：For our Graph API, let’s use <strong>the common convention</strong> of assigning each unique node to an <strong>integer</strong> number. This can be done by maintaining a map which can tell us the integer assigned to each original node label. Doing so allows us to define our API to work with integers specifically, rather than introducing the need for generic types.</li>
+<li>我的理解：用唯一对应的整数表示节点，而不是节点的原始标签，有点像Hash算法</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="Lab-8"><a href="#Lab-8" class="headerlink" title="Lab 8"></a>Lab 8</h1><ul>
+<li>与lab7很像，不同点在于这次将建造一个Hash Map而不是Tree Map</li>
+<li>完成后 需要与基于列表的Map 以及 内置的Java HashMap进行比较，另外要和基于不同数据结构的map对比</li>
+<li>新建一个class MyHashMap，完成Map61B中所有的methods，其中remove用报错代替，iterator返回迭代器，建议新建一个HashSet实例属性</li>
+<li>那么如何让hash table基于不同的数据结构呢？如果只是使用 Find + Replace 需要付出很多努力才能将存储桶类型更改为不同的存储桶类型。所以我们这边要使用<strong>polymorphism和inheritance</strong></li>
+<li>继承结构如下：<br><img src="https://raw.githubusercontent.com/Frank-whw/img/main/blog/202411242047029.png" alt="image.png"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>In the starter code, we give the <strong>instance variable</strong> <code>private Collection&lt;Node&gt;[] buckets</code>, which is the underlying data structure of the hash table.</li>
 </ul>
 
 </article>
@@ -658,7 +844,7 @@
 				</span>
       </div>
       <div class="trm-post-toc-content">
-        <ol class="trm-toc"><li class="trm-toc-item trm-toc-level-1" title="9. Disjointed set"><a rel="nofollow" class="trm-toc-link" href="#9-Disjointed-set"><span class="trm-toc-number">1.</span> <span class="trm-toc-text">9. Disjointed set</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="9.1 introduction"><a rel="nofollow" class="trm-toc-link" href="#9-1-introduction"><span class="trm-toc-number">1.1.</span> <span class="trm-toc-text">9.1 introduction</span></a></li><li class="trm-toc-item trm-toc-level-2" title="9.2 Quick Find"><a rel="nofollow" class="trm-toc-link" href="#9-2-Quick-Find"><span class="trm-toc-number">1.2.</span> <span class="trm-toc-text">9.2 Quick Find</span></a></li><li class="trm-toc-item trm-toc-level-2" title="9.3 Quick Union"><a rel="nofollow" class="trm-toc-link" href="#9-3-Quick-Union"><span class="trm-toc-number">1.3.</span> <span class="trm-toc-text">9.3 Quick Union</span></a></li><li class="trm-toc-item trm-toc-level-2" title="9.4 Weighted Quick Union(WQU)"><a rel="nofollow" class="trm-toc-link" href="#9-4-Weighted-Quick-Union-WQU"><span class="trm-toc-number">1.4.</span> <span class="trm-toc-text">9.4 Weighted Quick Union(WQU)</span></a></li><li class="trm-toc-item trm-toc-level-2" title="9.5 WQU with Path Compression"><a rel="nofollow" class="trm-toc-link" href="#9-5-WQU-with-Path-Compression"><span class="trm-toc-number">1.5.</span> <span class="trm-toc-text">9.5 WQU with Path Compression</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-1" title="10. ADT"><a rel="nofollow" class="trm-toc-link" href="#10-ADT"><span class="trm-toc-number">2.</span> <span class="trm-toc-text">10. ADT</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="10.1 intro"><a rel="nofollow" class="trm-toc-link" href="#10-1-intro"><span class="trm-toc-number">2.1.</span> <span class="trm-toc-text">10.1 intro</span></a></li><li class="trm-toc-item trm-toc-level-2" title="10.2 trees"><a rel="nofollow" class="trm-toc-link" href="#10-2-trees"><span class="trm-toc-number">2.2.</span> <span class="trm-toc-text">10.2 trees</span></a></li><li class="trm-toc-item trm-toc-level-2" title="11. Balanced Trees"><a rel="nofollow" class="trm-toc-link" href="#11-Balanced-Trees"><span class="trm-toc-number">2.3.</span> <span class="trm-toc-text">11. Balanced Trees</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-3" title="11.1 Intro"><a rel="nofollow" class="trm-toc-link" href="#11-1-Intro"><span class="trm-toc-number">2.3.1.</span> <span class="trm-toc-text">11.1 Intro</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-2" title="11.2 B-Trees"><a rel="nofollow" class="trm-toc-link" href="#11-2-B-Trees"><span class="trm-toc-number">2.4.</span> <span class="trm-toc-text">11.2 B-Trees</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-3" title="11.3 B-Tree invariants"><a rel="nofollow" class="trm-toc-link" href="#11-3-B-Tree-invariants"><span class="trm-toc-number">2.4.1.</span> <span class="trm-toc-text">11.3 B-Tree invariants</span></a></li><li class="trm-toc-item trm-toc-level-3" title="11.4 Rotating Trees"><a rel="nofollow" class="trm-toc-link" href="#11-4-Rotating-Trees"><span class="trm-toc-number">2.4.2.</span> <span class="trm-toc-text">11.4 Rotating Trees</span></a></li><li class="trm-toc-item trm-toc-level-3" title="11.5 Red-Black Trees"><a rel="nofollow" class="trm-toc-link" href="#11-5-Red-Black-Trees"><span class="trm-toc-number">2.4.3.</span> <span class="trm-toc-text">11.5 Red-Black Trees</span></a></li></ol></li></ol></li><li class="trm-toc-item trm-toc-level-1" title="12 Hashing"><a rel="nofollow" class="trm-toc-link" href="#12-Hashing"><span class="trm-toc-number">3.</span> <span class="trm-toc-text">12 Hashing</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="12.1 attempt"><a rel="nofollow" class="trm-toc-link" href="#12-1-attempt"><span class="trm-toc-number">3.1.</span> <span class="trm-toc-text">12.1 attempt</span></a></li><li class="trm-toc-item trm-toc-level-2" title="12.2 Inserting words"><a rel="nofollow" class="trm-toc-link" href="#12-2-Inserting-words"><span class="trm-toc-number">3.2.</span> <span class="trm-toc-text">12.2 Inserting words</span></a></li><li class="trm-toc-item trm-toc-level-2" title="12.3 Inserting String and Overflow"><a rel="nofollow" class="trm-toc-link" href="#12-3-Inserting-String-and-Overflow"><span class="trm-toc-number">3.3.</span> <span class="trm-toc-text">12.3 Inserting String and Overflow</span></a></li><li class="trm-toc-item trm-toc-level-2" title="12.4 handling collisions"><a rel="nofollow" class="trm-toc-link" href="#12-4-handling-collisions"><span class="trm-toc-number">3.4.</span> <span class="trm-toc-text">12.4 handling collisions</span></a></li><li class="trm-toc-item trm-toc-level-2" title="12.5 Hash Table and Fixing Runtime"><a rel="nofollow" class="trm-toc-link" href="#12-5-Hash-Table-and-Fixing-Runtime"><span class="trm-toc-number">3.5.</span> <span class="trm-toc-text">12.5 Hash Table and Fixing Runtime</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-1" title="Lab 7"><a rel="nofollow" class="trm-toc-link" href="#Lab-7"><span class="trm-toc-number">4.</span> <span class="trm-toc-text">Lab 7</span></a></li></ol>
+        <ol class="trm-toc"><li class="trm-toc-item trm-toc-level-1" title="9. Disjointed set"><a rel="nofollow" class="trm-toc-link" href="#9-Disjointed-set"><span class="trm-toc-number">1.</span> <span class="trm-toc-text">9. Disjointed set</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="9.1 introduction"><a rel="nofollow" class="trm-toc-link" href="#9-1-introduction"><span class="trm-toc-number">1.1.</span> <span class="trm-toc-text">9.1 introduction</span></a></li><li class="trm-toc-item trm-toc-level-2" title="9.2 Quick Find"><a rel="nofollow" class="trm-toc-link" href="#9-2-Quick-Find"><span class="trm-toc-number">1.2.</span> <span class="trm-toc-text">9.2 Quick Find</span></a></li><li class="trm-toc-item trm-toc-level-2" title="9.3 Quick Union"><a rel="nofollow" class="trm-toc-link" href="#9-3-Quick-Union"><span class="trm-toc-number">1.3.</span> <span class="trm-toc-text">9.3 Quick Union</span></a></li><li class="trm-toc-item trm-toc-level-2" title="9.4 Weighted Quick Union(WQU)"><a rel="nofollow" class="trm-toc-link" href="#9-4-Weighted-Quick-Union-WQU"><span class="trm-toc-number">1.4.</span> <span class="trm-toc-text">9.4 Weighted Quick Union(WQU)</span></a></li><li class="trm-toc-item trm-toc-level-2" title="9.5 WQU with Path Compression"><a rel="nofollow" class="trm-toc-link" href="#9-5-WQU-with-Path-Compression"><span class="trm-toc-number">1.5.</span> <span class="trm-toc-text">9.5 WQU with Path Compression</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-1" title="10. ADT"><a rel="nofollow" class="trm-toc-link" href="#10-ADT"><span class="trm-toc-number">2.</span> <span class="trm-toc-text">10. ADT</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="10.1 intro"><a rel="nofollow" class="trm-toc-link" href="#10-1-intro"><span class="trm-toc-number">2.1.</span> <span class="trm-toc-text">10.1 intro</span></a></li><li class="trm-toc-item trm-toc-level-2" title="10.2 trees"><a rel="nofollow" class="trm-toc-link" href="#10-2-trees"><span class="trm-toc-number">2.2.</span> <span class="trm-toc-text">10.2 trees</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-1" title="11. Balanced Trees"><a rel="nofollow" class="trm-toc-link" href="#11-Balanced-Trees"><span class="trm-toc-number">3.</span> <span class="trm-toc-text">11. Balanced Trees</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="11.1 Intro"><a rel="nofollow" class="trm-toc-link" href="#11-1-Intro"><span class="trm-toc-number">3.1.</span> <span class="trm-toc-text">11.1 Intro</span></a></li><li class="trm-toc-item trm-toc-level-2" title="11.2 B-Trees"><a rel="nofollow" class="trm-toc-link" href="#11-2-B-Trees"><span class="trm-toc-number">3.2.</span> <span class="trm-toc-text">11.2 B-Trees</span></a></li><li class="trm-toc-item trm-toc-level-2" title="11.3 B-Tree invariants"><a rel="nofollow" class="trm-toc-link" href="#11-3-B-Tree-invariants"><span class="trm-toc-number">3.3.</span> <span class="trm-toc-text">11.3 B-Tree invariants</span></a></li><li class="trm-toc-item trm-toc-level-2" title="11.4 Rotating Trees"><a rel="nofollow" class="trm-toc-link" href="#11-4-Rotating-Trees"><span class="trm-toc-number">3.4.</span> <span class="trm-toc-text">11.4 Rotating Trees</span></a></li><li class="trm-toc-item trm-toc-level-2" title="11.5 Red-Black Trees"><a rel="nofollow" class="trm-toc-link" href="#11-5-Red-Black-Trees"><span class="trm-toc-number">3.5.</span> <span class="trm-toc-text">11.5 Red-Black Trees</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-1" title="12 Hashing"><a rel="nofollow" class="trm-toc-link" href="#12-Hashing"><span class="trm-toc-number">4.</span> <span class="trm-toc-text">12 Hashing</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="12.1 attempt"><a rel="nofollow" class="trm-toc-link" href="#12-1-attempt"><span class="trm-toc-number">4.1.</span> <span class="trm-toc-text">12.1 attempt</span></a></li><li class="trm-toc-item trm-toc-level-2" title="12.2 Inserting words"><a rel="nofollow" class="trm-toc-link" href="#12-2-Inserting-words"><span class="trm-toc-number">4.2.</span> <span class="trm-toc-text">12.2 Inserting words</span></a></li><li class="trm-toc-item trm-toc-level-2" title="12.3 Inserting String and Overflow"><a rel="nofollow" class="trm-toc-link" href="#12-3-Inserting-String-and-Overflow"><span class="trm-toc-number">4.3.</span> <span class="trm-toc-text">12.3 Inserting String and Overflow</span></a></li><li class="trm-toc-item trm-toc-level-2" title="12.4 handling collisions"><a rel="nofollow" class="trm-toc-link" href="#12-4-handling-collisions"><span class="trm-toc-number">4.4.</span> <span class="trm-toc-text">12.4 handling collisions</span></a></li><li class="trm-toc-item trm-toc-level-2" title="12.5 Hash Table and Fixing Runtime"><a rel="nofollow" class="trm-toc-link" href="#12-5-Hash-Table-and-Fixing-Runtime"><span class="trm-toc-number">4.5.</span> <span class="trm-toc-text">12.5 Hash Table and Fixing Runtime</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-1" title="Lab 7"><a rel="nofollow" class="trm-toc-link" href="#Lab-7"><span class="trm-toc-number">5.</span> <span class="trm-toc-text">Lab 7</span></a></li><li class="trm-toc-item trm-toc-level-1" title="13 Heaps and Priority Queues"><a rel="nofollow" class="trm-toc-link" href="#13-Heaps-and-Priority-Queues"><span class="trm-toc-number">6.</span> <span class="trm-toc-text">13 Heaps and Priority Queues</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="13.1 PQ interface"><a rel="nofollow" class="trm-toc-link" href="#13-1-PQ-interface"><span class="trm-toc-number">6.1.</span> <span class="trm-toc-text">13.1 PQ interface</span></a></li><li class="trm-toc-item trm-toc-level-2" title="13.2 Heaps"><a rel="nofollow" class="trm-toc-link" href="#13-2-Heaps"><span class="trm-toc-number">6.2.</span> <span class="trm-toc-text">13.2 Heaps</span></a></li><li class="trm-toc-item trm-toc-level-2" title="13.3 The Implementation"><a rel="nofollow" class="trm-toc-link" href="#13-3-The-Implementation"><span class="trm-toc-number">6.3.</span> <span class="trm-toc-text">13.3 The Implementation</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-1" title="14 Data Structures Summary"><a rel="nofollow" class="trm-toc-link" href="#14-Data-Structures-Summary"><span class="trm-toc-number">7.</span> <span class="trm-toc-text">14 Data Structures Summary</span></a></li><li class="trm-toc-item trm-toc-level-1" title="17 Tree Traversals and Graphs"><a rel="nofollow" class="trm-toc-link" href="#17-Tree-Traversals-and-Graphs"><span class="trm-toc-number">8.</span> <span class="trm-toc-text">17 Tree Traversals and Graphs</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="17.1 Tree recap"><a rel="nofollow" class="trm-toc-link" href="#17-1-Tree-recap"><span class="trm-toc-number">8.1.</span> <span class="trm-toc-text">17.1 Tree recap</span></a></li><li class="trm-toc-item trm-toc-level-2" title="17.2 Tree Traversal"><a rel="nofollow" class="trm-toc-link" href="#17-2-Tree-Traversal"><span class="trm-toc-number">8.2.</span> <span class="trm-toc-text">17.2 Tree Traversal</span></a></li><li class="trm-toc-item trm-toc-level-2" title="17.3 Graphs"><a rel="nofollow" class="trm-toc-link" href="#17-3-Graphs"><span class="trm-toc-number">8.3.</span> <span class="trm-toc-text">17.3 Graphs</span></a></li><li class="trm-toc-item trm-toc-level-2" title="17.4 Graph Problems"><a rel="nofollow" class="trm-toc-link" href="#17-4-Graph-Problems"><span class="trm-toc-number">8.4.</span> <span class="trm-toc-text">17.4 Graph Problems</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-1" title="18. BFS"><a rel="nofollow" class="trm-toc-link" href="#18-BFS"><span class="trm-toc-number">9.</span> <span class="trm-toc-text">18. BFS</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="18.1 BFS"><a rel="nofollow" class="trm-toc-link" href="#18-1-BFS"><span class="trm-toc-number">9.1.</span> <span class="trm-toc-text">18.1 BFS</span></a></li><li class="trm-toc-item trm-toc-level-2" title="18.2 Representing Graphs"><a rel="nofollow" class="trm-toc-link" href="#18-2-Representing-Graphs"><span class="trm-toc-number">9.2.</span> <span class="trm-toc-text">18.2 Representing Graphs</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-1" title="Lab 8"><a rel="nofollow" class="trm-toc-link" href="#Lab-8"><span class="trm-toc-number">10.</span> <span class="trm-toc-text">Lab 8</span></a></li></ol>
       </div>
     </div>
 
