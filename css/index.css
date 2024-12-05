@@ -3255,37 +3255,6 @@ details p {
     left: 20px;
   }
 }
-:root.dark {
-  --ui-bg: #1d1d1d;
-  --ui-bg-weak: #252525;
-  --ui-aide-bg: #111111;
-  --ui-text: #dddddd;
-  --ui-text-weak: #b4b4b4;
-  --ui-aide-text: #979797;
-  --ui-text-inversion: #3d3d3d;
-  --ui-aide-text-stress: #b4b4b4;
-  --ui-danger: #ed4014;
-  --ui-danger-weak: #f16643;
-  --ui-warning: #fac20a;
-  --ui-warning-weak: #fac20a;
-  --ui-success: #32d4a1;
-  --ui-success-weak: #50d4ab;
-  --ui-info: #2d8cf0;
-  --ui-info-weak: #57a3f3;
-  --ui-shadow: rgba(0, 0, 0, 0.2);
-  --ui-light-shadow: rgba(0, 0, 0, 0.1);
-  --ui-dropdown-menu-item: #5e7ce0;
-  --ui-dropdown-menu-item-color: #ffffff;
-  --ui-link: #536eb3;
-  --ui-link-active: #4976e9;
-  --ui-border-line: #2b2b2c;
-  --ui-dividing-line: #555658;
-  --ui-transition-duration: 0.3s ease;
-  --ui-form-control-line: #414141;
-  --ui-form-control-line-hover: #525457;
-  --ui-form-control-line-active: #364a8b;
-  --ui-skeleton-background: linear-gradient(90deg, #1d1d1d 25%, #2e2e2e 37%, #181818 63%);
-}
 .trm-read-mode {
   padding: 0;
   background-color: var(--theme-bg-color, #fcfcfe);
