@@ -1,0 +1,2 @@
+[mkdocs.plugins]
+callouts = mkdocs_callouts.plugin:CalloutsPlugin

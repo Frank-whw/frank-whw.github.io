@@ -1,0 +1,258 @@
+site_name: Frank's Blog
+site_url: https://Frank-whw.github.io
+site_description: Frank的个人网站
+site_author: Frank
+repo_name: Frank's Blog
+repo_url: https://github.com/Frank-whw/MyBlog
+edit_uri: edit/main/docs/
+copyright: Copyright &copy; 2024 - Present <a href="https://github.com/Frank-whw/" target="_blank" rel="noopener">Frank</a>
+
+nav:
+  - Home: index.md
+  - CS:
+      - CS基础:
+          - cs_base/index.md
+          - language:
+              - SQL: language/SQL.md
+              - C: language/c.md
+      - CSAPP:
+          - csapp/index.md
+          - Lecture:
+              - Lecture 01: csapp/lecture/01.md
+              - Lecture 02: csapp/lecture/02.md
+      - CS61B:
+          - cs61b/index.md
+          - 课程笔记: cs61b/cs61b.md
+          - Gitlet之我见: cs61b/gitlet之我见.md
+  - Tools:
+      - Tools/index.md
+      - 博客搭建:
+          - 图床搭建: Tools/blog/图床搭建.md
+  - AI:
+      - AI/index.md
+      - Python理论与实现: AI/基于python的理论和实现.md
+  - Summaries:
+      - Summaries/index.md
+  - Archives: Archives/index.md
+  - About: about.md
+  - Links: Links.md
+
+theme:
+  name: material
+  language: en
+  custom_dir: overrides
+  icon:
+    logo: material/coffee
+    repo: fontawesome/brands/git-alt
+    edit: material/pencil
+    admonition:
+      note: octicons/tag-16
+      abstract: octicons/checklist-16
+      info: octicons/info-16
+      tip: octicons/squirrel-16
+      success: octicons/check-16
+      question: octicons/question-16
+      warning: octicons/alert-16
+      failure: octicons/x-circle-16
+      danger: octicons/zap-16
+      bug: octicons/bug-16
+      example: octicons/beaker-16
+      quote: octicons/quote-16
+
+  features:
+    # - content.code.annotate
+    # - content.code.copy
+    # - content.code.select
+    # - content.action.view
+    # - content.footnote.tooltips
+    # - content.tabs.link
+    # - header.autohide
+    # - navigation.tracking
+    # - navigation.tabs
+    # - navigation.indexes
+    # - navigation.top
+    # - navigation.path
+    # - toc.follow
+    # - search.highlight
+    # - search.share
+    # - search.suggest
+    - content.code.annotate
+    - content.code.copy
+    - content.code.select
+    - content.footnote.tooltips
+    - content.tabs.link
+    - header.autohide
+    # - navigation.instant.progress
+    # - navigation.instant.prefetch
+    # - navigation.instant.preview
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.top
+    - navigation.path
+    # - navigation.prune
+    - navigation.indexes
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
+
+  font: false
+
+  palette:
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: follow system
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: white
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: light mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: dark mode
+
+extra_javascript:
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+  - https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js
+  - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
+  - js/tablesort.js
+  - js/mathjax.js
+
+extra_css:
+  - https://cdn.tonycrane.cc/jbmono/jetbrainsmono.css
+  - css/custom.css
+  - css/card.css
+  - css/flink.css
+  - css/tasklist.css
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/Frank-whw
+      name: GitHub
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com
+      name: Twitter
+    - icon: fontawesome/brands/weixin
+      link: https://raw.githubusercontent.com/Frank-whw/img/main/blog/202411201029901.png
+      name: WeChat
+
+  analytics:
+    provider: google
+    property: !ENV GOOGLE_ANALYTICS_KEY
+    # TODO: 添加Google Analytics
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - footnotes
+  - meta
+  - md_in_html
+  - nl2br
+  - pymdownx.arithmatex: # latex支持
+      generic: true
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+      options:
+        custom_icons:
+          - overrides/.icons
+  - pymdownx.highlight: # 代码块高亮
+      anchor_linenums: true
+      auto_title: true # 显示编程语言名称
+      linenums: true # 显示行号
+      linenums_style: pymdownx-inline
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.magiclink
+  - pymdownx.saneheaders
+  - pymdownx.snippets
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tabbed:
+      alternate_style: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+  - pymdownx.tilde
+  - sane_lists
+  - tables
+  - toc:
+      permalink: true
+      toc_depth: 4
+plugins:
+  - blogging:
+      locale: en
+      dirs:
+        - Blogs/posts
+      theme:
+        name: card
+      features:
+        tags:
+          index_page: tags/
+          insert: top
+  - search
+  - callouts
+  - ezlinks
+  - glightbox:
+      width: 80%
+  # - statistics:
+  #     words_per_minute: 200
+  - heti
+  # - include_dir_to_nav:
+  #     sort_file: true
+  #     sort_directory: true
+  # - toc
+  # - obsidian_support 不知道什么原因构建速度很慢，暂时不用
+  # - rss
+  - git-revision-date-localized:
+      type: datetime
+      timezone: Asia/Shanghai
+      enable_creation_date: true
+      exclude:
+        - index.md
+  - mkdocs-video:
+      video_muted: True
+      video_controls: True
+      mark: "video"
+  # - changelog
+  # - mkdocs-jupyter:
+  #     include_source: True
+  #     execute: False
+  #     ignore: ["*.py"]
+
+not_in_nav: links.md
+
+nav:
+  - Home: index.md
+  - Blogs:
+      - index: Blogs/index.md
+      - Archives: Blogs/archives.md
+  - Summaries: Summaries/index.md
+  - Computer Basic: CS_Basic/index.md
+  - AI: AI/index.md
+  - Robot: Robot/index.md
+  - Tools: Tools/index.md
+  - Tags: Tags/index.md
