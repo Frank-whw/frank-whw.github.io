@@ -13,8 +13,8 @@ nav:
       - CS基础:
           - cs_base/index.md
           - language:
-              - SQL: language/SQL.md
-              - C: language/c.md
+              - SQL: cs_base/language/SQL.md
+              - C: cs_base/language/c.md
       - CSAPP:
           - csapp/index.md
           - Lecture:
@@ -31,8 +31,7 @@ nav:
   - AI:
       - AI/index.md
       - Python理论与实现: AI/基于python的理论和实现.md
-  - Summaries:
-      - Summaries/index.md
+  - Summaries: Summaries/index.md
   - Archives: Archives/index.md
   - About: about.md
   - Links: Links.md
@@ -221,12 +220,6 @@ plugins:
   # - statistics:
   #     words_per_minute: 200
   - heti
-  # - include_dir_to_nav:
-  #     sort_file: true
-  #     sort_directory: true
-  # - toc
-  # - obsidian_support 不知道什么原因构建速度很慢，暂时不用
-  # - rss
   - git-revision-date-localized:
       type: datetime
       timezone: Asia/Shanghai
@@ -244,15 +237,3 @@ plugins:
   #     ignore: ["*.py"]
 
 not_in_nav: links.md
-
-nav:
-  - Home: index.md
-  - Blogs:
-      - index: Blogs/index.md
-      - Archives: Blogs/archives.md
-  - Summaries: Summaries/index.md
-  - Computer Basic: CS_Basic/index.md
-  - AI: AI/index.md
-  - Robot: Robot/index.md
-  - Tools: Tools/index.md
-  - Tags: Tags/index.md

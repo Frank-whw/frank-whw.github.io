@@ -36,7 +36,7 @@ MySQL 为关系型数据库(Relational Database Management System), 这种所谓
 	- 单行注释：-- 或者 #
 	- 多行：`/*               */`
 - 分类 
-![[Pasted image 20241029183237.png]]
+![image.png](https://raw.githubusercontent.com/Frank-whw/img/main/blog/202410291832.png)
  
 ## 2.1创建数据
 ```sql

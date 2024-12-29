@@ -131,9 +131,9 @@ each commit should contain the date and time it was made
 	2. If the split point is **the current branch**, then the effect is to check out the given branch, and the operation ends after printing the message `Current branch fast-forwarded.` 
 		- 如果split commit是在当前分支上，意味着当前分支落后于given branch（你要切换到的分支），并且可以直接通过快进的方式将其更新为目标分支的最新状态。这种情况无需产生新的合并提交，只需简单地将当前分支指针移动到目标分支的最新提交位置。
 	3. 否则 下面7种情况执行merge
-	 ![图片](file:///C:/Users/Frank/Documents/WeChat%20Files/wxid_ifq4v0qx37ib22/FileStorage/Temp/6372a82368928bebd51b556150478fc.png)
+	 ![图片](https://raw.githubusercontent.com/Frank-whw/img/main/blog/202411121225.png)
 	 
-	![[Pasted image 20241112122542.png]]
+	![image.png](https://raw.githubusercontent.com/Frank-whw/img/main/blog/202411121225.png)
 			1. 任何**在given branch中被修改，在current branch中没有被修改**的文件 ->given branch。然后这些文件应该被自动staged
 			2. 任何**在current branch中被修改，在given branch中没有被修改**的文件 ->保持原样，既current branch
 			3. 如果一个文件在current branch和given branch中**被修改的方式相同**（都被删除或或者具有相同的内容），那么保持不变。如果已经被删除且在CWD中存在同名文件，依旧是保持不变

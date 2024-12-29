@@ -4,7 +4,7 @@
 2. 有2种运算：
 	1. `connect(x, y)`或者说是`union`
 	2. `isConnected(x, y)`
-3. an **interface** determines _what_ behaviors a data structure should have (but not _how_ to accomplish it)  接口
+3. an **interface** determines _what_ behaviors a data structure should have (but not _how_ to accomplish it)  接口
 4. **design decisions greatly affect asymptotic runtime and code complexity.**
 ```java
 public interface DisjointSets {
@@ -17,7 +17,7 @@ public interface DisjointSets {
 ```
 ## 9.2 Quick Find
 1. 同一个set的元素的id相同
-![[Pasted image 20241111142101.png]]
+![image.png](https://raw.githubusercontent.com/Frank-whw/img/main/blog/202411111421.png)
 2. 判断isConnected（x, y)可以直接判断id是否相同，时间复杂度O(1)
 ```java
 public class QuickFindDS implements DisjointSets {
@@ -50,7 +50,8 @@ public class QuickFindDS implements DisjointSets {
 }
 ```
 ## 9.3 Quick Union
-1. 辅助函数`find(int item)` 返回`item`所在的根![[Pasted image 20241111142647.png]]
+1. 辅助函数`find(int item)` 返回`item`所在的根
+![image.png](https://raw.githubusercontent.com/Frank-whw/img/main/blog/202411111426.png)
 	- find(4) = 0   find(5) = 3
 ```java
 public class QuickUnionDS implements DisjointSets {
@@ -104,7 +105,7 @@ public class QuickUnionDS implements DisjointSets {
 	1. 找到该节点的**直接后继节点**（即右子树中最小的节点）或**直接前驱节点**（即左子树中最大的节点）。
 	2.  用该后继节点或前驱节点的值替换待删除节点的值。
 	3. 然后删除这个后继或前驱节点（注意它必然是前两种情况之一：要么是叶子节点，要么只有一个子节点）
-	![[Pasted image 20241116182943.png]]
+
 ---
 
 # 11. Balanced Trees
@@ -117,15 +118,15 @@ public class QuickUnionDS implements DisjointSets {
 - problem：每次insert一个数据时都会增加树的高度
 - 为改变这点，引入一个crazy idea：**let's just never add a leaf node! **
 - When we insert, let's just add to a current leaf node. This way, the height will never increase.
-- ![[Pasted image 20241117142339.png]]
-- ![image.png](https://raw.githubusercontent.com/Frank-whw/img/main/blog/202411191943326.png)
+![image.png](https://raw.githubusercontent.com/Frank-whw/img/main/blog/202411161829.png)
+![image.png](https://raw.githubusercontent.com/Frank-whw/img/main/blog/202411171423.png)
 
 - 我本人是不太喜欢或者理解这一个idea，原因在于这增加了find的时间复杂度，在16 17 18 19这一个叶子中find数据还是需要traverse，时间复杂度取决于叶子的大小
 ## 11.3 B-Tree invariants
 - 同样一组数据，插入的顺序会决定树的高度
 - B-Trees的特点（invarants）：
 	1. All leaves must be the same distance from the source.
-	2. A non-leaf node with `k`items must have exactly `k+1` children.
+	2. A non-leaf node with `k`items must have exactly `k+1` children.
 ## 11.4 Rotating Trees
 - 存在的原因在于通过rotating去维持树的invariant
 ```java
@@ -188,7 +189,7 @@ private Node rotateLeft(Node h) {
 ## 12.5 Hash Table and Fixing Runtime
 - 最终的数据结构：`HashTable`
 	- Inputs are converted by a hash function (`hashcode`) into an integer. Then, they're converted to a valid index using the modulus operator. Then, they're added at that index (dealing with collisions using LinkedList).
-	- `contains` works in a similar fashion by figuring out the valid index, and looking in the corresponding LinkedList for the item.
+	- `contains` works in a similar fashion by figuring out the valid index, and looking in the corresponding LinkedList for the item.
 - 如何解决runtime问题：
 	1. 动态增长哈希表
 	2. 改进哈希码
@@ -198,8 +199,8 @@ private Node rotateLeft(Node h) {
 - 以**树**为基础创建一个Map
 - 创建完之后与ULLMap和TreeMap比较
 - 需要完成的method：除了`remove、iterator、keySet`都要 + `printInOrder`()
-- K应该继承Comparable：assume that generic keys `K` have a `compareTo` method.
--  use a private nested `BSTNode` class to help facilitate your implementation. （recommend）
+- K应该继承Comparable：assume that generic keys `K` have a `compareTo` method.
+-  use a private nested `BSTNode` class to help facilitate your implementation. （recommend）
 finish at 2024年11月19日
 ---
 # 13 Heaps and Priority Queues
@@ -221,6 +222,7 @@ public interface MinPQ<Item> {
 	public int size();
 }
 	```
+
 ![image.png](https://raw.githubusercontent.com/Frank-whw/img/main/blog/202411200928434.png)
 
 - 显然BST的效率最高
@@ -230,13 +232,14 @@ public interface MinPQ<Item> {
 	- 如果有缺失，只会出现在bottom level
 - 有如下操作：
 	1. `add`: Add to the end of heap temporarily. Swim up the hierarchy to the proper place
-	2.  `getSmallest`: Return the root of the heap (This is guaranteed to be the minimum by our _min-heap_ property
+	2.  `getSmallest`: Return the root of the heap (This is guaranteed to be the minimum by our _min-heap_ property
 	3. `removeSmallest`: Swap the last item in the heap into the root. Sink down the hierarchy to the proper place.
 ## 13.3 The Implementation
-- 通过在一个数组的开头留一个空位以简化计算![image.png](https://raw.githubusercontent.com/Frank-whw/img/main/blog/202411201039200.png)
+- 通过在一个数组的开头留一个空位以简化计算!
+![image.png](https://raw.githubusercontent.com/Frank-whw/img/main/blog/202411201039200.png)
 - `leftChild(k)`=k∗2=k∗2
 - `rightChild(k)`=k∗2+1=k∗2+1
-- `parent(k)` =k/2=k/2
+- `parent(k)` =k/2=k/2
 
 | Methods          | Ordered Array | Bushy BST | Hash Table | Heap    |
 | ---------------- | ------------- | --------- | ---------- | ------- |
@@ -252,7 +255,7 @@ public interface MinPQ<Item> {
 # 14 Data Structures Summary
 |Name|Store Operation(s)|Primary Retrieval Operation|Retrieve By|
 |---|---|---|---|
-|List|`add(key)`, `insert(key, index)`|`get(index)`|index|
+|List|`add(key)`, `insert(key, index)`|`get(index)`|index|
 |Map|`put(key, value)`|`get(key)`|key identity|
 |Set|`add(key)`|`containsKey(key)`|key identity|
 |PQ|`add(key)`|`getSmallest()`|key order (aka key size)|
@@ -285,7 +288,7 @@ preOrder(BSTNode x) {
 - 树的局限：2个节点之间只能有一条路径
 - 图的组成：点+边
 - 树 真包含于 图
-- Graphs can be divided into two categories: **_simple_ graphs** and _multigraphs_ (or complicated graphs, a term I invented, because that's how I like to think of them.)
+- Graphs can be divided into two categories: **_simple_ graphs** and _multigraphs_ (or complicated graphs, a term I invented, because that's how I like to think of them.)
 - 本节课研究simple graphs，简单图又分为无向+有向
 ## 17.4 Graph Problems
 - **s-t Path**: Is there a path between vertices s and t?
@@ -333,14 +336,14 @@ fringe在这边指一个队列，先入先出
 - 那么如何让hash table基于不同的数据结构呢？如果只是使用 Find + Replace 需要付出很多努力才能将存储桶类型更改为不同的存储桶类型。所以我们这边要使用**polymorphism和inheritance**
 - 继承结构如下：
 ![image.png](https://raw.githubusercontent.com/Frank-whw/img/main/blog/202411242047029.png)
-- In the starter code, we give the **instance variable** `private Collection<Node>[] buckets`, which is the underlying data structure of the hash table.
+- In the starter code, we give the **instance variable** `private Collection<Node>[] buckets`, which is the underlying data structure of the hash table.
 	解读
 	- buckets是MyHashMap的一个private变量
 	- 这是Collection对象的数组，其中每一个Collection代表一个bucket
 	- Node是个private辅助的类，用来存储单个key-value对。starter code应该易于理解且不需要任何修改
 	- java.util.Collection是大多数据结构继承自的接口，该接口支持很多methods，如add、remove、iterate。有以下数据结构继承了该接口：ArrayList、LinkedList、TreeSet、HashSet、PriorityQueue等。所以我们可以assign them to a variable of static type Collection with **polymorphism**（多态）
 	- 由于 Java 的限制，不能直接创建参数化类型（例如 `Collection<Node>`)的数组。为了实现类似功能，可以创建原始类型的 `Collection[]` 数组，并通过编程约定，确保数组中只存储特定类型（如 `Collection<Node>`）的元素。 **不太理解**
-		-  **不能创建参数化类型的数组**：  
+		- **不能创建参数化类型的数组**：  
 		    在 Java 中，不能直接创建一个参数化类型（Parameterized Type，例如 `Collection<Node>`）的数组。比如，以下代码是不合法的：
 		    `Collection<Node>[] buckets = new Collection<Node>[size];`     这是因为 Java 的泛型是通过**类型擦除**（Type Erasure）实现的，在运行时，`Collection<Node>` 其实只被当作一个普通的 `Collection`。如果允许直接创建参数化类型数组，会导致类型安全问题，无法保证数组中存储的元素类型一致。
 		- **解决方法：**  
@@ -354,7 +357,7 @@ protected Collection<Node> createBucket() {
 	return new LinkedList<>();
 }
 ```
-这个方法允许`MyHashMap*Buckets.java` 覆盖 `createBucket`
+这个方法允许`MyHashMap*Buckets.java` 覆盖 `createBucket`
 ## implementation Requirements
 - 使用3种constructors
 ```java
