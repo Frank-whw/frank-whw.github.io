@@ -3,7 +3,7 @@ site_url: https://Frank-whw.github.io
 site_description: Frank的个人网站
 site_author: Frank
 repo_name: Frank's Blog
-repo_url: https://github.com/Frank-whw/MyBlog
+repo_url: https://github.com/Frank-whw/Frank-whw.github.io
 edit_uri: edit/main/docs/
 copyright: Copyright &copy; 2024 - Present <a href="https://github.com/Frank-whw/" target="_blank" rel="noopener">Frank</a>
 
@@ -230,6 +230,14 @@ plugins:
       video_muted: True
       video_controls: True
       mark: "video"
+  - toc:
+      permalink: true
+      toc_depth: 4
+      title: 目录
+      separator: "-"
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
   # - changelog
   # - mkdocs-jupyter:
   #     include_source: True
