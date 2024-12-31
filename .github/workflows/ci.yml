@@ -1,34 +1,58 @@
 # .github/workflows/ci.yml
-name: ci 
+name: Deploy MkDocs
 on:
   push:
-    branches: 
+    branches:
       - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
 permissions:
   contents: write
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
       - name: Configure Git Credentials
         run: |
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-      - uses: actions/setup-python@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
         with:
-          python-version: 3.x
-      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV 
-      - uses: actions/cache@v3
+          python-version: "3.x"
+          cache: "pip"
+
+      - name: Cache dependencies
+        uses: actions/cache@v3
         with:
-          key: mkdocs-material-${{ env.cache_id }}
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: Cache MkDocs
+        uses: actions/cache@v3
+        with:
+          key: mkdocs-material-${{ hashFiles('mkdocs.yml') }}
           path: .cache
           restore-keys: |
             mkdocs-material-
+
       - name: Install dependencies
         run: |
-          pip install mkdocs-material
-          pip install mkdocs-glightbox
-          pip install mkdocs-git-revision-date-localized-plugin
-      - name: Deploy
-        run: mkdocs gh-deploy --force
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Build and Deploy
+        run: |
+          mkdocs gh-deploy --force
+          mkdocs --version
