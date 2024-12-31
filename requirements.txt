@@ -1,3 +1,5 @@
+setuptools>=68.0.0
+wheel>=0.42.0
 mkdocs==1.5.3
 mkdocs-material==9.4.6
 mkdocs-blogging-plugin==2.2.11
