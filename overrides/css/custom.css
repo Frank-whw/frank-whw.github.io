@@ -251,3 +251,57 @@ img:hover {
 .md-typeset div.arithmatex {
   overflow-y: hidden;
 } /* 解决公式带纵向滚动条 */
+
+.blog-posts {
+  margin: 2rem 0;
+}
+
+.blog-post {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  border-radius: 4px;
+  background-color: var(--md-code-bg-color);
+  transition: transform 0.2s ease-in-out;
+}
+
+.blog-post:hover {
+  transform: translateY(-2px);
+}
+
+.blog-post h2 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.blog-post h2 a {
+  color: var(--md-typeset-color);
+  text-decoration: none;
+}
+
+.blog-post h2 a:hover {
+  color: var(--md-accent-fg-color);
+}
+
+.blog-post__date {
+  font-size: 0.8rem;
+  color: var(--md-default-fg-color--light);
+  margin-bottom: 0.5rem;
+}
+
+.blog-post__description {
+  margin-bottom: 0.5rem;
+}
+
+.blog-post__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.blog-post__tag {
+  font-size: 0.7rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 2px;
+  background-color: var(--md-accent-fg-color);
+  color: var(--md-accent-bg-color);
+}

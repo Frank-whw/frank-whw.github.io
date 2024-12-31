@@ -40,60 +40,23 @@ theme:
   name: material
   language: en
   custom_dir: overrides
-  icon:
-    logo: material/coffee
-    repo: fontawesome/brands/git-alt
-    edit: material/pencil
-    admonition:
-      note: octicons/tag-16
-      abstract: octicons/checklist-16
-      info: octicons/info-16
-      tip: octicons/squirrel-16
-      success: octicons/check-16
-      question: octicons/question-16
-      warning: octicons/alert-16
-      failure: octicons/x-circle-16
-      danger: octicons/zap-16
-      bug: octicons/bug-16
-      example: octicons/beaker-16
-      quote: octicons/quote-16
-
   features:
-    # - content.code.annotate
-    # - content.code.copy
-    # - content.code.select
-    # - content.action.view
-    # - content.footnote.tooltips
-    # - content.tabs.link
-    # - header.autohide
-    # - navigation.tracking
-    # - navigation.tabs
-    # - navigation.indexes
-    # - navigation.top
-    # - navigation.path
-    # - toc.follow
-    # - search.highlight
-    # - search.share
-    # - search.suggest
     - content.code.annotate
     - content.code.copy
     - content.code.select
     - content.footnote.tooltips
     - content.tabs.link
     - header.autohide
-    # - navigation.instant.progress
-    # - navigation.instant.prefetch
-    # - navigation.instant.preview
     - navigation.tracking
     - navigation.tabs
     - navigation.top
     - navigation.path
-    # - navigation.prune
     - navigation.indexes
     - search.highlight
     - search.share
     - search.suggest
     - toc.follow
+    - toc.integrate
 
   font: false
 
@@ -150,6 +113,56 @@ extra:
     property: !ENV GOOGLE_ANALYTICS_KEY
     # TODO: 添加Google Analytics
 
+plugins:
+  - blogging:
+      locale: en
+      dirs:
+        - docs/Archives
+      theme:
+        name: card
+      features:
+        tags:
+          index_page: tags/
+          insert: top
+      time_format: "%Y-%m-%d"
+      meta_time_format: "%Y-%m-%d"
+      paging: true
+      paging_size: 10
+      blog_toc: true
+      blog_toc_label: 博客目录
+      post_dir: docs/Archives
+      post_url_format: "{slug}"
+      post_url_date_slug_format: "{date}/{slug}"
+      post_readtime: true
+      post_excerpt: true
+      post_excerpt_max_authors: 3
+      post_excerpt_separator: <!-- more -->
+  - search
+  - callouts
+  - changelog
+  - glightbox:
+      width: 80%
+  - git-revision-date-localized:
+      type: datetime
+      timezone: Asia/Shanghai
+      enable_creation_date: true
+      exclude:
+        - index.md
+        - academy.md
+        - links.md
+        - changelog.md
+  - minify:
+      minify_html: true
+  - mkdocs-video:
+      video_muted: True
+      video_controls: True
+      mark: "video"
+
+  # - toc
+  # 暂时注释掉 statistics 插件，因为与 Python 3.8 不兼容
+  - statistics:
+      words_per_minute: 200
+
 markdown_extensions:
   - abbr
   - admonition
@@ -201,47 +214,3 @@ markdown_extensions:
   - toc:
       permalink: true
       toc_depth: 4
-plugins:
-  - blogging:
-      locale: en
-      dirs:
-        - Blogs/posts
-      theme:
-        name: card
-      features:
-        tags:
-          index_page: tags/
-          insert: top
-  - search
-  - callouts
-  - ezlinks
-  - glightbox:
-      width: 80%
-  # - statistics:
-  #     words_per_minute: 200
-  - heti
-  - git-revision-date-localized:
-      type: datetime
-      timezone: Asia/Shanghai
-      enable_creation_date: true
-      exclude:
-        - index.md
-  - mkdocs-video:
-      video_muted: True
-      video_controls: True
-      mark: "video"
-  - toc:
-      permalink: true
-      toc_depth: 4
-      title: 目录
-      separator: "-"
-      slugify: !!python/object/apply:pymdownx.slugs.slugify
-        kwds:
-          case: lower
-  # - changelog
-  # - mkdocs-jupyter:
-  #     include_source: True
-  #     execute: False
-  #     ignore: ["*.py"]
-
-not_in_nav: links.md
