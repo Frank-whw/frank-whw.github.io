@@ -1,72 +1,29 @@
-# .github/workflows/ci.yml
-name: Deploy MkDocs
+name: ci 
 on:
   push:
     branches:
+      - master 
       - main
-  pull_request:
-    branches:
-      - main
-  workflow_dispatch:
-
 permissions:
   contents: write
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
       - name: Configure Git Credentials
         run: |
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-
-      - name: Set up Python
-        uses: actions/setup-python@v4
+      - uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
-          cache: "pip"
-
-      - name: Cache dependencies
-        uses: actions/cache@v3
+          python-version: 3.x
+      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV 
+      - uses: actions/cache@v4
         with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
-          restore-keys: |
-            ${{ runner.os }}-pip-
-
-      - name: Cache MkDocs
-        uses: actions/cache@v3
-        with:
-          key: mkdocs-material-${{ hashFiles('mkdocs.yml') }}
+          key: mkdocs-material-${{ env.cache_id }}
           path: .cache
           restore-keys: |
             mkdocs-material-
-
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip setuptools wheel
-          pip install -r requirements.txt
-          pip list
-
-      - name: Debug Info
-        run: |
-          echo "Current directory:"
-          pwd
-          echo "Directory contents:"
-          ls -la
-          echo "Python version:"
-          python --version
-          echo "MkDocs version:"
-          mkdocs --version
-          echo "Config file contents:"
-          cat mkdocs.yml
-
-      - name: Build and Deploy
-        run: |
-          mkdocs build --verbose
-          mkdocs gh-deploy --force --verbose
+      - run: pip install mkdocs-material 
+      - run: mkdocs gh-deploy --force
