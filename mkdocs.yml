@@ -68,14 +68,14 @@ theme:
     - media: "(prefers-color-scheme: light)"
       scheme: default
       primary: white
-      accent: indigo
+      accent: white
       toggle:
         icon: material/brightness-7
         name: light mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
       primary: black
-      accent: indigo
+      accent: grey
       toggle:
         icon: material/brightness-4
         name: dark mode
@@ -110,8 +110,7 @@ extra:
 
   analytics:
     provider: google
-    property: !ENV GOOGLE_ANALYTICS_KEY
-    # TODO: 添加Google Analytics
+    property: G-ZHVPSRWZP3
 
 plugins:
   - blogging:
