@@ -4,14 +4,26 @@ nostatistics: true
 comments: false
 ---
 
-# Artificial Intelligence
+# AI
 
 !!! note "Abstract"
+    人工智能学习笔记和实践经验。
 
-    本部分内容（除特别声明外）采用 [**署名-非商业性使用-保持一致 4.0 国际 (CC BY-NC-SA 4.0)**](https://creativecommons.org/licenses/by-nc-sa/4.0/) 许可协议进行许可。
+<div class="grid cards" markdown>
 
+-   :fontawesome-solid-robot:{ .lg .middle } __理论学习__
 
-{{ BEGIN_TOC }}
-- "深度学习入门": 基于python的理论和实现
+    ---
+    
+    AI基础理论和算法学习笔记
+    
+    [:octicons-arrow-right-24: Python理论与实现](基于python的理论和实现.md)
 
-{{ END_TOC }}
+-   :fontawesome-solid-brain:{ .lg .middle } __实践项目__
+
+    ---
+    
+    AI项目实践和应用案例
+    
+    [:octicons-arrow-right-24: 查看详情](projects/)
+</div>

@@ -24,7 +24,6 @@ Welcome to Frank's Blog!
 <div style="text-align: center; padding-top: 20px;">
 <p>
 <a href="https://github.com/Frank-whw" target="_blank">GitHub</a> |
-<a href="https://twitter.com" target="_blank">Twitter</a> |
 <a href="https://raw.githubusercontent.com/Frank-whw/img/main/blog/202411201029901.png" target="_blank">WeChat</a>
 </p>
 </div> 

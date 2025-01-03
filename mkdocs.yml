@@ -9,32 +9,13 @@ copyright: Copyright &copy; 2024 - Present <a href="https://github.com/Frank-whw
 
 nav:
   - Home: index.md
-  - CS:
-      - CS基础:
-          - cs_base/index.md
-          - language:
-              - SQL: cs_base/language/SQL.md
-              - C: cs_base/language/c.md
-      - CSAPP:
-          - csapp/index.md
-          - Lecture:
-              - Lecture 01: csapp/lecture/01.md
-              - Lecture 02: csapp/lecture/02.md
-      - CS61B:
-          - cs61b/index.md
-          - 课程笔记: cs61b/cs61b.md
-          - Gitlet之我见: cs61b/gitlet之我见.md
-  - Tools:
-      - Tools/index.md
-      - 博客搭建:
-          - 图床搭建: Tools/blog/图床搭建.md
-  - AI:
-      - AI/index.md
-      - Python理论与实现: AI/基于python的理论和实现.md
+  - Computer Science: cs_base/index.md
+  - Tools: Tools/index.md
+  - AI: AI/index.md
   - Summaries: Summaries/index.md
   - Archives: Archives/index.md
-  - About: about.md
-  - Links: Links.md
+  - About: About/index.md
+  - Links: Links/index.md
 
 theme:
   name: material
@@ -47,11 +28,13 @@ theme:
     - content.footnote.tooltips
     - content.tabs.link
     - header.autohide
+    - navigation.footer
     - navigation.tracking
     - navigation.tabs
     - navigation.top
     - navigation.path
     - navigation.indexes
+    - navigation.sections
     - search.highlight
     - search.share
     - search.suggest

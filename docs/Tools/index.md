@@ -6,11 +6,25 @@ comments: false
 
 # Toolbox
 
+
 !!! note "Abstract"
+    实用工具和技巧分享。
 
-    本部分内容（除特别声明外）采用 [**署名-非商业性使用-保持一致 4.0 国际 (CC BY-NC-SA 4.0)**](https://creativecommons.org/licenses/by-nc-sa/4.0/) 许可协议进行许可。
+<div class="grid cards" markdown>
 
-{{ BEGIN_TOC }}
-- "图床搭建": 
-  - Tools/blog/图床搭建
-{{ END_TOC }}
+-   :fontawesome-solid-blog:{ .lg .middle } __博客搭建__
+
+    ---
+    
+    个人博客搭建教程和经验分享
+    
+    [:octicons-arrow-right-24: 图床搭建](blog/图床搭建.md)
+
+-   :fontawesome-solid-terminal:{ .lg .middle } __开发工具__
+
+    ---
+    
+    常用开发工具和配置说明
+    
+    [:octicons-arrow-right-24: 查看详情](dev-tools/)
+</div>

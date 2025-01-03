@@ -4,17 +4,34 @@ nostatistics: true
 comments: false
 ---
 
-# Computer Science Basics
+# CS基础
 
 !!! note "Abstract"
+    计算机基础知识学习笔记。
 
-    本部分内容（除特别声明外）采用 [**署名-非商业性使用-保持一致 4.0 国际 (CC BY-NC-SA 4.0)**](https://creativecommons.org/licenses/by-nc-sa/4.0/) 许可协议进行许可。
+<div class="grid cards" markdown>
 
+-   :fontawesome-solid-code:{ .lg .middle } __编程语言__
 
-## Language
+    ---
+    
+    编程语言基础知识
+    
+    [:octicons-arrow-right-24: SQL](language/SQL.md)
+    [:octicons-arrow-right-24: C](language/c.md)
 
-### SQL
-- [SQL Basics](language/SQL)
+-   :fontawesome-solid-microchip:{ .lg .middle } __计算机系统__
 
-### C
-- [C Programming Basics](language/c)
+    ---
+    
+    cspp
+    
+    [Lecture01](csapp/lecture/01.md)
+    [lecture02](csapp/lecture/02.md)
+
+    ---
+
+-   :fontawesome-solid-code:{ .lg .middle } __数据结构__
+
+    [cs61b](cs61b/cs61b.md)
+    [gitlet之我见](cs61b/gitlet之我见.md)

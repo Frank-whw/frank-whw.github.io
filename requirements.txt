@@ -1,20 +1,10 @@
-setuptools>=68.0.0
-wheel>=0.42.0
-mkdocs==1.5.3
-mkdocs-material==9.4.6
-mkdocs-blogging-plugin==2.2.11
-mkdocs-callouts==1.9.1
-mkdocs-changelog-plugin==0.1.3
-mkdocs-minify-plugin==0.7.1
-mkdocs-git-revision-date-localized-plugin==1.2.1
-mkdocs-glightbox==0.3.4
-mkdocs-video==1.5.0
-mkdocs-material-extensions==1.3
-mkdocs-statistics-plugin==0.1.2
-rich==13.7.0
-babel==2.14.0
-pygments==2.16.1
-pymdown-extensions==10.5
-python-markdown-math==0.8
-cairosvg==2.7.1  # 用于社交卡片
-pillow==10.2.0   # 用于图片处理
+# 
+mkdocs-blogging-plugin
+mkdocs-callouts
+mkdocs-changelog-plugin
+mkdocs-material
+mkdocs-minify-plugin
+mkdocs-git-revision-date-localized-plugin
+mkdocs-glightbox
+mkdocs-video
+rich # for mkdocs-toc-plugin
