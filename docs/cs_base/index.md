@@ -15,7 +15,6 @@ comments: false
 
     ---
     
-    编程语言基础知识
     
     [:octicons-arrow-right-24: SQL](language/SQL.md)
     [:octicons-arrow-right-24: C](language/c.md)
@@ -23,8 +22,7 @@ comments: false
 -   :fontawesome-solid-microchip:{ .lg .middle } __计算机系统__
 
     ---
-    
-    cspp
+
     
     [Lecture01](csapp/lecture/01.md)
     [lecture02](csapp/lecture/02.md)

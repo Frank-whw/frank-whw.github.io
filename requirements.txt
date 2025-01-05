@@ -1,4 +1,4 @@
-# 
+
 mkdocs-blogging-plugin
 mkdocs-callouts
 mkdocs-changelog-plugin

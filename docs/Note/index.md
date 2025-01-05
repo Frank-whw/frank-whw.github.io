@@ -4,7 +4,7 @@ nostatistics: true
 comments: false
 ---
 
-# Summaries
+# Note
 
 !!! note "Abstract"
 
@@ -20,12 +20,11 @@ comments: false
     
     [:octicons-arrow-right-24: 为万世继太平](为万世继太平.md)
 
--   :fontawesome-solid-calendar:{ .lg .middle } __周结__
+-   :fontawesome-solid-calendar:{ .lg .middle } __一些思考__
 
     ---
     
-    每周学习和生活的记录与反思
     
-    [:octicons-arrow-right-24: 暂无](#周结)
+    [:octicons-arrow-right-24: 关于终身学习体系的思考](关于终身学习体系的思考.md)
 
 </div>
