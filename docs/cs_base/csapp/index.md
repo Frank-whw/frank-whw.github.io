@@ -14,3 +14,4 @@ comments: false
 ## "lecture":
 - "01": lecture/01
 - "02": lecture/02
+- "03": lecture/03
