@@ -19,13 +19,16 @@ comments: false
     [:octicons-arrow-right-24: SQL](language/SQL.md)
     [:octicons-arrow-right-24: C](language/c.md)
 
--   :fontawesome-solid-microchip:{ .lg .middle } __计算机系统__
+-   :fontawesome-solid-microchip:{ .lg .middle } __深入理解计算机系统__
 
     ---
 
     
     [Lecture01](csapp/lecture/01.md)
     [lecture02](csapp/lecture/02.md)
+    [lecture03](csapp/lecture/03.md)
+    [lecture04](csapp/lecture/04.md)
+
 
     ---
 
