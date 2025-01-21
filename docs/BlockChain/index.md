@@ -11,11 +11,14 @@ comments: false
 
 <div class="grid cards" markdown>
 
--   :fontawesome-solid-link:{ .lg .middle } __区块链基础__
+-   :fontawesome-solid-link:{ .lg .middle } __BTC__
 
     ---
     
-    [BTC](区块链技术与运用/BTC.md)
+    [1.密码学原理](区块链技术与运用/BTC/1.密码学原理.md)
+    [2.数据结构](区块链技术与运用/BTC/2.数据结构.md)
+    [3.协议](区块链技术与运用/BTC/3.协议.md)
+    
 
 -
 
