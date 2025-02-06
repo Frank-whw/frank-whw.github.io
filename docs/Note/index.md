@@ -14,8 +14,8 @@ comments: false
 
 -   :fontawesome-solid-book:{ .lg .middle } __为万世继太平__
     ---
+
     如果没有前人铺下的路，那么我愿意成为第一个铺路的人。 
-    
     
     
     [:octicons-arrow-right-24: 程序设计](考试/程序设计.md)
