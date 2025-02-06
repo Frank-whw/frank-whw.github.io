@@ -9,3 +9,4 @@ mkdocs-glightbox
 mkdocs-video
 rich # for mkdocs-toc-plugin
 mkdocs-statistics-plugin
+pymdownx.arithmatex
