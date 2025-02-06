@@ -40,6 +40,7 @@ theme:
     - search.share
     - search.suggest
     - toc.follow
+    - math.katex
 
   font: false
 
@@ -144,6 +145,8 @@ plugins:
   # 暂时注释掉 statistics 插件，因为与 Python 3.8 不兼容
   - statistics:
       words_per_minute: 200
+  - pymdownx.arithmatex:
+      generic: true
 
 markdown_extensions:
   - abbr
