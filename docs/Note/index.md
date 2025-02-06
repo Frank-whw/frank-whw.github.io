@@ -12,20 +12,21 @@ comments: false
 
 <div class="grid cards" markdown>
 
--   :fontawesome-solid-book:{ .lg .middle } __考试总结__
+-   :fontawesome-solid-book:{ .lg .middle } __为万世继太平__
+    ---
+    如果没有前人铺下的路，那么我愿意成为第一个铺路的人。 
+    
+    
+    
+    [:octicons-arrow-right-24: 程序设计](考试/程序设计.md)
+    [:octicons-arrow-right-24: 马原](考试/马原.md)
+
+-   :fontawesome-solid-calendar:{ .lg .middle } __Thoughts__
 
     ---
     
     
-    
-    [:octicons-arrow-right-24: 为万世继太平](为万世继太平.md)
-
--   :fontawesome-solid-calendar:{ .lg .middle } __一些思考__
-
-    ---
-    
-    
-    [:octicons-arrow-right-24: 关于终身学习体系的思考](关于终身学习体系的思考.md)
+    [:octicons-arrow-right-24: 关于终身学习体系的思考](思考/关于终身学习体系的思考.md)
 
 -   :fontawesome-solid-rocket:{ .lg .middle } __Project__
 
