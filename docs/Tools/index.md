@@ -12,11 +12,11 @@ comments: false
 
 <div class="grid cards" markdown>
 
--   :fontawesome-solid-blog:{ .lg .middle } __博客搭建__
+-   :fontawesome-solid-blog:{ .lg .middle } __blog搭建__
 
     ---
     
-    个人博客搭建教程和经验分享
+    
     
     [:octicons-arrow-right-24: 图床搭建](blog/图床搭建.md)
 
@@ -24,7 +24,5 @@ comments: false
 
     ---
     
-    常用开发工具和配置说明
     
-    [:octicons-arrow-right-24: 查看详情](dev-tools/)
 </div>

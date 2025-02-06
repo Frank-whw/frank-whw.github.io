@@ -25,9 +25,9 @@ comments: false
 
     
     [Lecture01](csapp/lecture/01.md)
-    [lecture02](csapp/lecture/02.md)
-    [lecture03](csapp/lecture/03.md)
-    [lecture04](csapp/lecture/04.md)
+    [Lecture02](csapp/lecture/02.md)
+    [Lecture03](csapp/lecture/03.md)
+    [Lecture04](csapp/lecture/04.md)
 
 
     ---
