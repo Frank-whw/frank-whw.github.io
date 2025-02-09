@@ -30,7 +30,6 @@ comments: false
     [Lecture04](csapp/lecture/04.md)
     [Lecture05](csapp/lecture/05.md)
 
-    ---
 
 -   :fontawesome-solid-code:{ .lg .middle } __数据结构__
 
@@ -40,7 +39,7 @@ comments: false
     [gitlet之我见](cs61b/gitlet之我见.md)
 
 
-    :fontawesome-solid-code:{ .lg .middle } __CSAPP Lab__
+-   :fontawesome-solid-code:{ .lg .middle } __CSAPP Lab__
 
     ---
 
