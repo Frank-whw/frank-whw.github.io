@@ -34,5 +34,14 @@ comments: false
 
 -   :fontawesome-solid-code:{ .lg .middle } __数据结构__
 
+    ---
+
     [cs61b](cs61b/cs61b.md)
     [gitlet之我见](cs61b/gitlet之我见.md)
+
+
+    :fontawesome-solid-code:{ .lg .middle } __CSAPP Lab__
+
+    ---
+
+    [DataLab](csapp/Lab/DataLab.md)
