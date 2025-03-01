@@ -44,3 +44,4 @@ comments: false
     ---
 
     [DataLab](csapp/Lab/DataLab.md)
+    [BombLab](csapp/Lab/BombLab.md)
