@@ -45,3 +45,9 @@ comments: false
 
     [DataLab](csapp/Lab/DataLab.md)
     [BombLab](csapp/Lab/BombLab.md)
+
+-   :fontawesome-solid-code:{ .lg .middle } __cs61c__
+
+    ---
+
+    [Lab01](cs61c/Lab/Lab01.md)
