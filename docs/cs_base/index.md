@@ -25,7 +25,8 @@ comments: false
 - "CSAPP Lab":
     - "DataLab": csapp/Lab/DataLab
     - "BombLab": csapp/Lab/BombLab
-- "cs61c":
+- "cs61c Lab":
     - "Lab01": cs61c/Lab/Lab01
-
+- "cs61c Project":
+    - "Project01": cs61c/proj/proj01
 {{ END_TOC }}
