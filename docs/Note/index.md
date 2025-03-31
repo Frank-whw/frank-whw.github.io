@@ -15,7 +15,7 @@ comments: false
     - "程序设计": 考试/程序设计
     - "马原": 考试/马原
 - "Thoughts":
-    - "关于终身学习体系的思考": 思考/关于终身学习体系的思考.md
+    - "关于终身学习体系的思考": 思考/关于终身学习体系的思考
 - "Project":
-    - "OpenChain": Project/OpenChain.md
+    - "OpenChain": Project/OpenChain
 {{ END_TOC }}

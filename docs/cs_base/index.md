@@ -11,21 +11,21 @@ comments: false
 
 {{ BEGIN_TOC }}
 - "编程语言": 
-    - "SQL": language/SQL.md
-    - "C": language/c.md
+    - "SQL": language/SQL
+    - "C": language/c
 - "深入理解计算机系统":
-    - "Lecture01": csapp/lecture/01.md
-    - "Lecture02": csapp/lecture/02.md
-    - "Lecture03": csapp/lecture/03.md
-    - "Lecture04": csapp/lecture/04.md
-    - "Lecture05": csapp/lecture/05.md
+    - "Lecture01": csapp/lecture/01
+    - "Lecture02": csapp/lecture/02
+    - "Lecture03": csapp/lecture/03
+    - "Lecture04": csapp/lecture/04
+    - "Lecture05": csapp/lecture/05
 - "cs61b":
-    - "notes": cs61b/cs61b.md
-    - "gitlet之我见": cs61b/gitlet之我见.md
+    - "notes": cs61b/cs61b
+    - "gitlet之我见": cs61b/gitlet之我见
 - "CSAPP Lab":
-    - "DataLab": csapp/Lab/DataLab.md
-    - "BombLab": csapp/Lab/BombLab.md
+    - "DataLab": csapp/Lab/DataLab
+    - "BombLab": csapp/Lab/BombLab
 - "cs61c":
-    - "Lab01": cs61c/Lab/Lab01.md
+    - "Lab01": cs61c/Lab/Lab01
 
 {{ END_TOC }}
