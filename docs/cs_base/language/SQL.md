@@ -1,8 +1,9 @@
-# 1.什么是数据库？
+# SQL
+## 1.什么是数据库？
 - **数据库**（Database）是按照数据结构来组织、存储和管理数据的仓库。
 - 每个数据库都有一个或多个不同的 API 用于创建，访问，管理，搜索和复制所保存的数据。
 - 我们也可以将数据存储在文件中，但是在文件中读写数据速度相对较慢。
-## 1.2RDBMS
+### 1.2RDBMS
 所以，现在我们使用**关系型数据库管理系统**（RDBMS）来存储和管理大数据量。所谓的关系型数据库，是建立在关系模型基础上的数据库，借助于集合代数等数学概念和方法来处理数据库中的数据。
 RDBMS 即关系数据库管理系统(Relational Database Management System)的**特点**：
 - 1.数据以表格的形式出现
@@ -10,7 +11,7 @@ RDBMS 即关系数据库管理系统(Relational Database Management System)的**
 - 3.每列为记录名称所对应的数据域
 - 4.许多的行和列组成一张表单
 - 5.若干的表单组成database
-## 1.3TermS
+### 1.3TermS
 - **数据库:** 数据库是一些关联表的集合。
 - **数据表:** 表是数据的矩阵。在一个数据库中的表看起来像一个简单的电子表格。
 - **列:** 一列(数据元素) 包含了相同类型的数据, 例如邮政编码的数据。
@@ -28,7 +29,7 @@ RDBMS 即关系数据库管理系统(Relational Database Management System)的**
 - **键(key)**: 键的值在当前列中具有唯一性。
 
 MySQL 为关系型数据库(Relational Database Management System), 这种所谓的"关系型"可以理解为"表格"的概念, 一个关系型数据库由一个或数个表格组成。
-# 2.Syntax
+## 2.Syntax
 - 可以单行或多行书写，以分号结尾
 - 可以用空格/ 缩进增强代码可读性
 - 不区分大小写，关键字建议大写
@@ -38,7 +39,7 @@ MySQL 为关系型数据库(Relational Database Management System), 这种所谓
 - 分类 
 ![image.png](https://raw.githubusercontent.com/Frank-whw/img/main/blog/202410291832.png)
  
-## 2.1创建数据
+### 2.1创建数据
 ```sql
 CREAT DATABASE egg;
 USE egg;
@@ -49,22 +50,22 @@ CREAT TABLE "name"(
 ```
 1. 设置其中一个列名为PRIMART KEY不能为空
 
-## 2.2插入
+### 2.2插入
 INSERT INTO 数据库名.表格名（列名1， 列名2）
 VALUES（数值1， 数值2）
 
-## 2.3改变表格
+### 2.3改变表格
 ```sql
 ALTER TABLE egg.eggs_record
 ADD stock INT NULL;
 ```
-## 2.4更新表格
+### 2.4更新表格
 ```sql
 UPDATE 表格名.列名
 SET 值
 WHERE 条件
 ```
-## 2.5删除数据
+### 2.5删除数据
 ```sql
 DELETE FROM 数据库名.表格名
 WHERE 条件
@@ -73,7 +74,7 @@ WHERE 条件
 ```sql
 DROP TABLE 数据库名.表格名
 ```
-## 2.7查找数据
+### 2.7查找数据
 ```sql
 SELECT ____
 FROM ____

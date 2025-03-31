@@ -11,5 +11,5 @@ comments: false
 
 {{ BEGIN_TOC }}
 - "AI":
-    - "理论学习": 基于python的理论和实现
+    - "深度学习：基于python的理论和实现": 基于python的理论和实现
 {{ END_TOC }}

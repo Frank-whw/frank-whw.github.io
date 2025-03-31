@@ -1,5 +1,6 @@
-# 9. Disjointed set
-## 9.1 introduction
+# note
+## 9. Disjointed set
+### 9.1 introduction
 1. 互斥
 2. 有2种运算：
 	1. `connect(x, y)`或者说是`union`
@@ -15,7 +16,7 @@ public interface DisjointSets {
     boolean isConnected(int p, int q); 
 }
 ```
-## 9.2 Quick Find
+### 9.2 Quick Find
 1. 同一个set的元素的id相同
 ![image.png](https://raw.githubusercontent.com/Frank-whw/img/main/blog/202411111421.png)
 2. 判断isConnected（x, y)可以直接判断id是否相同，时间复杂度O(1)
@@ -49,7 +50,7 @@ public class QuickFindDS implements DisjointSets {
     }
 }
 ```
-## 9.3 Quick Union
+### 9.3 Quick Union
 1. 辅助函数`find(int item)` 返回`item`所在的根
 ![image.png](https://raw.githubusercontent.com/Frank-whw/img/main/blog/202411111426.png)
 	- find(4) = 0   find(5) = 3
@@ -83,10 +84,10 @@ public class QuickUnionDS implements DisjointSets {
     }
 }
 ```
-## 9.4 Weighted Quick Union(WQU)
+### 9.4 Weighted Quick Union(WQU)
 1. 优化QU，针对`find`函数在运行是要climb to the root of a tree，显然是低效的，为了解决这个问题，提出了个关键思路：**在每次connect时，判断2个trees的高度，把高度小的tree links to 高的**。
 2. 树的maximum height可以控制在logN内
-## 9.5 WQU with Path Compression
+### 9.5 WQU with Path Compression
 1. 有点抽象，让所有的`item`都连接到根
 2. 理解了
 3. 核心思路是在find操作时，在经过沿途的`item`时把它直接连接到根节点，使得后续的查找路径更短
@@ -94,12 +95,12 @@ public class QuickUnionDS implements DisjointSets {
 	1. **顺路**
 	2. 摊还分析（Amortized Analysis）
 ---
-# 10. ADT
-## 10.1 intro
+## 10. ADT
+### 10.1 intro
 - Abstract Data Type抽象数据类型
 - 仅由其操作定义，而不由其实现定义
 - 常见的：Stacks、Lists、Sets、Maps
-## 10.2 trees
+### 10.2 trees
 - BST: Binary Search Tree
 - **Hibbard deletion
 	1. 找到该节点的**直接后继节点**（即右子树中最小的节点）或**直接前驱节点**（即左子树中最大的节点）。
@@ -108,13 +109,13 @@ public class QuickUnionDS implements DisjointSets {
 
 ---
 
-# 11. Balanced Trees
-## 11.1 Intro
+## 11. Balanced Trees
+### 11.1 Intro
 - **BigO** is not synonymous to the Worst-case
 - **depth**: the number of links between a node and the root.
 - **height**: the lowest depth of a tree.
 - **average depth**: average of the total depths in the tree. 
-## 11.2 B-Trees
+### 11.2 B-Trees
 - problem：每次insert一个数据时都会增加树的高度
 - 为改变这点，引入一个crazy idea：**let's just never add a leaf node! **
 - When we insert, let's just add to a current leaf node. This way, the height will never increase.
@@ -122,12 +123,12 @@ public class QuickUnionDS implements DisjointSets {
 ![image.png](https://raw.githubusercontent.com/Frank-whw/img/main/blog/202411171423.png)
 
 - 我本人是不太喜欢或者理解这一个idea，原因在于这增加了find的时间复杂度，在16 17 18 19这一个叶子中find数据还是需要traverse，时间复杂度取决于叶子的大小
-## 11.3 B-Tree invariants
+### 11.3 B-Tree invariants
 - 同样一组数据，插入的顺序会决定树的高度
 - B-Trees的特点（invarants）：
 	1. All leaves must be the same distance from the source.
 	2. A non-leaf node with `k`items must have exactly `k+1` children.
-## 11.4 Rotating Trees
+### 11.4 Rotating Trees
 - 存在的原因在于通过rotating去维持树的invariant
 ```java
 private Node rotateRight(Node h) {
@@ -147,21 +148,21 @@ private Node rotateLeft(Node h) {
     return x;
 }
 ```
-## 11.5 Red-Black Trees
+### 11.5 Red-Black Trees
 - 略
 
 ---
-# 12 Hashing
-## 12.1 attempt
+## 12 Hashing
+### 12.1 attempt
 - limitation：
 	1. item需要可以被比较
 	2. 最优只有logn的复杂度，能不能更加优秀
 - 针对limitation2提出DataIndexedIntergerSet
-## 12.2 Inserting words
+### 12.2 Inserting words
 - 其实就是引出了**哈希表**的核心：input一个什么东西，把它转为成唯一且对应的hash值，根据这个hash值可以判断这个东西是不是存在
 - 解决了item可以不需要被比较的问题以及复杂度变为O(1)
 - 但是新问题：浪费
-## 12.3 Inserting String and Overflow
+### 12.3 Inserting String and Overflow
 - overflow会导致2种不同的string有相同的表示
 - 因为java中最大的数据是2,147,483,647
 - java中最多有4,294,967,296个整数，但是object的数量比这多
@@ -176,7 +177,7 @@ private Node rotateLeft(Node h) {
 - pending issues：
 	- a lot of space
 	- hash collisions
-## 12.4 handling collisions
+### 12.4 handling collisions
 - 主要的想法是一个hash值对应一个LinkedList，so that如果在添加一个item时，它的hash值已经存在在map中说明hash collision，那么将这个item放在hash值对应的LinkedList中（因为List显然是可以存多个item的）
 - create workflow：
 	- `add`item
@@ -186,7 +187,7 @@ private Node rotateLeft(Node h) {
 	- space问题解决了
 	- collision解决了
 	- runtime complexity有问题了
-## 12.5 Hash Table and Fixing Runtime
+### 12.5 Hash Table and Fixing Runtime
 - 最终的数据结构：`HashTable`
 	- Inputs are converted by a hash function (`hashcode`) into an integer. Then, they're converted to a valid index using the modulus operator. Then, they're added at that index (dealing with collisions using LinkedList).
 	- `contains` works in a similar fashion by figuring out the valid index, and looking in the corresponding LinkedList for the item.
@@ -195,7 +196,7 @@ private Node rotateLeft(Node h) {
 	2. 改进哈希码
 
 ---
-# Lab 7
+## Lab 7
 - 以**树**为基础创建一个Map
 - 创建完之后与ULLMap和TreeMap比较
 - 需要完成的method：除了`remove、iterator、keySet`都要 + `printInOrder`()
@@ -203,8 +204,8 @@ private Node rotateLeft(Node h) {
 -  use a private nested `BSTNode` class to help facilitate your implementation. （recommend）
 finish at 2024年11月19日
 ---
-# 13 Heaps and Priority Queues
-## 13.1 PQ interface
+## 13 Heaps and Priority Queues
+### 13.1 PQ interface
 - 引入：如何找到最大或者最小的元素而不只是快速搜索
 - 引出：Priority Queue（优先队列）
 	- 如何理解：想象一个包，可以加东西 可以减东西，但是只能`interact with the smallest items of this bag`
@@ -284,13 +285,13 @@ preOrder(BSTNode x) {
     preOrder(x.right)
 }
 ```
-## 17.3 Graphs
+### 17.3 Graphs
 - 树的局限：2个节点之间只能有一条路径
 - 图的组成：点+边
 - 树 真包含于 图
 - Graphs can be divided into two categories: **_simple_ graphs** and _multigraphs_ (or complicated graphs, a term I invented, because that's how I like to think of them.)
 - 本节课研究simple graphs，简单图又分为无向+有向
-## 17.4 Graph Problems
+### 17.4 Graph Problems
 - **s-t Path**: Is there a path between vertices s and t?
 - **Connectivity**: Is the graph connected, i.e. is there a path between all vertices?
 - **Biconnectivity**: Is there a vertex whose removal disconnects the graph?
@@ -302,8 +303,8 @@ preOrder(BSTNode x) {
 - **Isomorphism**: Are two graphs isomorphic (the same graph in disguise)?
 
 ---
-# 18. BFS
-## 18.1 BFS
+## 18. BFS
+### 18.1 BFS
 - Breadth First Search(also known as Level Order Traversal)
 - The pseudocode for BFS is as follows:
 ```
@@ -322,14 +323,14 @@ fringe在这边指一个队列，先入先出
 - dfs和bfs的区别：
 	- dfs是一个方向去搜，不到黄河不回头，直到遇到绝境
 	- bfs是先把本节点所连接的所有节点都遍历一遍，走到下一个节点的时候，再把连接节点的所有节点遍历一遍
-## 18.2 Representing Graphs
+### 18.2 Representing Graphs
 - 有个难点：
 	- 原话：For our Graph API, let's use **the common convention** of assigning each unique node to an **integer** number. This can be done by maintaining a map which can tell us the integer assigned to each original node label. Doing so allows us to define our API to work with integers specifically, rather than introducing the need for generic types.
 	- 我的理解：用唯一对应的整数表示节点，而不是节点的原始标签，有点像Hash算法
 
 ---
-# Lab 8
-## key things
+## Lab 8
+### key things
 - 与lab7很像，不同点在于这次将建造一个Hash Map而不是Tree Map
 - 完成后 需要与基于列表的Map 以及 内置的Java HashMap进行比较，另外要和基于不同数据结构的map对比
 - 新建一个class MyHashMap，完成Map61B中所有的methods，其中remove用报错代替，iterator返回迭代器，建议新建一个HashSet实例属性
@@ -358,7 +359,7 @@ protected Collection<Node> createBucket() {
 }
 ```
 这个方法允许`MyHashMap*Buckets.java` 覆盖 `createBucket`
-## implementation Requirements
+### implementation Requirements
 - 使用3种constructors
 ```java
 public MyHashMap();
@@ -370,11 +371,11 @@ public MyHashMap(int initialSize, double loadFactor);
 - 默认值initialSize = 16， loadFactor = 0.75
 - 每个bucket不是一个单独的对象，而是可以存储多个键值对的数据结构
 
-# 19 Shortest Paths
-## 19.1 Recap
+## 19 Shortest Paths
+### 19.1 Recap
 - DFS不适用细长的图，因为每次递归调用会占用很大的空间
 - BFS不适用bushy的图，因为队列会被大量使用
 - 但是这些只适用于“边”没有**权重**的图
-## 19.2 Dijkstra's Algorithm
+### 19.2 Dijkstra's Algorithm
 - 迪杰斯特拉算法
 - 通过优先级队列，当队列不为空时，弹出一个顶点并**relax**到从这个点出发的所有边
