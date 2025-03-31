@@ -1,5 +1,5 @@
 # OpenChain
->为铭记首次将[关于终身学习体系的思考 - Frank's Blog](https://frank-whw.github.io/Note/%E5%85%B3%E4%BA%8E%E7%BB%88%E8%BA%AB%E5%AD%A6%E4%B9%A0%E4%BD%93%E7%B3%BB%E7%9A%84%E6%80%9D%E8%80%83/)中所阐述的工程思维，全面应用于大学阶段首个完整项目的实践过程，特作此记录——[OpenChain](https://github.com/Frank-whw/OpenChain) 。
+>为铭记首次将[关于终身学习体系的思考](https://frank-whw.github.io/Note/%E6%80%9D%E8%80%83/%E5%85%B3%E4%BA%8E%E7%BB%88%E8%BA%AB%E5%AD%A6%E4%B9%A0%E4%BD%93%E7%B3%BB%E7%9A%84%E6%80%9D%E8%80%83/)中所阐述的工程思维，全面应用于大学阶段首个完整项目的实践过程，特作此记录——[OpenChain](https://github.com/Frank-whw/OpenChain) 。
 
 ## What
 此项目具备**双重**属性，既是我在大一学年修读的一门大二专业基础课程的期末大作业，也是参与[OpenRank](https://competition.atomgit.com/competitionInfo?id=557cfb17b901c9420329327259f13c39)比赛的正式参赛作品。值得庆幸的是，我们最终侥幸全国三等奖。
