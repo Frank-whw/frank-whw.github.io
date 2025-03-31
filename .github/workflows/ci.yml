@@ -31,6 +31,8 @@ jobs:
           python-version: "3.11"
           cache: "pip"
 
+      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
+
       - name: Cache dependencies
         uses: actions/cache@v3
         with:
@@ -42,7 +44,7 @@ jobs:
       - name: Cache MkDocs
         uses: actions/cache@v3
         with:
-          key: mkdocs-material-${{ hashFiles('mkdocs.yml') }}
+          key: mkdocs-material-${{ env.cache_id }}
           path: .cache
           restore-keys: |
             mkdocs-material-
@@ -52,6 +54,18 @@ jobs:
           python -m pip install --upgrade pip setuptools wheel
           pip install -r requirements.txt
           pip list
+
+      - name: Install plugins from TonyCrane
+        run: |
+          git clone https://github.com/TonyCrane/mkdocs-toolchain
+          pip install mkdocs-toolchain/mkdocs-toc-plugin
+          rm -rf mkdocs-toolchain
+
+      - name: Install modified mkdocs-statistics-plugin
+        run: |
+          git clone https://github.com/KinnariyaMamaTanha/mkdocs-statistics-plugin
+          pip install ./mkdocs-statistics-plugin
+          rm -rf mkdocs-statistics-plugin
 
       - name: Debug Info
         run: |
@@ -65,6 +79,7 @@ jobs:
           mkdocs --version
           echo "Config file contents:"
           cat mkdocs.yml
+          pip list
 
       - name: Build and Deploy
         run: |
