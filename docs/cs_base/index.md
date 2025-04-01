@@ -29,4 +29,6 @@ comments: false
     - "Lab01": cs61c/Lab/Lab01
 - "cs61c Project":
     - "Project01": cs61c/proj/proj01
+- "cs61c Lecture":
+    - "Lecture01": cs61c/Lecture/lecture07
 {{ END_TOC }}
