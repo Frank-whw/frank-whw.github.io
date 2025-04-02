@@ -31,6 +31,7 @@ comments: false
 - "cs61c Project":
     - "Project01": cs61c/proj/proj01
 - "cs61c Lecture":
-    - "Lecture07": cs61c/Lecture/lecture07
-    - "Lecture08": cs61c/Lecture/lecture08
+    - "Lecture07：RISC-V 寄存器": cs61c/Lecture/lecture07
+    - "Lecture08：RISC-V lw, sw, Decision 1": cs61c/Lecture/lecture08
+    - "Lecture09: 位操作与函数调用": cs61c/Lecture/lecture09
 {{ END_TOC }}
