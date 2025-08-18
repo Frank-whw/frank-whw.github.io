@@ -1,12 +1,13 @@
 
+mkdocs>=1.5.0
+mkdocs-material>=9.0.0
+mkdocs-material-extensions
 mkdocs-blogging-plugin
 mkdocs-callouts
-mkdocs-changelog-plugin
-mkdocs-material
 mkdocs-minify-plugin
-mkdocs-git-revision-date-localized-plugin
 mkdocs-glightbox
 mkdocs-video
 rich # for mkdocs-toc-plugin
-mkdocs-statistics-plugin
 pymdown-extensions
+# Note: mkdocs-changelog-plugin, mkdocs-git-revision-date-localized-plugin, 
+# and mkdocs-statistics-plugin are installed from mkdocs-toolchain

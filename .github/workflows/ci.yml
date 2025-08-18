@@ -58,14 +58,22 @@ jobs:
       - name: Install plugins from TonyCrane
         run: |
           git clone https://github.com/TonyCrane/mkdocs-toolchain
-          pip install mkdocs-toolchain/mkdocs-toc-plugin
+          cd mkdocs-toolchain
+          pip install -e ./mkdocs-changelog-plugin
+          pip install -e ./mkdocs-encryptcontent-plugin
+          pip install -e ./mkdocs-git-revision-date-localized-plugin
+          pip install -e ./mkdocs-heti-plugin
+          pip install -e ./mkdocs-rss-plugin
+          pip install -e ./mkdocs-statistics-plugin
+          cd ..
           rm -rf mkdocs-toolchain
 
-      - name: Install modified mkdocs-statistics-plugin
-        run: |
-          git clone https://github.com/KinnariyaMamaTanha/mkdocs-statistics-plugin
-          pip install ./mkdocs-statistics-plugin
-          rm -rf mkdocs-statistics-plugin
+      # mkdocs-statistics-plugin is already installed from mkdocs-toolchain
+      # - name: Install modified mkdocs-statistics-plugin
+      #   run: |
+      #     git clone https://github.com/KinnariyaMamaTanha/mkdocs-statistics-plugin
+      #     pip install ./mkdocs-statistics-plugin
+      #     rm -rf mkdocs-statistics-plugin
 
       - name: Debug Info
         run: |
