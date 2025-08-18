@@ -11,6 +11,7 @@ comments: false
 
 {{ BEGIN_TOC }}
 - "编程语言": 
+    - "Java": language/java/
     - "SQL": language/SQL
     - "C": language/c
 - "深入理解计算机系统":
