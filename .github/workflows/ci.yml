@@ -57,14 +57,24 @@ jobs:
 
       - name: Install plugins from TonyCrane
         run: |
-          git clone https://github.com/TonyCrane/mkdocs-toolchain
+          git clone --recursive https://github.com/TonyCrane/mkdocs-toolchain
           cd mkdocs-toolchain
-          pip install -e ./mkdocs-changelog-plugin
+          # Initialize submodules if not already done
+          git submodule update --init --recursive
+          # Install only the plugins that exist and have setup files
           pip install -e ./mkdocs-encryptcontent-plugin
           pip install -e ./mkdocs-git-revision-date-localized-plugin
-          pip install -e ./mkdocs-heti-plugin
           pip install -e ./mkdocs-rss-plugin
-          pip install -e ./mkdocs-statistics-plugin
+          # Install TonyCrane's custom plugins from submodules
+          if [ -f "mkdocs-changelog-plugin/setup.py" ] || [ -f "mkdocs-changelog-plugin/pyproject.toml" ]; then
+            pip install -e ./mkdocs-changelog-plugin
+          fi
+          if [ -f "mkdocs-heti-plugin/setup.py" ] || [ -f "mkdocs-heti-plugin/pyproject.toml" ]; then
+            pip install -e ./mkdocs-heti-plugin
+          fi
+          if [ -f "mkdocs-statistics-plugin/setup.py" ] || [ -f "mkdocs-statistics-plugin/pyproject.toml" ]; then
+            pip install -e ./mkdocs-statistics-plugin
+          fi
           cd ..
           rm -rf mkdocs-toolchain
 

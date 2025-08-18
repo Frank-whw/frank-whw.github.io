@@ -8,14 +8,16 @@ dependencies:
       - mkdocs
       - mkdocs-material
       - mkdocs-glightbox
-      - mkdocs-statistics-plugin
-      - mkdocs-heti-plugin
+      # mkdocs-statistics-plugin and mkdocs-heti-plugin will be installed from mkdocs-toolchain
+  # - mkdocs-statistics-plugin
+  # - mkdocs-heti-plugin
       # mkdocs-include-dir-to-nav
       - mkdocs-git-revision-date-localized-plugin
       - rich # for mkdocs-toc-plugin
       - mkdocs-blogging-plugin
       - mkdocs-callouts
-      - mkdocs-changelog-plugin
+      # mkdocs-changelog-plugin will be installed from mkdocs-toolchain
+  # - mkdocs-changelog-plugin
       - mkdocs-minify-plugin
       - mkdocs-video
       - mkdocs-bi-directional-links
