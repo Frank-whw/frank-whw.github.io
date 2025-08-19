@@ -57,26 +57,11 @@ jobs:
 
       - name: Install additional plugins
         run: |
-          # Try to install from TonyCrane's toolchain first, fallback to PyPI
-          git clone --recursive https://github.com/TonyCrane/mkdocs-toolchain || true
-          if [ -d "mkdocs-toolchain" ]; then
-            cd mkdocs-toolchain
-            git submodule update --init --recursive || true
-            # Install plugins that exist
-            [ -d "mkdocs-encryptcontent-plugin" ] && pip install -e ./mkdocs-encryptcontent-plugin || pip install mkdocs-encryptcontent-plugin
-            [ -d "mkdocs-git-revision-date-localized-plugin" ] && pip install -e ./mkdocs-git-revision-date-localized-plugin || pip install mkdocs-git-revision-date-localized-plugin
-            [ -d "mkdocs-rss-plugin" ] && pip install -e ./mkdocs-rss-plugin || pip install mkdocs-rss-plugin
-            [ -d "mkdocs-heti-plugin" ] && pip install -e ./mkdocs-heti-plugin || true
-            [ -d "mkdocs-statistics-plugin" ] && pip install -e ./mkdocs-statistics-plugin || pip install mkdocs-statistics-plugin
-            cd ..
-            rm -rf mkdocs-toolchain
-          else
-            # Fallback to PyPI installation
-            pip install mkdocs-encryptcontent-plugin
-            pip install mkdocs-git-revision-date-localized-plugin
-            pip install mkdocs-rss-plugin
-            pip install mkdocs-statistics-plugin
-          fi
+          # Install plugins directly from PyPI for reliability
+          pip install mkdocs-encryptcontent-plugin
+          pip install mkdocs-git-revision-date-localized-plugin
+          pip install mkdocs-rss-plugin
+          pip install mkdocs-statistics-plugin
 
       # mkdocs-statistics-plugin is already installed from mkdocs-toolchain
       # - name: Install modified mkdocs-statistics-plugin
