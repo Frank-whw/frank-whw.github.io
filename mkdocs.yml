@@ -121,6 +121,8 @@ plugins:
       post_excerpt_max_authors: 3
       post_excerpt_separator: <!-- more -->
   - search
+  - macros:
+      module_name: main
   - callouts
   - changelog
   - glightbox:

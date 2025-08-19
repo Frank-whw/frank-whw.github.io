@@ -7,8 +7,9 @@ mkdocs-callouts
 mkdocs-minify-plugin
 mkdocs-glightbox
 mkdocs-video
-rich # for mkdocs-toc-plugin
+rich # for mkdocs-macros-plugin
 mkdocs-changelog-plugin
+mkdocs-macros-plugin
 pymdown-extensions
 mkdocs-git-revision-date-localized-plugin
 mkdocs-statistics-plugin
