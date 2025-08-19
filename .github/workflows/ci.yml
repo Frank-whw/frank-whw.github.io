@@ -66,9 +66,7 @@ jobs:
           pip install -e ./mkdocs-git-revision-date-localized-plugin
           pip install -e ./mkdocs-rss-plugin
           # Install TonyCrane's custom plugins from submodules
-          if [ -f "mkdocs-changelog-plugin/setup.py" ] || [ -f "mkdocs-changelog-plugin/pyproject.toml" ]; then
-            pip install -e ./mkdocs-changelog-plugin
-          fi
+          # mkdocs-changelog-plugin is now installed from PyPI via requirements.txt
           if [ -f "mkdocs-heti-plugin/setup.py" ] || [ -f "mkdocs-heti-plugin/pyproject.toml" ]; then
             pip install -e ./mkdocs-heti-plugin
           fi

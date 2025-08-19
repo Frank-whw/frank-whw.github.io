@@ -8,6 +8,7 @@ mkdocs-minify-plugin
 mkdocs-glightbox
 mkdocs-video
 rich # for mkdocs-toc-plugin
+mkdocs-changelog-plugin
 pymdown-extensions
-# Note: mkdocs-changelog-plugin, mkdocs-git-revision-date-localized-plugin, 
+# Note: mkdocs-git-revision-date-localized-plugin 
 # and mkdocs-statistics-plugin are installed from mkdocs-toolchain
