@@ -10,5 +10,7 @@ mkdocs-video
 rich # for mkdocs-toc-plugin
 mkdocs-changelog-plugin
 pymdown-extensions
+mkdocs-git-revision-date-localized-plugin
+mkdocs-statistics-plugin
 # Note: mkdocs-git-revision-date-localized-plugin 
 # and mkdocs-statistics-plugin are installed from mkdocs-toolchain
