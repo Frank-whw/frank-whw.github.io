@@ -4,9 +4,11 @@ on:
     branches:
       - main
 permissions:
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -33,5 +35,21 @@ jobs:
           pip install ./mkdocs-statistics-plugin
           rm -rf mkdocs-statistics-plugin
       - run: pip cache purge
-      - run: mkdocs gh-deploy --force
+      - name: Build site
+        run: mkdocs build
+      - name: Upload Pages Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deploy
+        uses: actions/deploy-pages@v4
 
