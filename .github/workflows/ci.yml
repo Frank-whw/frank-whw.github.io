@@ -74,12 +74,11 @@ jobs:
       - name: Purge pip cache
         run: pip cache purge
 
-      # mkdocs-statistics-plugin is already installed from mkdocs-toolchain
-      # - name: Install modified mkdocs-statistics-plugin
-      #   run: |
-      #     git clone https://github.com/KinnariyaMamaTanha/mkdocs-statistics-plugin
-      #     pip install ./mkdocs-statistics-plugin
-      #     rm -rf mkdocs-statistics-plugin
+      - name: Install modified mkdocs-statistics-plugin
+        run: |
+          git clone https://github.com/KinnariyaMamaTanha/mkdocs-statistics-plugin
+          pip install ./mkdocs-statistics-plugin
+          rm -rf mkdocs-statistics-plugin
 
       - name: Debug Info
         run: |
