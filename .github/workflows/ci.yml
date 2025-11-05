@@ -58,16 +58,12 @@ jobs:
       - name: Install additional plugins
         run: |
           # Install plugins directly from PyPI for reliability
-          pip install mkdocs-encryptcontent-plugin
+          # pip install mkdocs-encryptcontent-plugin 没有必要
           pip install mkdocs-git-revision-date-localized-plugin
           pip install mkdocs-rss-plugin
+          # Use maintained TOC plugin from PyPI (TonyCrane toolchain doesn't include mkdocs-toc-plugin)
+          pip install mkdocs-toc-md
           pip install mkdocs-statistics-plugin
-
-      - name: Install plugins from TonyCrane
-        run: |
-          git clone https://github.com/TonyCrane/mkdocs-toolchain
-          pip install mkdocs-toolchain/mkdocs-toc-plugin
-          rm -rf mkdocs-toolchain
 
       - name: Install modified mkdocs-statistics-plugin
         run: |
