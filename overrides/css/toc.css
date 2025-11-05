@@ -1,0 +1,136 @@
+/* TOC interactive block styles */
+
+.index-item-wrapper {
+  margin: 0;
+  padding: 0;
+}
+
+.title-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .5rem;
+  padding: .5rem .6rem;
+  border-radius: .4rem;
+  background: var(--md-code-bg-color, rgba(0,0,0,.04));
+  margin: .6rem 0 .2rem;
+}
+
+.title-wrapper button {
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  padding: .25rem .2rem;
+  border: 0;
+  background: transparent;
+  color: var(--md-default-fg-color);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.title-wrapper button:hover {
+  color: var(--md-primary-fg-color, #3f51b5);
+}
+
+.title-wrapper .twemoji svg {
+  width: 1em;
+  height: 1em;
+  transition: transform .2s ease;
+}
+
+.content-item-wrapper {
+  list-style: none;
+  margin: .2rem 0 .8rem;
+  padding: 0 .2rem;
+}
+
+.content-item-wrapper > li {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto auto;
+  gap: .25rem .75rem;
+  padding: .4rem .2rem;
+  border-bottom: 1px solid var(--md-divider-color, rgba(0,0,0,.08));
+}
+
+.item-primary a {
+  text-decoration: none;
+  color: var(--md-typeset-a-color, #4051b5);
+}
+
+.item-primary a:hover {
+  text-decoration: underline;
+}
+
+.item-status {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  color: var(--md-accent-fg-color, #00bcd4);
+  font-size: .8rem;
+}
+
+.item-main-content {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  color: var(--md-default-fg-color--light, rgba(0,0,0,.6));
+  font-size: .8rem;
+}
+
+.item-metadata {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  display: flex;
+  align-items: center;
+  gap: .25rem;
+}
+
+.note-tag,
+.lab-tag,
+.item-lock {
+  display: inline-block;
+  padding: .1rem .4rem;
+  border-radius: .25rem;
+  font-size: .75rem;
+  line-height: 1;
+}
+
+.note-tag {
+  background: rgba(255, 214, 102, .25);
+  color: #a67500;
+}
+
+.lab-tag {
+  background: rgba(56, 182, 255, .25);
+  color: #0b6b93;
+}
+
+.item-lock {
+  background: rgba(255, 102, 102, .2);
+  color: #9a1c1c;
+}
+
+.item-actions {
+  color: var(--md-default-fg-color--light, rgba(0,0,0,.6));
+  font-size: .8rem;
+}
+
+.twemoji svg {
+  vertical-align: middle;
+  width: 1rem;
+  height: 1rem;
+  fill: currentColor;
+}
+
+@media (max-width: 768px) {
+  .content-item-wrapper > li {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+  }
+  .item-status,
+  .item-metadata {
+    grid-column: 1 / -1;
+  }
+}

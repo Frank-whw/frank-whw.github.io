@@ -79,6 +79,7 @@ extra_css:
   - css/card.css
   - css/flink.css
   - css/tasklist.css
+  - css/toc.css
 
 extra:
   social:
@@ -121,7 +122,9 @@ plugins:
       post_excerpt_max_authors: 3
       post_excerpt_separator: <!-- more -->
   - search
-  - macros
+  - macros:
+      modules:
+        - hooks.toc
   - callouts
   - changelog
   - glightbox:
