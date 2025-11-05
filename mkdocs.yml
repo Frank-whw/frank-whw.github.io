@@ -141,7 +141,7 @@ plugins:
       video_muted: True
       video_controls: True
       mark: "video"
-
+  - toc
   # 暂时注释掉 statistics 插件，因为与 Python 3.8 不兼容
   - statistics:
       words_per_minute: 200
