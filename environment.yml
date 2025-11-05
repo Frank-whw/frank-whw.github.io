@@ -13,7 +13,7 @@ dependencies:
   # - mkdocs-heti-plugin
       # mkdocs-include-dir-to-nav
       - mkdocs-git-revision-date-localized-plugin
-      - rich # for mkdocs-toc-plugin
+      - rich # for mkdocs-macros-plugin
       - mkdocs-blogging-plugin
       - mkdocs-callouts
       # mkdocs-changelog-plugin will be installed from mkdocs-toolchain

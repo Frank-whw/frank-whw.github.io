@@ -27,11 +27,6 @@ jobs:
           restore-keys: |
             mkdocs-material-
       - run: pip install -r requirements.txt
-      - name: Install plugins from TonyCrane
-        run: |
-          git clone https://github.com/breeze256/mkdocs-toc-plugin
-          pip install mkdocs_toc_plugin
-          rm -rf mkdocs_toc_plugin
       - name: Install modified mkdocs-statistics-plugin
         run: |
           git clone https://github.com/KinnariyaMamaTanha/mkdocs-statistics-plugin

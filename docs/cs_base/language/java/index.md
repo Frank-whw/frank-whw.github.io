@@ -4,18 +4,15 @@ nostatistics: true
 comments: false
 ---
 
+
 # Java 学习笔记
 
 !!! note "Abstract"
-    Java 编程语言完整学习笔记，从基础语法到高级特性的系统性总结。
-
-{{ BEGIN_TOC }}
-- "Java 基础语法": java-basics
-- "面向对象编程": java-oop
-- "高级面向对象特性": java-advanced-oop
-- "核心类库": java-core-libraries
-- "异常处理": java-exceptions
-- "集合框架": java-collections
-- "并发编程": java-concurrency
-- "反射机制": java-reflection
-{{ END_TOC }}
+    Java 编程语言完整学习笔记，从基础语法到高级特性的系统性总结。- [java-advanced-oop](java-advanced-oop.md)
+- [java-basics](java-basics.md)
+- [java-collections](java-collections.md)
+- [java-concurrency](java-concurrency.md)
+- [java-core-libraries](java-core-libraries.md)
+- [java-exception](java-exception.md)
+- [java-oop](java-oop.md)
+- [java-reflection](java-reflection.md)
