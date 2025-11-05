@@ -12,5 +12,8 @@ comments: false
 !!! note "Abstract"
     实用工具和技巧分享。
 
-- [docker](docker.md)
-- [图床搭建](blog/图床搭建.md)
+{{ BEGIN_TOC }}
+- Tools:
+  - docker: docker
+  - 图床搭建: blog/图床搭建
+{{ END_TOC }}

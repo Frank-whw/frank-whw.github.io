@@ -7,17 +7,6 @@ repo_url: https://github.com/Frank-whw/Frank-whw.github.io
 edit_uri: edit/main/docs/
 copyright: Copyright &copy; 2024 - Present <a href="https://github.com/Frank-whw/" target="_blank" rel="noopener">Frank</a>
 
-nav:
-  - Home: index.md
-  - Computer Science: cs_base/index.md
-  - Tools: Tools/index.md
-  - AI: AI/index.md
-  - BlockChain: BlockChain/index.md
-  - Note: Note/index.md
-  - Archives: Archives/index.md
-  - About: About/index.md
-  - Links: Links/index.md
-
 theme:
   name: material
   language: en
@@ -31,55 +20,54 @@ theme:
     - header.autohide
     - navigation.footer
     - navigation.tracking
-    - navigation.tabs
     - navigation.top
-    - navigation.path
+    - navigation.tabs
+    - navigation.footer
     - navigation.indexes
-    - navigation.sections
-    - search.highlight
-    - search.share
-    - search.suggest
-    - toc.follow
-    - math.katex
-
   font: false
-
   palette:
-    - media: "(prefers-color-scheme)"
-      toggle:
-        icon: material/brightness-auto
-        name: follow system
-    - media: "(prefers-color-scheme: light)"
-      scheme: default
-      primary: white
-      accent: white
-      toggle:
-        icon: material/brightness-7
-        name: light mode
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
-      primary: black
-      accent: grey
-      toggle:
-        icon: material/brightness-4
-        name: dark mode
+    - scheme: default
 
-extra_javascript:
-  - https://polyfill.io/v3/polyfill.min.js?features=es6
-  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
-  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
-  - https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js
-  - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
-  - js/tablesort.js
-  - js/mathjax.js
+markdown_extensions:
+  - toc:
+      permalink: true
+      toc_depth: 4
+  - meta
+  - def_list
+  - attr_list
+  - md_in_html
+  - sane_lists
+  - admonition
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.snippets
+  - pymdownx.magiclink
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.tabbed:
+      alternate_style: true 
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.arithmatex:
+      generic: true
 
-extra_css:
-  - https://cdn.tonycrane.cc/jbmono/jetbrainsmono.css
-  - css/custom.css
-  - css/card.css
-  - css/flink.css
-  - css/tasklist.css
-  - css/toc.css
+validation:
+  nav:
+    omitted_files: info
+    not_found: warn
+    absolute_links: info
+  links:
+    not_found: ignore
+    absolute_links: ignore
+    unrecognized_links: ignore
 
 extra:
   social:
@@ -97,42 +85,36 @@ extra:
     provider: google
     property: G-ZHVPSRWZP3
 
+extra_css:
+  - https://cdn.tonycrane.cc/utils/katex.min.css
+  - https://cdn.tonycrane.cc/jbmono/jetbrainsmono.css
+  - https://cdn.tonycrane.cc/lxgw/lxgwscreen.css
+  - css/tasklist.css
+  - css/custom.css
+  - css/card.css
+  - css/flink.css
+  - css/changelog_extra.css
+  - css/toc_extra.css
+  - css/svg_extra.css
+
+extra_javascript:
+  - https://cdn.tonycrane.cc/utils/katex.min.js
+  - js/katex.js
+
 plugins:
-  - blogging:
-      locale: en
-      dirs:
-        - docs/Archives
-      theme:
-        name: card
-      features:
-        tags:
-          index_page: tags/
-          insert: top
-      time_format: "%Y-%m-%d"
-      meta_time_format: "%Y-%m-%d"
-      paging: true
-      paging_size: 10
-      blog_toc: true
-      blog_toc_label: 博客目录
-      post_dir: docs/Archives
-      post_url_format: "{slug}"
-      post_url_date_slug_format: "{date}/{slug}"
-      post_readtime: true
-      post_excerpt: true
-      post_excerpt_max_authors: 3
-      post_excerpt_separator: <!-- more -->
+  - rss:
+      enabled: !ENV [FULL, false]
   - search
-  - macros:
-      modules:
-        - hooks.toc
-  - callouts
-  - changelog
   - glightbox:
       width: 80%
   - git-revision-date-localized:
+      enabled: !ENV [FULL, false]
       type: datetime
       timezone: Asia/Shanghai
+      locale: zh
       enable_creation_date: true
+      enable_git_follow: true
+      ignored_commits_file: .ignored-commits
       exclude:
         - index.md
         - academy.md
@@ -144,58 +126,27 @@ plugins:
       video_muted: True
       video_controls: True
       mark: "video"
-  # 暂时注释掉 statistics 插件，因为与 Python 3.8 不兼容
   - statistics:
-      words_per_minute: 200
+      page_check_metadata: comment
+  - heti:
+      enabled: !ENV [FULL, false]
+      disable_serve: false
 
-markdown_extensions:
-  - abbr
-  - admonition
-  - attr_list
-  - footnotes
-  - meta
-  - md_in_html
-  - nl2br
-  - pymdownx.arithmatex: # latex支持
-      generic: true
-  - pymdownx.caret
-  - pymdownx.critic
-  - pymdownx.details
-  - pymdownx.emoji:
-      emoji_index: !!python/name:material.extensions.emoji.twemoji
-      emoji_generator: !!python/name:material.extensions.emoji.to_svg
-      options:
-        custom_icons:
-          - overrides/.icons
-  - pymdownx.highlight: # 代码块高亮
-      anchor_linenums: true
-      auto_title: true # 显示编程语言名称
-      linenums: true # 显示行号
-      linenums_style: pymdownx-inline
-      line_spans: __span
-      pygments_lang_class: true
-  - pymdownx.inlinehilite
-  - pymdownx.keys
-  - pymdownx.mark
-  - pymdownx.magiclink
-  - pymdownx.saneheaders
-  - pymdownx.snippets
-  - pymdownx.smartsymbols
-  - pymdownx.superfences:
-      custom_fences:
-        - name: mermaid
-          class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_code_format
-  - pymdownx.tasklist:
-      custom_checkbox: true
-  - pymdownx.tabbed:
-      alternate_style: true
-      slugify: !!python/object/apply:pymdownx.slugs.slugify
-        kwds:
-          case: lower
-  - pymdownx.tilde
-  - sane_lists
-  - tables
-  - toc:
-      permalink: true
-      toc_depth: 4
+hooks:
+  - hooks/theme_override.py
+  - hooks/linkbackward.py
+  - hooks/toc.py
+  - hooks/tikzautomata.py
+
+not_in_nav: todo.md
+
+nav:
+  - Home: index.md
+  - Computer Science Base: cs_base/index.md
+  - Tools: Tools/index.md
+  - AI: AI/index.md
+  - BlockChain: BlockChain/index.md
+  - Note: Note/index.md
+  - Archives: Archives/index.md
+  - About: About/index.md
+  - Links: Links/index.md
