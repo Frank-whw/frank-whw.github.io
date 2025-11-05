@@ -21,7 +21,7 @@ else:
 
 HOOKS_DIR = os.path.dirname(os.path.realpath(__file__))
 TEMPLATE_DIR = os.path.join(HOOKS_DIR, "templates/toc.html")
-IGNORE_DIR = os.path.join(HOOKS_DIR, "..", ".ignored-commits")
+IGNORE_PATH = os.path.join(HOOKS_DIR, "..", ".ignored-commits")
 
 with open(TEMPLATE_DIR, "r", encoding="utf-8") as file:
     TEMPLATE = file.read()
@@ -30,10 +30,17 @@ with open(TEMPLATE_DIR, "r", encoding="utf-8") as file:
 #     {"cs/system/cs1/topic1.md": "859970b504aa527030420ff9fbfffdb1b62d71f1"},
 # ]
 
-with open(IGNORE_DIR, "r", encoding="utf-8") as file:
-    IGNORE_COMMITS = [
-        line.strip() for line in file if line.strip() and not line.startswith("#")
-    ]
+if os.path.exists(IGNORE_PATH):
+    with open(IGNORE_PATH, "r", encoding="utf-8") as file:
+        IGNORE_COMMITS = [
+            line.strip() for line in file if line.strip() and not line.startswith("#")
+        ]
+else:
+    IGNORE_COMMITS = []
+    logger.info(
+        "hook - toc: ignore commits file not found at %s; proceeding without ignore rules",
+        IGNORE_PATH,
+    )
 
 def on_page_markdown(
     markdown: str, page: Page, config: MkDocsConfig, files: Files, **kwargs
