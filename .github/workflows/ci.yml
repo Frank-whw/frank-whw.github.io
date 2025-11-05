@@ -57,28 +57,23 @@ jobs:
 
       - name: Install additional plugins
         run: |
-          # Install plugins directly from PyPI for reliability
-          # pip install mkdocs-encryptcontent-plugin 没有必要
-          pip install mkdocs-git-revision-date-localized-plugin
-          pip install mkdocs-rss-plugin
-          # Use maintained TOC plugin from PyPI (TonyCrane toolchain doesn't include mkdocs-toc-plugin)
-          pip install mkdocs-toc-md
-          pip install mkdocs-statistics-plugin
+          git clone https://github.com/TonyCrane/mkdocs-toolchain
+          cd mkdocs-toolchain
+          pip install -e ./mkdocs-changelog-plugin
+          pip install -e ./mkdocs-encryptcontent-plugin
+          pip install -e ./mkdocs-git-revision-date-localized-plugin
+          pip install -e ./mkdocs-heti-plugin
+          pip install -e ./mkdocs-rss-plugin
+          pip install -e ./mkdocs-statistics-plugin
+          cd ..
+          rm -rf mkdocs-toolchain
 
-      - name: Install modified mkdocs-statistics-plugin
-        run: |
-          git clone https://github.com/KinnariyaMamaTanha/mkdocs-statistics-plugin
-          pip install ./mkdocs-statistics-plugin
-          rm -rf mkdocs-statistics-plugin
-
-      - name: Purge pip cache
-        run: pip cache purge
-
-      - name: Install modified mkdocs-statistics-plugin
-        run: |
-          git clone https://github.com/KinnariyaMamaTanha/mkdocs-statistics-plugin
-          pip install ./mkdocs-statistics-plugin
-          rm -rf mkdocs-statistics-plugin
+      # mkdocs-statistics-plugin is already installed from mkdocs-toolchain
+      # - name: Install modified mkdocs-statistics-plugin
+      #   run: |
+      #     git clone https://github.com/KinnariyaMamaTanha/mkdocs-statistics-plugin
+      #     pip install ./mkdocs-statistics-plugin
+      #     rm -rf mkdocs-statistics-plugin
 
       - name: Debug Info
         run: |
