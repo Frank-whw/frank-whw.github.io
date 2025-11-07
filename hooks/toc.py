@@ -68,11 +68,6 @@ def _get_toc_items(toc: dict, base: str) -> list:
         item = dict()
         item["n"] = i
         title = list(part.keys())[0]
-        if "[note]" in title:
-            item["note"] = True
-            title = title.replace("[note]", "")
-        else:
-            item["note"] = False
         item["title"] = title
         details = []
         for d in part[list(part.keys())[0]]:
@@ -82,22 +77,13 @@ def _get_toc_items(toc: dict, base: str) -> list:
                 item["link"] = value
                 continue
             detail = dict()
-            t = key
-            detail["note"] = False
-            detail["lab"] = False
-            if "[note]" in t:
-                detail["note"] = True
-                t = t.replace("[note]", "")
-            if "[lab]" in t:
-                detail["lab"] = True
-                t = t.replace("[lab]", "")
-            detail["title"] = t
+            detail["title"] = key
             detail["link"] = value
             detail["words"], detail["codes"], detail["read_time"] = get_statistics(
                 value, base
             )
             detail["update_time"] = get_update_time(value, base, IGNORE_COMMITS)
-            if "🔒" in t:
+            if "🔒" in key:
                 detail["lock"] = True
             details.append(detail)
         details.sort(key=lambda x: x["update_time"], reverse=True)
