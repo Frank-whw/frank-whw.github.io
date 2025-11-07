@@ -141,12 +141,26 @@ hooks:
 not_in_nav: todo.md
 
 nav:
-  - Home: index.md
-  - Computer Science Base: cs_base/index.md
+  - Home: 
+    - index.md
+    # - 更新记录(todo): changelog.md
+  - Computer Science: 
+    - cs_base/index.md
+    - language:
+      - Java:
+        - cs_base/language/java/index.md
+      - C: cs_base/language/c.md
+      - SQL: cs_base/language/SQL.md
+    - cs61b:
+      - cs61b: cs61b/cs61b
+      - gitlet: cs61b/gitlet之我见
+    - csapp:
+      - Lab:
+        - datalab: csapp/lab/datalab
   - Tools: Tools/index.md
-  - AI: AI/index.md
-  - BlockChain: BlockChain/index.md
+  - Others:
+    - Others/index.md
+    - AI: Others/AI/index.md
+    - BlockChain: Others/BlockChain/index.md
   - Note: Note/index.md
-  - Archives: Archives/index.md
-  - About: About/index.md
   - Links: Links/index.md

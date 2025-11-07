@@ -4,6 +4,15 @@
     --toc-plugin-border: rgba(255, 255, 255, 0.15);
 }
 
+/* 统一TOC容器宽度 */
+.md-sidebar--secondary {
+    width: 15rem;
+}
+
+.md-sidebar--secondary .md-sidebar__scrollwrap {
+    width: 100%;
+}
+
 [data-md-color-scheme="default"] {
     --toc-plugin-title-bg: rgba(0, 0, 0, 0.05);
     --toc-plugin-button-hover: rgba(0, 0, 0, 0.1);
@@ -82,26 +91,14 @@
     align-items: center;
     padding-right: 4px;
 }
-.note-tag {
-    border: 1px solid #e6ad5b;
-    color: #e6ad5b;
-    border-radius: 0.9em;
-    font-size: 0.9em;
-    padding: 0px 8px;
-}
-.note-tag::before {
-    content: "课程笔记";
-}
-.lab-tag {
-    border: 1px solid #3f6ec6;
-    color: #3f6ec6;
-    border-radius: 0.9em;
-    font-size: 0.9em;
-    padding: 0px 8px;
-    margin-left: 4px;
-}
-.lab-tag::before {
-    content: "实验报告";
+.page-counter {
+    background-color: var(--md-primary-fg-color);
+    color: var(--md-primary-bg-color);
+    border-radius: 12px;
+    font-size: 0.8em;
+    padding: 2px 8px;
+    font-weight: 500;
+    opacity: 0.8;
 }
 .item-actions, .item-lock {
     grid-area: actions;
@@ -112,25 +109,8 @@
     justify-content: flex-end;
 }
 @media screen and (max-width: 510px) {
-    .note-tag {
-        border: 5px solid #e6ad5b;
-        color: #e6ad5b;
-        border-radius: 0.9em;
-        font-size: 0.9em;
-        padding: 0px 0px;
-    }
-    .lab-tag {
-        border: 5px solid #3f6ec6;
-        color: #3f6ec6;
-        border-radius: 0.9em;
-        font-size: 0.9em;
-        padding: 0px 0px;
-        margin-left: 4px;
-    }
-    .note-tag::before {
-        content: none;
-    }
-    .lab-tag::before {
-        content: none;
+    .page-counter {
+        font-size: 0.7em;
+        padding: 1px 6px;
     }
 }

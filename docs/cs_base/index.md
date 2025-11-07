@@ -1,11 +1,11 @@
 ---
-icon: /material/book
+icon: /material/laptop
 nostatistics: true
 comments: false
 ---
 
 
-
+# Computer Science
 !!! note "Abstract"
     计算机基础知识学习笔记。
 
@@ -21,8 +21,8 @@ comments: false
   - Lecture09: cs61c/Lecture/Lecture09
   - Lecture10: cs61c/Lecture/Lecture10
 - cs61b:
-  - cs61b: cs61b
-  - gitlet之我见: gitlet之我见
+  - cs61b: cs61b/cs61b
+  - gitlet之我见: cs61b/gitlet之我见
 - language:
   - C: language/C
   - SQL: language/SQL
