@@ -151,16 +151,51 @@ nav:
         - cs_base/language/java/index.md
       - C: cs_base/language/c.md
       - SQL: cs_base/language/SQL.md
+      - Java加强: cs_base/language/Java加强.md
+      - TypeScript: cs_base/language/TypeScript.md
+    - database:
+      - 1. 文档数据库: cs_base/database/1. 文档数据库.md
+      - 2. B树索引: cs_base/database/2. B树索引.md
+      - 3. 文档数据库设计: cs_base/database/3. 文档数据库设计.md
+      - 4. 关系数据库: cs_base/database/4. 关系数据库.md
+      - 5. SQL: cs_base/database/5. SQL.md
+      - 5-2. SQL: cs_base/database/5-2. SQL.md
+    - cs61c:
+      - Lab:
+        - Lab01: cs_base/cs61c/Lab/Lab01.md
+        - Lab02: cs_base/cs61c/Lab/Lab02.md
+      - Lecture:
+        - Lecture07: cs_base/cs61c/Lecture/lecture07.md
+        - Lecture08: cs_base/cs61c/Lecture/lecture08.md
+        - Lecture09: cs_base/cs61c/Lecture/lecture09.md
+        - Lecture10: cs_base/cs61c/Lecture/lecture10.md
+      - Proj:
+        - proj01: cs_base/cs61c/proj/proj01.md
     - cs61b:
-      - cs61b: cs61b/cs61b
-      - gitlet: cs61b/gitlet之我见
+      - cs61b: cs_base/cs61b/cs61b.md
+      - gitlet: cs_base/cs61b/gitlet之我见.md
     - csapp:
       - Lab:
-        - datalab: csapp/lab/datalab
-  - Tools: Tools/index.md
+        - DataLab: cs_base/csapp/Lab/DataLab.md
+        - BombLab: cs_base/csapp/Lab/BombLab.md
+      - Lecture:
+        - 01: cs_base/csapp/lecture/01.md
+        - 02: cs_base/csapp/lecture/02.md
+        - 03: cs_base/csapp/lecture/03.md
+        - 04: cs_base/csapp/lecture/04.md
+        - 05: cs_base/csapp/lecture/05.md
+  - Tools:
+    - Tools/index.md
+    - AWS连接: Tools/AWS连接.md
   - Others:
     - Others/index.md
     - AI: Others/AI/index.md
     - BlockChain: Others/BlockChain/index.md
-  - Note: Note/index.md
+  - Note:
+    - Note/index.md
+    - 考试:
+      - 实验报告: Note/考试/实验报告.md
+    - 思考:
+      - 心得体会: Note/思考/心得体会.md
+      - 认知觉醒: Note/思考/认知觉醒.md
   - Links: Links/index.md
