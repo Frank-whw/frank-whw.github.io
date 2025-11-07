@@ -160,6 +160,3 @@ curl -sS -X POST http://ec2-54-95-61-230.ap-northeast-1.compute.amazonaws.com:80
   - 确认端口：`ss -tln | grep 8080`
 - 代码层注意：
   - `UserRepository` 的主键类型应与实体一致（当前实体是 `String`，建议改为 `JpaRepository<User, String>`）。
-
-你先按上面“数据库准备 → 启动后端 → 注册/登录 → 查看表”的顺序操作。如果中途遇到具体报错，把命令输出贴出来，我帮你定位并给出对应修复命令。
-        
