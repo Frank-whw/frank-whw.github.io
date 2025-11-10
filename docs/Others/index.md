@@ -22,4 +22,6 @@ comments: false
   - 7.挖矿: BlockChain/区块链技术与运用/BTC/7.挖矿
   - 8.比特币脚本: BlockChain/区块链技术与运用/BTC/8.比特币脚本
   - 9.分叉: BlockChain/区块链技术与运用/BTC/9. 分叉
+- Debug:
+  - wsl2的网络模式: Debug/wsl2的网络模式都是啥
 {{ END_TOC }}
