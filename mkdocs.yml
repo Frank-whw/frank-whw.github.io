@@ -1,112 +1,224 @@
+# =============================================================================
+# 网站基本信息配置
+# =============================================================================
+
+# 网站名称 - 显示在浏览器标签页和网站标题
 site_name: Frank's Blog
+
+# 网站URL - 用于生成sitemap和绝对链接
 site_url: https://Frank-whw.github.io
+
+# 网站描述 - 用于SEO和元标签
 site_description: Frank的个人网站
+
+# 网站作者信息
 site_author: Frank
+
+# GitHub仓库名称 - 显示在页面底部
 repo_name: Frank's Blog
+
+# GitHub仓库URL - 用于"编辑此页"功能
 repo_url: https://github.com/Frank-whw/Frank-whw.github.io
+
+# 编辑页面的URI路径 - 点击"编辑此页"按钮时跳转的链接
 edit_uri: edit/main/docs/
+
+# 网站版权信息 - 显示在页面底部
 copyright: Copyright &copy; 2024 - Present <a href="https://github.com/Frank-whw/" target="_blank" rel="noopener">Frank</a>
 
+# =============================================================================
+# 主题配置 - Material for MkDocs
+# =============================================================================
+
 theme:
+  # 主题名称 - 使用Material主题
   name: material
+  
+  # 网站语言 - 设置为英文
   language: en
+  
+  # 自定义目录 - 用于覆盖主题默认文件
   custom_dir: overrides
+  
+  # 主题功能特性
   features:
-    - content.code.annotate
-    - content.code.copy
-    - content.code.select
-    - content.footnote.tooltips
-    - content.tabs.link
-    - header.autohide
-    - navigation.footer
-    - navigation.tracking
-    - navigation.top
-    - navigation.tabs
-    - navigation.footer
-    - navigation.indexes
+    - content.code.annotate      # 代码注解功能
+    - content.code.copy         # 代码复制按钮
+    - content.code.select       # 代码选择功能
+    - content.footnote.tooltips # 脚注工具提示
+    - content.tabs.link         # 标签页链接
+    - header.autohide           # 头部自动隐藏
+    - navigation.footer         # 导航页脚
+    - navigation.tracking       # 导航跟踪
+    - navigation.top            # 返回顶部按钮
+    - navigation.tabs           # 导航标签页
+    - navigation.footer         # 导航页脚（重复项）
+    - navigation.indexes          # 导航索引
+  
+  # 字体配置 - 禁用内置字体
   font: false
+  
+  # 主题配色方案
   palette:
-    - scheme: default
+    # 自动模式 - 跟随系统主题
+    - media: "(prefers-color-scheme)"
+      scheme: default
+      primary: teal
+      accent: teal
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+    
+    # 浅色模式
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: teal
+      accent: teal
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    
+    # 深色模式
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: teal
+      accent: teal
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+  
+  # 网站图标
+  favicon: assets/images/favicon.ico
+  
+  # 网站Logo
+  logo: assets/images/logo.png
+
+# =============================================================================
+# Markdown扩展配置
+# =============================================================================
 
 markdown_extensions:
-  - toc:
-      permalink: true
-      toc_depth: 4
-  - meta
-  - def_list
+  # 缩写词扩展
+  - abbr
+  
+  # 属性列表扩展
   - attr_list
-  - md_in_html
-  - sane_lists
-  - admonition
-  - pymdownx.keys
-  - pymdownx.mark
-  - pymdownx.tilde
-  - pymdownx.critic
-  - pymdownx.details
-  - pymdownx.snippets
-  - pymdownx.magiclink
-  - pymdownx.superfences
-  - pymdownx.inlinehilite
-  - pymdownx.emoji:
-      emoji_index: !!python/name:material.extensions.emoji.twemoji
-      emoji_generator: !!python/name:material.extensions.emoji.to_svg
-  - pymdownx.tabbed:
-      alternate_style: true 
-  - pymdownx.tasklist:
-      custom_checkbox: true
+  
+  # 定义列表扩展
+  - def_list
+  
+  # 脚注扩展
+  - footnotes
+  
+  # 元数据扩展
+  - meta
+  
+  # 表格扩展
+  - tables
+  
+  # 代码高亮扩展
   - pymdownx.highlight:
-      anchor_linenums: true
-  - pymdownx.arithmatex:
-      generic: true
+      anchor_linenums: true  # 行号锚点
+  
+  # 行号扩展
+  - pymdownx.inlinehilite
+  
+  # 键盘按键扩展
+  - pymdownx.keys
+  
+  # 任务列表扩展
+  - pymdownx.tasklist:
+      custom_checkbox: true  # 自定义复选框样式
+  
+  # 代码块增强扩展
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid  # Mermaid图表支持
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  
+  # 标签页扩展
+  - pymdownx.tabbed:
+      alternate_style: true  # 替代样式
+  
+  # 详细信息扩展
+  - pymdownx.details
+  
+  # 代码行号扩展
+  - pymdownx.snippets:
+      auto_append:
+        - docs/line_numbers.md  # 自动附加的代码行号配置
 
-validation:
-  nav:
-    omitted_files: info
-    not_found: warn
-    absolute_links: info
-  links:
-    not_found: ignore
-    absolute_links: ignore
-    unrecognized_links: ignore
+# =============================================================================
+# 插件配置
+# =============================================================================
+
+# 额外CSS文件 - 这些文件会被添加到所有页面
+extra_css:
+  - https://cdn.tonycrane.cc/utils/katex.min.css              # KaTeX数学公式样式
+  - https://cdn.tonycrane.cc/jbmono/jetbrainsmono.css         # JetBrains Mono字体
+  - https://cdn.tonycrane.cc/lxgw/lxgwscreen.css               # 霞鹜文楷字体
+  - css/tasklist.css                                           # 任务列表自定义样式
+  - css/custom.css                                             # 自定义样式文件
+  - css/card.css                                               # 卡片样式
+  - css/flink.css                                              # 友链样式
+  - css/changelog_extra.css                                    # 更新记录额外样式
+  - css/toc_extra.css                                          # 目录额外样式
+  - css/svg_extra.css                                          # SVG额外样式
+
+# =============================================================================
+# 额外JavaScript文件配置
+# =============================================================================
+
+# 额外JavaScript文件 - 这些文件会被添加到所有页面
+extra_javascript:
+  - https://cdn.tonycrane.cc/utils/katex.min.js  # KaTeX数学公式脚本
+  - js/katex.js                                   # 自定义KaTeX配置
+
+# =============================================================================
+# 额外配置项
+# =============================================================================
 
 extra:
+  # 社交链接配置
   social:
-    - icon: fontawesome/brands/github
-      link: https://github.com/Frank-whw
+    - icon: fontawesome/brands/github  # GitHub图标
+      link: https://github.com/Frank-whw  # GitHub链接
       name: GitHub
-    - icon: fontawesome/brands/twitter
-      link: https://twitter.com
+    - icon: fontawesome/brands/twitter  # Twitter图标
+      link: https://twitter.com  # Twitter链接
       name: Twitter
-    - icon: fontawesome/brands/weixin
-      link: https://raw.githubusercontent.com/Frank-whw/img/main/blog/202411201029901.png
+    - icon: fontawesome/brands/weixin  # 微信图标
+      link: https://raw.githubusercontent.com/Frank-whw/img/main/blog/202411201029901.png  # 微信二维码图片
       name: WeChat
-
+  
+  # 分析配置 - 网站访问统计
   analytics:
-    provider: custom
-    property: baidu
+    provider: custom   # 分析服务提供商 (custom: 自定义, google: Google Analytics)
+    property: baidu    # 分析属性ID (这里配置为baidu，对应百度统计)
+  
+  # 版本信息配置
+  version:
+    provider: mike     # 版本管理提供商
 
-extra_css:
-  - https://cdn.tonycrane.cc/utils/katex.min.css
-  - https://cdn.tonycrane.cc/jbmono/jetbrainsmono.css
-  - https://cdn.tonycrane.cc/lxgw/lxgwscreen.css
-  - css/tasklist.css
-  - css/custom.css
-  - css/card.css
-  - css/flink.css
-  - css/changelog_extra.css
-  - css/toc_extra.css
-  - css/svg_extra.css
-
-extra_javascript:
-  - https://cdn.tonycrane.cc/utils/katex.min.js
-  - js/katex.js
+# =============================================================================
+# 插件配置
+# =============================================================================
 
 plugins:
+  # 搜索插件 - 提供站内搜索功能
+  - search:
+      lang: en  # 搜索语言
+  
+  # RSS插件
   - rss:
       enabled: !ENV [FULL, false]
-  - search
+  
+  # 图片灯箱插件
   - glightbox:
       width: 80%
+  
+  # Git修订日期本地化插件
   - git-revision-date-localized:
       enabled: !ENV [FULL, false]
       type: datetime
@@ -120,30 +232,85 @@ plugins:
         - academy.md
         - links.md
         - changelog.md
+  
+  # 压缩插件
   - minify:
       minify_html: true
+  
+  # 视频插件
   - mkdocs-video:
       video_muted: True
       video_controls: True
       mark: "video"
+  
+  # 统计插件
   - statistics:
       page_check_metadata: comment
+  
+  # 赫提插件
   - heti:
       enabled: !ENV [FULL, false]
       disable_serve: false
+  
+  # 博客插件 - 提供博客功能
+  - blogging:
+      dirs:  # 博客目录配置
+        - blogs
+      features:  # 博客功能特性
+        categories:  # 分类功能
+          allow: true  # 允许分类
+          ignorecase: true  # 忽略大小写
+          names:  # 分类名称
+            生活随笔: 生活
+            技术笔记: 技术
+            学习心得: 学习
+        tags:  # 标签功能
+          allow: true  # 允许标签
+          ignorecase: true  # 忽略大小写
+          names:  # 标签名称
+            随笔: 随笔
+            笔记: 笔记
+            心得: 心得
+        pagination:  # 分页功能
+          enable: true  # 启用分页
+          per_page: 10  # 每页显示10篇文章
+        rss:  # RSS订阅
+          enable: true  # 启用RSS
+          path: rss.xml  # RSS文件路径
+  
+  # 宏插件 - 支持自定义宏和模板
+  # - macros  # 暂时禁用，有错误需要修复
 
+# =============================================================================
+# 钩子配置 - Python脚本钩子
+# =============================================================================
+
+# 钩子文件 - 在构建过程中执行的Python脚本
 hooks:
-  - hooks/theme_override.py
-  - hooks/linkbackward.py
-  - hooks/toc.py
-  - hooks/tikzautomata.py
+  - hooks/theme_override.py      # 主题覆盖钩子
+  - hooks/linkbackward.py       # 反向链接钩子
+  - hooks/toc.py                # 目录钩子
+  - hooks/tikzautomata.py       # TikZ自动机钩子
 
+# =============================================================================
+# 导航排除配置
+# =============================================================================
+
+# 不在导航中显示的文件
 not_in_nav: todo.md
 
+# =============================================================================
+# 网站导航结构配置
+# =============================================================================
+
+# 导航菜单 - 定义网站的页面结构和层次
 nav:
+  # 首页
   - Home: 
     - index.md
     # - 更新记录(todo): changelog.md
+  
+  # 计算机科学
   - Computer Science: 
     - cs_base/index.md
     - language:
@@ -184,13 +351,19 @@ nav:
         - 03: cs_base/csapp/lecture/03.md
         - 04: cs_base/csapp/lecture/04.md
         - 05: cs_base/csapp/lecture/05.md
+  
+  # 工具
   - Tools:
     - Tools/index.md
     - AWS连接: Tools/AWS连接.md
+  
+  # 其他
   - Others:
     - Others/index.md
     - AI: Others/AI/index.md
     - BlockChain: Others/BlockChain/index.md
+  
+  # 笔记
   - Note:
     - Note/index.md
     - 考试:
@@ -198,4 +371,6 @@ nav:
     - 思考:
       - 心得体会: Note/思考/心得体会.md
       - 认知觉醒: Note/思考/认知觉醒.md
+  
+  # 友链
   - Links: Links/index.md
