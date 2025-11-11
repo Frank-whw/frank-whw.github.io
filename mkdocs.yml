@@ -82,8 +82,8 @@ extra:
       name: WeChat
 
   analytics:
-    provider: google
-    property: G-ZHVPSRWZP3
+    provider: custom
+    property: baidu
 
 extra_css:
   - https://cdn.tonycrane.cc/utils/katex.min.css
