@@ -63,30 +63,77 @@ def on_page_markdown(
 
 
 def _get_toc_items(toc: dict, base: str) -> list:
+    def _flatten_entries(entries, base, prefix=""):
+        flattened = []
+        for node in entries:
+            if isinstance(node, str):
+                link = node
+                name = os.path.basename(node.rstrip("/"))
+                title = prefix.rstrip("/") if prefix else os.path.splitext(name)[0]
+                detail = {
+                    "title": title,
+                    "link": link,
+                }
+                detail["words"], detail["codes"], detail["read_time"] = get_statistics(
+                    link, base
+                )
+                detail["update_time"] = get_update_time(link, base, IGNORE_COMMITS)
+                flattened.append(detail)
+            elif isinstance(node, dict):
+                k = list(node.keys())[0]
+                sk = str(k)
+                v = node[k]
+                if k == "index":
+                    if prefix:
+                        link = v
+                        title = prefix.rstrip("/")
+                        detail = {
+                            "title": title,
+                            "link": link,
+                        }
+                        detail["words"], detail["codes"], detail["read_time"] = get_statistics(
+                            link, base
+                        )
+                        detail["update_time"] = get_update_time(link, base, IGNORE_COMMITS)
+                        flattened.append(detail)
+                    continue
+                if isinstance(v, list):
+                    subprefix = f"{prefix}{sk}/" if prefix else f"{sk}/"
+                    flattened.extend(_flatten_entries(v, base, subprefix))
+                else:
+                    link = v
+                    title = f"{prefix}{sk}" if prefix else sk
+                    detail = {
+                        "title": title,
+                        "link": link,
+                    }
+                    detail["words"], detail["codes"], detail["read_time"] = get_statistics(
+                        link, base
+                    )
+                    detail["update_time"] = get_update_time(link, base, IGNORE_COMMITS)
+                    if "🔒" in sk:
+                        detail["lock"] = True
+                    flattened.append(detail)
+        return flattened
+
     ret = []
     for i, part in enumerate(toc):
-        item = dict()
+        item = {}
         item["n"] = i
         title = list(part.keys())[0]
-        item["title"] = title
-        details = []
-        for d in part[list(part.keys())[0]]:
-            key = list(d.keys())[0]
-            value = d[key]
-            if key == "index":
-                item["link"] = value
-                continue
-            detail = dict()
-            detail["title"] = key
-            detail["link"] = value
-            detail["words"], detail["codes"], detail["read_time"] = get_statistics(
-                value, base
-            )
-            detail["update_time"] = get_update_time(value, base, IGNORE_COMMITS)
-            if "🔒" in key:
-                detail["lock"] = True
-            details.append(detail)
+        item["title"] = str(title)
+        entries = part[title]
+        index_link = None
+        filtered = []
+        for d in entries:
+            if isinstance(d, dict) and "index" in d:
+                index_link = d["index"]
+            else:
+                filtered.append(d)
+        details = _flatten_entries(filtered, base)
         details.sort(key=lambda x: x["update_time"], reverse=True)
         item["contents"] = details
+        if index_link:
+            item["link"] = index_link
         ret.append(item)
     return ret

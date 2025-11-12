@@ -6,7 +6,11 @@ nostatistics: true
 comments: false
 ---
 
-# 友情链接
+# Links
+{{ BEGIN_TOC }}
+- Links:
+  - Overview: index.md
+{{ END_TOC }}
 
 ## 📚 推荐资源
 

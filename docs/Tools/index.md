@@ -6,7 +6,7 @@ comments: false
 
 
 
-# Toolbox
+# ToolBox
 
 
 !!! note "Abstract"
@@ -14,6 +14,7 @@ comments: false
 
 {{ BEGIN_TOC }}
 - Tools:
-  - docker: docker
+  - Docker: docker
+  - AWS: AWS连接
   - 图床搭建: blog/图床搭建
 {{ END_TOC }}

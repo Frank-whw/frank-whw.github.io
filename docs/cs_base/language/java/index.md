@@ -5,7 +5,7 @@ comments: false
 ---
 
 
-# Java 学习笔记
+# Java
 
 !!! note "Abstract"
     Java 编程语言完整学习笔记，从基础语法到高级特性的系统性总结。- [java-advanced-oop](java-advanced-oop)
