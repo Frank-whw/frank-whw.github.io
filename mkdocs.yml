@@ -135,10 +135,9 @@ markdown_extensions:
   # 代码块增强扩展
   - pymdownx.superfences:
       custom_fences:
-        - name: mermaid # Mermaid图表支持
+        - name: mermaid
           class: mermaid
-          format:
-            !!python/name:pymdownx.superfences.fence_code_format # 标签页扩展
+          format: !!python/name:mermaid2.fence_mermaid_custom
 
   - pymdownx.tabbed:
       alternate_style: true # 替代样式
@@ -211,6 +210,7 @@ plugins:
   # 搜索插件 - 提供站内搜索功能
   - search:
       lang: en # 搜索语言
+  - awesome-pages
 
   # RSS插件
   - rss:
@@ -238,6 +238,7 @@ plugins:
   # 压缩插件
   - minify:
       minify_html: true
+  - mermaid2
 
   # 视频插件
   - mkdocs-video:
@@ -320,6 +321,7 @@ nav:
           - Java Advanced: cs_base/language/Java加强.md
           - TypeScript: cs_base/language/TypeScript.md
       - Database:
+          - Overview: cs_base/database/index.md
           - 1. Document DB: cs_base/database/1. 文档数据库.md
           - 2. B-Tree Index: cs_base/database/2. B树索引.md
           - 3. Document DB Design: cs_base/database/3. 文档数据库设计.md
@@ -363,21 +365,25 @@ nav:
         - WSL2 Network Modes: Others/Debug/wsl2的网络模式都是啥.md
         - AWS EC2 连接异常的技术原因客观分析: Others/Debug/AWS EC2 连接异常的技术原因客观分析.md
       - AI: 
-        - 深度学习: Others/AI/基于python的理论和实现
+        - 深度学习: Others/AI/基于python的理论和实现.md
       - BlockChain:
-          - 1.密码学原理: Others/BlockChain/区块链技术与运用/BTC/1.密码学原理
-          - 2.数据结构: Others/BlockChain/区块链技术与运用/BTC/2.数据结构
-          - 3.协议: Others/BlockChain/区块链技术与运用/BTC/3.协议
-          - 4.实现: Others/BlockChain/区块链技术与运用/BTC/4.实现
-          - 5.网络: Others/BlockChain/区块链技术与运用/BTC/5.网络
-          - 6.挖矿难度: Others/BlockChain/区块链技术与运用/BTC/6.挖矿难度
-          - 7.挖矿: Others/BlockChain/区块链技术与运用/BTC/7.挖矿
-          - 8.比特币脚本: Others/BlockChain/区块链技术与运用/BTC/8.比特币脚本
-          - 9.分叉: Others/BlockChain/区块链技术与运用/BTC/9. 分叉  
+          - Overview: Others/BlockChain/index.md
+          - 1.密码学原理: Others/BlockChain/区块链技术与运用/BTC/1.密码学原理.md
+          - 2.数据结构: Others/BlockChain/区块链技术与运用/BTC/2.数据结构.md
+          - 3.协议: Others/BlockChain/区块链技术与运用/BTC/3.协议.md
+          - 4.实现: Others/BlockChain/区块链技术与运用/BTC/4.实现.md
+          - 5.网络: Others/BlockChain/区块链技术与运用/BTC/5.网络.md
+          - 6.挖矿难度: Others/BlockChain/区块链技术与运用/BTC/6.挖矿难度.md
+          - 7.挖矿: Others/BlockChain/区块链技术与运用/BTC/7.挖矿.md
+          - 8.比特币脚本: Others/BlockChain/区块链技术与运用/BTC/8.比特币脚本.md
+          - 9.分叉: Others/BlockChain/区块链技术与运用/BTC/9. 分叉.md  
       
   - Essays & Courses:
       - Note/index.md
-
-      - Thoughts
-      - Project
-
+      - Thoughts:
+          - 关于终身学习体系的思考: Note/思考/关于终身学习体系的思考.md
+          - Cognitive Awakening: Note/思考/认知觉醒.md
+      - Project:
+          - OpenChain: Note/Project/OpenChain.md
+          - RoomieSync: Note/Project/RoomieSync.md
+  - ...
