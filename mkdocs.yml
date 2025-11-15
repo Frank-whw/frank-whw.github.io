@@ -377,8 +377,7 @@ nav:
       
   - Essays & Courses:
       - Note/index.md
-      - Exams:
-          - Lab Report: Note/考试/实验报告.md
-      - Thoughts:
-          - Reflections: Note/思考/心得体会.md
-          - Cognitive Awakening: Note/思考/认知觉醒.md
+
+      - Thoughts
+      - Project
+
