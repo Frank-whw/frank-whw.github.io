@@ -361,6 +361,7 @@ nav:
   - Topics:
       - Overview: Others/index.md
       - Debug:
+        - 重装x64版EdgeWebView2的心酸: Others/Debug/edgewebview2.md
         - AWS EC2 Connection Failure (DNS Pollution): Others/Debug/连接AWS EC2失败-DNS污染导致解析异常.md
         - WSL2 Network Modes: Others/Debug/wsl2的网络模式都是啥.md
         - AWS EC2 连接异常的技术原因客观分析: Others/Debug/AWS EC2 连接异常的技术原因客观分析.md
@@ -386,4 +387,3 @@ nav:
       - Project:
           - OpenChain: Note/Project/OpenChain.md
           - RoomieSync: Note/Project/RoomieSync.md
-  - ...
