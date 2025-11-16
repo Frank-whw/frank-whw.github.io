@@ -211,8 +211,6 @@ plugins:
   # 搜索插件 - 提供站内搜索功能
   - search:
       lang: en # 搜索语言
-  - awesome-pages
-
   # RSS插件
   - rss:
       enabled: !ENV [FULL, false]
