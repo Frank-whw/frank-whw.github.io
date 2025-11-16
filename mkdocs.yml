@@ -137,7 +137,8 @@ markdown_extensions:
       custom_fences:
         - name: mermaid
           class: mermaid
-          !!python/name:pymdownx.superfences.fence_code_format # 标签页扩展
+          format:
+            !!python/name:pymdownx.superfences.fence_code_format # 标签页扩展
 
   - pymdownx.tabbed:
       alternate_style: true # 替代样式
