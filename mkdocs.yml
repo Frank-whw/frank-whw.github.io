@@ -257,6 +257,7 @@ plugins:
   - blogging:
       dirs: # 博客目录配置
         - blogs
+      locale: zh
       features: # 博客功能特性
         categories: # 分类功能
           allow: true # 允许分类
