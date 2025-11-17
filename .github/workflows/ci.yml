@@ -10,6 +10,10 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      THEME: "0"
+      LINKBACKWARD: "0"
+      TIKZ: "0"
     steps:
       - uses: actions/checkout@v4
         with:
@@ -35,8 +39,8 @@ jobs:
           pip install ./mkdocs-statistics-plugin
           rm -rf mkdocs-statistics-plugin
       - run: pip cache purge
-      - name: Build site
-        run: mkdocs build
+      - name: Build site (strict)
+        run: mkdocs build --strict
       - name: Upload Pages Artifact
         uses: actions/upload-pages-artifact@v3
         with:

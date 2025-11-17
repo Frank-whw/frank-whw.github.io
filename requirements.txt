@@ -15,3 +15,6 @@ mkdocs-minify-plugin
 mkdocs-video
 mkdocs-macros-plugin
 mkdocs-blogging-plugin
+beautifulsoup4
+lxml
+GitPython

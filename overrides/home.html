@@ -12,20 +12,8 @@
   {# Cards styles and module (keep compatibility with existing assets) #}
   <link rel="stylesheet" href="{{ 'css/cards/base.css' | url }}">
   <link rel="stylesheet" href="{{ 'css/cards/cards.css' | url }}">
-  <link rel="stylesheet" href="{{ 'assets/cards/index.c9fa2768.css' | url }}">
-  <script type="module" src="{{ 'assets/cards/index.caca6175.js' | url }}"></script>
 
   <style>
-    /* Backgrounds for light/dark modes */
-    body {
-      background-image: url({{ 'assets/images/home/light.jpg' | url }});
-      background-size: cover;
-    }
-    body[data-md-color-scheme="slate"] {
-      background-image: url({{ 'assets/images/home/dark.jpg' | url }});
-      background-size: cover;
-    }
-
     /* Transparent chrome for a clean hero look */
     .md-header, .md-tabs, .md-footer, .md-footer-meta { background-color: transparent; }
     .md-header--shadow { box-shadow: none !important; }

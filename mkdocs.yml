@@ -34,8 +34,8 @@ theme:
   # 主题名称 - 使用Material主题
   name: material
 
-  # 网站语言 - 设置为英文
-  language: en
+  # 网站语言 
+  language: [zh,en]
 
   # 自定义目录 - 用于覆盖主题默认文件
   custom_dir: overrides
@@ -52,7 +52,7 @@ theme:
     - navigation.tracking # 导航跟踪
     - navigation.top # 返回顶部按钮
     - navigation.tabs # 导航标签页
-    - navigation.footer # 导航页脚（重复项）
+    # duplicate navigation.footer removed
     - navigation.indexes # 导航索引
 
   # 字体配置 - 禁用内置字体
@@ -176,7 +176,6 @@ extra_css:
 # 额外JavaScript文件 - 这些文件会被添加到所有页面
 extra_javascript:
   - https://cdn.tonycrane.cc/utils/katex.min.js # KaTeX数学公式脚本
-  - js/katex.js # 自定义KaTeX配置
 
 # =============================================================================
 # 额外配置项
@@ -211,7 +210,9 @@ extra:
 plugins:
   # 搜索插件 - 提供站内搜索功能
   - search:
-      lang: en # 搜索语言
+      lang:
+        - en
+        - zh
   # RSS插件
   - rss:
       enabled: !ENV [FULL, false]
