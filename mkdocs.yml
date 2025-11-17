@@ -140,6 +140,7 @@ markdown_extensions:
           format:
             !!python/name:pymdownx.superfences.fence_code_format # 标签页扩展
 
+
   - pymdownx.tabbed:
       alternate_style: true # 替代样式
 
@@ -327,6 +328,7 @@ nav:
           - 4. Relational DB: cs_base/database/4. 关系数据库.md
           - 5-1. SQL: cs_base/database/5. SQL.md
           - 5-2. SQL: cs_base/database/5-2. SQL.md
+          - 6. 查询处理实现技术: cs_base/database/6. 查询处理实现技术.md
       - CS61C:
           - Lab:
               - Lab01: cs_base/cs61c/Lab/Lab01.md
@@ -354,19 +356,19 @@ nav:
   - ToolBox:
       - Tools/index.md
       - ToolBox:
-        - Docker: Tools/docker.md
-        - AWS: Tools/AWS连接.md
-        - picture bed: Tools/blog/图床搭建.md
+          - Docker: Tools/docker.md
+          - AWS: Tools/AWS连接.md
+          - picture bed: Tools/blog/图床搭建.md
   - Topics:
       - Overview: Others/index.md
       - Debug:
-        - Segmentation Fault in attacklab: Others/Debug/segmentation fault.md
-        - 重装x64版EdgeWebView2的心酸: Others/Debug/edgewebview2.md
-        - AWS EC2 Connection Failure (DNS Pollution): Others/Debug/连接AWS EC2失败-DNS污染导致解析异常.md
-        - WSL2 Network Modes: Others/Debug/wsl2的网络模式都是啥.md
-        - AWS EC2 连接异常的技术原因客观分析: Others/Debug/AWS EC2 连接异常的技术原因客观分析.md
-      - AI: 
-        - 深度学习: Others/AI/基于python的理论和实现.md
+          - Segmentation Fault in attacklab: Others/Debug/segmentation fault.md
+          - 重装x64版EdgeWebView2的心酸: Others/Debug/edgewebview2.md
+          - AWS EC2 Connection Failure (DNS Pollution): Others/Debug/连接AWS EC2失败-DNS污染导致解析异常.md
+          - WSL2 Network Modes: Others/Debug/wsl2的网络模式都是啥.md
+          - AWS EC2 连接异常的技术原因客观分析: Others/Debug/AWS EC2 连接异常的技术原因客观分析.md
+      - AI:
+          - 深度学习: Others/AI/基于python的理论和实现.md
       - BlockChain:
           - Overview: Others/BlockChain/index.md
           - 1.密码学原理: Others/BlockChain/区块链技术与运用/BTC/1.密码学原理.md
@@ -377,8 +379,8 @@ nav:
           - 6.挖矿难度: Others/BlockChain/区块链技术与运用/BTC/6.挖矿难度.md
           - 7.挖矿: Others/BlockChain/区块链技术与运用/BTC/7.挖矿.md
           - 8.比特币脚本: Others/BlockChain/区块链技术与运用/BTC/8.比特币脚本.md
-          - 9.分叉: Others/BlockChain/区块链技术与运用/BTC/9. 分叉.md  
-      
+          - 9.分叉: Others/BlockChain/区块链技术与运用/BTC/9. 分叉.md
+
   - Essays & Courses:
       - Note/index.md
       - Thoughts:

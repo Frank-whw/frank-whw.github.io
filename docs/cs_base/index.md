@@ -25,6 +25,7 @@ comments: false
   - 4. Relational DB: database/4. 关系数据库
   - 5. SQL: database/5. SQL
   - 5-2. SQL: database/5-2. SQL
+  - 6. 查询处理实现技术: database/6. 查询处理实现技术.md
 - CS61C:
   - Lab01: cs61c/Lab/Lab01
   - Lab02: cs61c/Lab/Lab02
