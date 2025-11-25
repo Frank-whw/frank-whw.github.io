@@ -1,7 +1,7 @@
 ---
-title: 导览 · 区块链
+title: 导览 · 数据库
+icon: /material/database
 # 隐藏的模块
-icon: /material/currency-btc
 hide:
   - footer
   #  - navigation # 隐藏左边导航

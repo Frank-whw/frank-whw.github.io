@@ -1,23 +1,46 @@
 ---
-icon: material/language-java
-nostatistics: true
-comments: false
+title: 导览 · Java
+# 隐藏的模块
+icon: /material/language-java
+hide:
+  - footer
+  #  - navigation # 隐藏左边导航
+  #  - toc #隐藏右边导航
+  #  - footer #隐藏翻页
+  #  - feedback  #隐藏反馈
+comments: false  #评论，默认不开启
+hide_comment: true
 ---
 
+<!-- !!! tip
+    <ul>
+      <li>通过主题和目录以打开文章</li>
+      <ul>
+        <li>Mac/PC端 请在上方标签栏选择主题 在左侧目录选择文章</li>
+        <li>移动端 请点击左上角图标选择主题和文章</li>
+      </ul>
+      <li>搜索关键词以打开文章</li>
+      <li>
+        如遇到网页卡顿/打开文章后无法显示图片的情况，请使用<strong>科学上网</strong>以打破信息壁垒
+      </li>
+    </ul> -->
 
-# Java
 
-!!! note "Abstract"
-    Java 编程语言完整学习笔记，从基础语法到高级特性的系统性总结。- [java-advanced-oop](java-advanced-oop)
+<div class="grid cards" markdown>
 
-{{ BEGIN_TOC }}
-- java基础:
-  - java-basics: java-basics
-  - java-collections: java-collections
-  - java-concurrency: java-concurrency
-  - java-core-libraries: java-core-libraries
-  - java-exception: java-exception
-  - java-oop: java-oop
-  - java-reflection: java-reflection
-  - java-advanced-oop: java-advanced-oop
-{{ END_TOC }}
+-   :material-clock-fast:{ .lg .middle } __Tips__
+
+    ---
+
+    <ul>
+      <li>通过主题和目录以打开文章</li>
+      <ul>
+        <li>Mac/PC端 请在上方标签栏选择主题 在左侧目录选择文章</li>
+        <li>移动端 请点击左上角图标选择主题和文章</li>
+      </ul>
+      <li>搜索关键词以打开文章</li>
+      <li>
+        如遇到网页卡顿/打开文章后无法显示图片的情况，请使用<strong>科学上网</strong>以打破信息壁垒
+      </li>
+    </ul>
+</div>

@@ -1,33 +1,46 @@
 ---
-icon: material/dots-grid
-nostatistics: true
-comments: false
+title: 导览 · 其他
+# 隐藏的模块
+icon: /material/dots-grid
+hide:
+  - footer
+  #  - navigation # 隐藏左边导航
+  #  - toc #隐藏右边导航
+  #  - footer #隐藏翻页
+  #  - feedback  #隐藏反馈
+comments: false  #评论，默认不开启
+hide_comment: true
 ---
 
-# Overview
+<!-- !!! tip
+    <ul>
+      <li>通过主题和目录以打开文章</li>
+      <ul>
+        <li>Mac/PC端 请在上方标签栏选择主题 在左侧目录选择文章</li>
+        <li>移动端 请点击左上角图标选择主题和文章</li>
+      </ul>
+      <li>搜索关键词以打开文章</li>
+      <li>
+        如遇到网页卡顿/打开文章后无法显示图片的情况，请使用<strong>科学上网</strong>以打破信息壁垒
+      </li>
+    </ul> -->
 
-!!! note "Abstract"
-    一些其他的学习笔记和实践经验。
 
+<div class="grid cards" markdown>
 
-{{ BEGIN_TOC }}
-- Debug:
-  - Segmentation Fault in attacklab: Debug/segmentation fault
-  - 重装x64版EdgeWebView2的心酸: Debug/edgewebview2
-  - AWS EC2 连接异常的技术原因客观分析: Debug/AWS EC2 连接异常的技术原因客观分析
-  - 连接AWS EC2失败（DNS污染）: Debug/连接AWS EC2失败-DNS污染导致解析异常
-  - wsl2的网络模式: Debug/wsl2的网络模式都是啥
-- AI:
-  - 深度学习: AI/基于python的理论和实现
-- BlockChain:
-  - 1.密码学原理: BlockChain/区块链技术与运用/BTC/1.密码学原理
-  - 2.数据结构: BlockChain/区块链技术与运用/BTC/2.数据结构
-  - 3.协议: BlockChain/区块链技术与运用/BTC/3.协议
-  - 4.实现: BlockChain/区块链技术与运用/BTC/4.实现
-  - 5.网络: BlockChain/区块链技术与运用/BTC/5.网络
-  - 6.挖矿难度: BlockChain/区块链技术与运用/BTC/6.挖矿难度
-  - 7.挖矿: BlockChain/区块链技术与运用/BTC/7.挖矿
-  - 8.比特币脚本: BlockChain/区块链技术与运用/BTC/8.比特币脚本
-  - 9.分叉: BlockChain/区块链技术与运用/BTC/9. 分叉
+-   :material-clock-fast:{ .lg .middle } __Tips__
 
-{{ END_TOC }}
+    ---
+
+    <ul>
+      <li>通过主题和目录以打开文章</li>
+      <ul>
+        <li>Mac/PC端 请在上方标签栏选择主题 在左侧目录选择文章</li>
+        <li>移动端 请点击左上角图标选择主题和文章</li>
+      </ul>
+      <li>搜索关键词以打开文章</li>
+      <li>
+        如遇到网页卡顿/打开文章后无法显示图片的情况，请使用<strong>科学上网</strong>以打破信息壁垒
+      </li>
+    </ul>
+</div>
