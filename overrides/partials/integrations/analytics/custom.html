@@ -1,3 +1,5 @@
+{% set baidu_id = config.extra.analytics.property %}
+{% if baidu_id %}
 <script>
 var _hmt = _hmt || [];
 (function() {
@@ -7,3 +9,5 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
+
+{% endif %}
