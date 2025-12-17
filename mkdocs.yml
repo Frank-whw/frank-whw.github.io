@@ -344,6 +344,7 @@ nav:
           - Gitlet: cs_base/cs61b/gitlet之我见.md
       - CSAPP:
           - Lab:
+              - CacheLab: cs_base/csapp/Lab/CacheLab.md
               - AttackLab: cs_base/csapp/Lab/AttackLab.md
               - DataLab: cs_base/csapp/Lab/DataLab.md
               - BombLab: cs_base/csapp/Lab/BombLab.md

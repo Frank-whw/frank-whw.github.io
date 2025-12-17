@@ -38,6 +38,7 @@ comments: false
   - Overview: cs61b/cs61b
   - Gitlet: cs61b/gitlet之我见
 - CSAPP:
+  - CacheLab: csapp/Lab/CacheLab
   - AttackLab: csapp/Lab/AttackLab
   - DataLab: csapp/Lab/DataLab
   - BombLab: csapp/Lab/BombLab
