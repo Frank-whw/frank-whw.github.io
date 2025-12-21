@@ -211,8 +211,6 @@ plugins:
   # 搜索插件 - 提供站内搜索功能
   - search:
       lang: zh
-  # 站点地图插件 - 生成 sitemap.xml 用于SEO
-  - sitemap
 
   # RSS插件
   - rss:
