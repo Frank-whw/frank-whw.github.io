@@ -358,6 +358,7 @@ nav:
   - ToolBox:
       - Tools/index.md
       - ToolBox:
+          - Obsidian日记工作流配置与源码: Tools/Obsidian日记工作流配置与源码.md
           - Docker: Tools/docker.md
           - AWS: Tools/AWS连接.md
           - picture bed: Tools/blog/图床搭建.md
